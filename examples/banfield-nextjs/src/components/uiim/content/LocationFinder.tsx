@@ -132,7 +132,7 @@ export const Default = ({ fields, params, page }: LocationFinderProps): JSX.Elem
                 </div>
               )}
 
-              {(PrimaryLink?.value?.href || isEditing) && (
+              {PrimaryLink && (PrimaryLink.value?.href || isEditing) && (
                 <div className="pt-2">
                   <ContentSdkLink
                     field={PrimaryLink}
@@ -142,7 +142,7 @@ export const Default = ({ fields, params, page }: LocationFinderProps): JSX.Elem
                 </div>
               )}
 
-              {(PartnerLogo?.value?.src || isEditing) && (
+              {PartnerLogo && (PartnerLogo.value?.src || isEditing) && (
                 <div className="pt-4">
                   <ContentSdkImage field={PartnerLogo} className="h-6 w-auto" />
                 </div>
@@ -150,7 +150,7 @@ export const Default = ({ fields, params, page }: LocationFinderProps): JSX.Elem
             </div>
           </div>
 
-          {(MapImage?.value?.src || isEditing) && (
+          {MapImage && (MapImage.value?.src || isEditing) && (
             <div className="overflow-hidden">
               <ContentSdkImage field={MapImage} className="h-auto w-full" />
             </div>

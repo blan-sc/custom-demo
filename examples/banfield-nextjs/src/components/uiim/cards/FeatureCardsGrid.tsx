@@ -451,7 +451,7 @@ const BanfieldOutlineLink = ({
   field?: LinkField;
   isEditing?: boolean;
 }) => {
-  if (!field?.value?.href && !isEditing) return null;
+  if (!field || (!field.value?.href && !isEditing)) return null;
   return (
     <ContentSdkLink
       field={field}
@@ -586,9 +586,9 @@ export const Banfield = ({ fields, params, page }: FeatureCardsGridProps): JSX.E
                   style={{ color: 'var(--brand-fg, #3D3D3D)' }}
                 />
               )}
-              {(card.cardLink?.jsonValue?.value?.href || isEditing) && (
+              {card.cardLink?.jsonValue && (card.cardLink.jsonValue.value?.href || isEditing) && (
                 <ContentSdkLink
-                  field={card.cardLink?.jsonValue}
+                  field={card.cardLink.jsonValue}
                   className="mt-4 text-sm font-medium transition-opacity hover:opacity-80"
                   style={{ color: 'var(--brand-primary)', fontFamily: 'var(--brand-body-font, inherit)' }}
                 />
