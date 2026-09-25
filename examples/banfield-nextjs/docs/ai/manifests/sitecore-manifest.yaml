@@ -1,23 +1,23 @@
 generatedAt: "2026-03-20T09:00:00Z"
-lastUpdatedAt: "2026-08-18T00:00:00Z"
-lastUpdatedBy: "claude-agent"
+lastUpdatedAt: "2026-09-25T21:40:00Z"
+lastUpdatedBy: "cursor-agent"
 
 project:
   siteCollection: "main"
-  siteName: "main-website"
+  siteName: "banfield"
   sdk: "@sitecore-content-sdk/nextjs"
   renderingsRoot: "/sitecore/layout/Renderings/Project/fmc-custom-demo"
   projectTemplatesRoot: "/sitecore/templates/Project/fmc-custom-demo"
-  dataRoot: "/sitecore/content/main/main-website/Data"
+  dataRoot: "/sitecore/content/main/banfield/Data"
   projectFoldersRoot: "/sitecore/templates/Project/fmc-custom-demo/Folders"
   renderingParamsRoot: "/sitecore/templates/Project/fmc-custom-demo/Rendering Parameters"
-  headlessVariantsRoot: "/sitecore/content/main/main-website/Presentation/Headless Variants"
+  headlessVariantsRoot: "/sitecore/content/main/banfield/Presentation/Headless Variants"
 
 availableRenderings:
-  itemId: "{2BF7E311-E3A5-4290-A043-AB97EA1DFB15}"
-  lastKnownValue: "{55790BFE-783E-4FF0-BD53-F81D3857DAD4}|{C5F905F8-FD1F-444E-A9E5-AC6B774FF0DE}|{2492BAC4-DA07-4C86-87F0-9873D40E2276}|{9C6D53E3-FE57-4638-AF7B-6D68304C7A94}|{3836D951-BB14-43AC-9231-649B7F245DC5}|{E97DCF2B-8011-41E0-A605-8A379F3DF1AA}|{A41A47A5-D305-4ADC-BFC8-CCB0F301DDCF}|{EFE73752-6046-45A8-92F4-7A68430A0759}|{EAA7CC9B-4657-410E-9A25-CD33C700261B}|{58490557-5582-4B19-9E31-CE6A80F95D93}|{4281E3CD-2309-4427-9A3E-D69FDD32FCDA}|{E6D0C7C1-ACFF-4E85-8600-196649FEFFB9}|{90021266-66B3-47B6-9709-A070F56064A1}|{F6A1FA05-15FC-46C9-B921-98E79EFF5F4E}|{E194B962-0617-4A10-B4DB-2A4D19248C13}|{E1BCD607-51C4-4248-8EE2-B7F474D40B3E}|{A53006E8-C66B-419F-859D-7CFA92E7E26B}|{4E7E77EF-529C-4C28-A5D8-94C5ACA065FF}|{C739DB42-43E5-4DAC-B5FC-404EDDC9E37C}|{0F7C27E2-B960-47E9-AB85-F8A9C45D0F9C}|{D008D5FE-B27E-419F-889C-115B3D48A114}|{85CC2A41-AC6F-4C10-9C2F-44308B48C453}|{4C5C1FA5-C077-491D-9686-40D0F68EF03E}|{83BD1231-A48F-4F54-A361-20904C69A641}|{0E64EDCA-06DD-469A-B3D1-93D8700A8F41}|{505B6BB0-DEEA-46F9-9AB2-7020E386F4F0}|{C9FFEF83-C928-4346-AA68-14B3EE0B0017}|{B92A0B89-790F-4D94-89C7-B361C8688765}|{9E525B59-B9BF-4EB7-B75D-10811EF6100D}|{66E80043-36E4-48AE-8CAF-EEF4A77690BE}|{5A8724FB-D6E6-4C9D-8A4A-EFD8750B0019}|{14FCB11C-364D-4BC2-9238-B29B4C6F8145}|{FAA6D190-2A7C-4A18-A09D-7E5D33A5BDAF}|{06D05BB6-2DD6-457A-BC64-22A07F7D4359}"
-  lastUpdatedAt: "2026-08-18T00:00:00Z"
-  renderingCount: 37
+  itemId: "{CC1F584A-4DAB-4852-ABEA-E8C085EF0326}"
+  lastKnownValue: "{55790BFE-783E-4FF0-BD53-F81D3857DAD4}|{C5F905F8-FD1F-444E-A9E5-AC6B774FF0DE}|{2492BAC4-DA07-4C86-87F0-9873D40E2276}|{9C6D53E3-FE57-4638-AF7B-6D68304C7A94}|{3836D951-BB14-43AC-9231-649B7F245DC5}|{E97DCF2B-8011-41E0-A605-8A379F3DF1AA}|{A41A47A5-D305-4ADC-BFC8-CCB0F301DDCF}|{EFE73752-6046-45A8-92F4-7A68430A0759}|{EAA7CC9B-4657-410E-9A25-CD33C700261B}|{58490557-5582-4B19-9E31-CE6A80F95D93}|{4281E3CD-2309-4427-9A3E-D69FDD32FCDA}|{E6D0C7C1-ACFF-4E85-8600-196649FEFFB9}|{90021266-66B3-47B6-9709-A070F56064A1}|{F6A1FA05-15FC-46C9-B921-98E79EFF5F4E}|{E194B962-0617-4A10-B4DB-2A4D19248C13}|{E1BCD607-51C4-4248-8EE2-B7F474D40B3E}|{A53006E8-C66B-419F-859D-7CFA92E7E26B}|{4E7E77EF-529C-4C28-A5D8-94C5ACA065FF}|{C739DB42-43E5-4DAC-B5FC-404EDDC9E37C}|{0F7C27E2-B960-47E9-AB85-F8A9C45D0F9C}|{D008D5FE-B27E-419F-889C-115B3D48A114}|{85CC2A41-AC6F-4C10-9C2F-44308B48C453}|{4C5C1FA5-C077-491D-9686-40D0F68EF03E}|{83BD1231-A48F-4F54-A361-20904C69A641}|{0E64EDCA-06DD-469A-B3D1-93D8700A8F41}|{505B6BB0-DEEA-46F9-9AB2-7020E386F4F0}|{C9FFEF83-C928-4346-AA68-14B3EE0B0017}|{B92A0B89-790F-4D94-89C7-B361C8688765}|{9E525B59-B9BF-4EB7-B75D-10811EF6100D}|{66E80043-36E4-48AE-8CAF-EEF4A77690BE}|{5A8724FB-D6E6-4C9D-8A4A-EFD8750B0019}|{14FCB11C-364D-4BC2-9238-B29B4C6F8145}|{FAA6D190-2A7C-4A18-A09D-7E5D33A5BDAF}|{06D05BB6-2DD6-457A-BC64-22A07F7D4359}|{D33F0079-E54F-48C3-A33A-6A3A83146DA8}|{158772E0-46FD-4626-9144-527C24854F97}|{59FFD4F9-1D2B-4C56-94D8-C15235AC3E0F}|{C34C8D3D-66F6-4F00-8C7E-ABF7D1168AA4}"
+  lastUpdatedAt: "2026-09-25T21:40:00Z"
+  renderingCount: 38
   note: "2026-08-18: appended {158772E0-46FD-4626-9144-527C24854F97} (SearchCollection), then {59FFD4F9-1D2B-4C56-94D8-C15235AC3E0F} (SearchTypeahead), each with a pre-write staleness check against live get_allowed_comps_by_ph and post-write verification. lastKnownValue below is the 2026-08-07 pre-SearchResults value; current = that + {D33F0079-E54F-48C3-A33A-6A3A83146DA8} + {158772E0-46FD-4626-9144-527C24854F97} + {59FFD4F9-1D2B-4C56-94D8-C15235AC3E0F}."
   warning: "MCP cannot read this field — value may be stale if modified outside this session. Also: MCP write returned empty updatedFields — silent-write. Verify in Content Editor."
 
@@ -68,8 +68,8 @@ components:
 
     datasourceFolder:
       name: "AnnouncementBars"
-      path: "/sitecore/content/main/main-website/Data/AnnouncementBars"
-      itemId: "{93B0A4DC-4E8A-42DB-85A4-D54E7A64D737}"
+      path: "/sitecore/content/main/banfield/Data/AnnouncementBars"
+      itemId: "{7FCF2E1B-2635-4CA8-8600-5C72DB85660C}"
       insertOptionsSet: true
       exampleItem:
         name: "Announcement Bar"
@@ -88,8 +88,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/AnnouncementBar"
-      containerId: "{6F2C4B0A-5592-4E3C-A1D1-DDA54BD90CC0}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/AnnouncementBar"
+      containerId: "{6846BC08-9A12-4372-815F-CEA527A4EBA0}"
       variants:
         - { name: "Default", itemId: "{C443BF0E-5B40-4F84-98A2-F0825E83E345}" }
         - { name: "Highlight", itemId: "{6A6E7095-E948-46F1-A37B-260ADA3604FF}" }
@@ -141,6 +141,7 @@ components:
         - "Default"
         - "Transparent"
         - "Minimal"
+        - "Banfield"
 
     templates:
       parent:
@@ -189,8 +190,8 @@ components:
 
     datasourceFolder:
       name: "NavigationHeaders"
-      path: "/sitecore/content/main/main-website/Data/NavigationHeaders"
-      itemId: "{A1055559-2113-4BAF-B3C3-05C38404DED2}"
+      path: "/sitecore/content/main/banfield/Data/NavigationHeaders"
+      itemId: "{269FF4BC-2DFC-46E7-A066-53C3BE5110A8}"
       insertOptionsSet: true
       exampleItem:
         name: "Main Navigation"
@@ -213,12 +214,13 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/NavigationHeader"
-      containerId: "{C215D8ED-461E-4AE4-8D57-94CC5CDEC8DF}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/NavigationHeader"
+      containerId: "{4008C231-39AD-4CDE-9962-E009B78BE47C}"
       variants:
         - { name: "Default", itemId: "{150B9AFE-2B9F-48AD-8F01-036666057814}" }
         - { name: "Transparent", itemId: "{A46EFC9D-7CF0-4C92-9577-1D94FD1D9782}" }
         - { name: "Minimal", itemId: "{608E0EC7-E2C6-4093-A1A1-3962FF17885A}" }
+        - { name: "Banfield", itemId: "{8C2E80C1-2214-42B5-A035-BC97319F3D4B}" }
 
     verification:
       checkedAt: "2026-05-05T16:00:00Z"
@@ -258,6 +260,7 @@ components:
         - "BackgroundImage"
         - "VideoBackground"
         - "Minimal"
+        - "Banfield"
 
     templates:
       datasource:
@@ -293,8 +296,8 @@ components:
 
     datasourceFolder:
       name: "HeroBanners"
-      path: "/sitecore/content/main/main-website/Data/HeroBanners"
-      itemId: "{79A9DFE3-D529-4ED3-8105-DCA4C0A3B25C}"
+      path: "/sitecore/content/main/banfield/Data/HeroBanners"
+      itemId: "{2029CCDA-84F6-40D3-BE8A-D1B985503FE4}"
       insertOptionsSet: true
       exampleItem:
         name: "Hero Banner"
@@ -313,14 +316,15 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/HeroBanner"
-      containerId: "{D28D8B6E-3030-4D49-9558-44B7EED789B8}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/HeroBanner"
+      containerId: "{4DAED364-0F95-41D0-9B43-548DCC4CAE35}"
       variants:
         - { name: "Default", itemId: "{51E32CC6-C761-4E8D-A9EB-03A11D358DC4}" }
         - { name: "SplitImageText", itemId: "{085ED09F-42C4-4C25-BB70-CC13D3F9AF8F}" }
         - { name: "BackgroundImage", itemId: "{948210B2-B8AF-47C1-A04F-E220071C0A63}" }
         - { name: "VideoBackground", itemId: "{96586509-EBD7-4642-A127-0C65AEE1BD99}" }
         - { name: "Minimal", itemId: "{FA46BF9A-3783-4615-B4E6-5F5B33A78B48}" }
+        - { name: "Banfield", itemId: "{1FAC4D20-2A9F-4E6F-88B4-7B3F241CE6C3}" }
 
     verification:
       checkedAt: "2026-03-25T13:30:00Z"
@@ -410,8 +414,8 @@ components:
 
     datasourceFolder:
       name: "TabNavigationSections"
-      path: "/sitecore/content/main/main-website/Data/TabNavigationSections"
-      itemId: "{62A76B57-53E0-4F57-A793-E5CF0CC8ADA5}"
+      path: "/sitecore/content/main/banfield/Data/TabNavigationSections"
+      itemId: "{FC507D0E-73CE-4E08-8CE6-BA0B1407DB7F}"
       insertOptionsSet: true
       exampleItem:
         name: "Tab Navigation Section"
@@ -434,8 +438,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/TabNavigationSection"
-      containerId: "{5DF30ECF-56D0-4599-BB2A-C6737C30C333}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/TabNavigationSection"
+      containerId: "{804C22DC-733D-4A58-81FC-BF17D28CCD7C}"
       variants:
         - { name: "Default", itemId: "{37CD0AB0-A6F4-4F5B-9032-666FA10925D4}" }
         - { name: "Underline", itemId: "{F6AB5E2B-D266-4BAC-8536-48404A6EF04A}" }
@@ -539,8 +543,8 @@ components:
 
     datasourceFolder:
       name: "ProductPricingCards"
-      path: "/sitecore/content/main/main-website/Data/ProductPricingCards"
-      itemId: "{B5C8AA4C-5B7D-4008-8945-68F7D909134F}"
+      path: "/sitecore/content/main/banfield/Data/ProductPricingCards"
+      itemId: "{D6783BA0-7CC5-4F43-B820-F0C665DF57AA}"
       insertOptionsSet: true
       exampleItem:
         name: "Product Pricing Cards"
@@ -564,8 +568,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/ProductPricingCards"
-      containerId: "{2D0654D5-0BFB-4ABB-9B42-83278B8AEC42}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/ProductPricingCards"
+      containerId: "{84D29482-9A33-4A33-B75F-A3027DAFB759}"
       variants:
         - { name: "Default", itemId: "{8059925F-0667-437B-AD6F-450BAF663C08}" }
         - { name: "Horizontal", itemId: "{C9B441F5-71A8-46E6-AE86-478930CA907F}" }
@@ -649,8 +653,8 @@ components:
 
     datasourceFolder:
       name: "LegalComplianceBanners"
-      path: "/sitecore/content/main/main-website/Data/LegalComplianceBanners"
-      itemId: "{6565D16E-5989-481B-AF40-CFFA4D58DF12}"
+      path: "/sitecore/content/main/banfield/Data/LegalComplianceBanners"
+      itemId: "{29968A5C-CEBC-4B2D-BA3D-FA5CDBA761EF}"
       insertOptionsSet: true
       exampleItem:
         name: "Legal Compliance Banner"
@@ -669,8 +673,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/LegalComplianceBanner"
-      containerId: "{A5368715-1C3A-49CC-88A7-1FFB98645A93}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/LegalComplianceBanner"
+      containerId: "{E3DC6AE7-9609-447B-B83B-20C3FA2E58EF}"
       variants:
         - { name: "Default", itemId: "{E3E57B11-8697-4BC7-B56F-352091BDC6BC}" }
         - { name: "WithImage", itemId: "{21600F34-BAD3-4EF8-88C9-03F723EEE608}" }
@@ -766,8 +770,8 @@ components:
 
     datasourceFolder:
       name: "ValuePropositionGrids"
-      path: "/sitecore/content/main/main-website/Data/ValuePropositionGrids"
-      itemId: "{BE69F95D-9D08-4C4B-ADF3-59007B2E0BB4}"
+      path: "/sitecore/content/main/banfield/Data/ValuePropositionGrids"
+      itemId: "{D5590EBF-7DB2-473B-8E8A-D1317CC84D3E}"
       insertOptionsSet: true
       exampleItem:
         name: "Value Proposition Grid"
@@ -791,8 +795,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/ValuePropositionGrid"
-      containerId: "{24A8E37E-7102-407A-9899-8CD940160F39}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/ValuePropositionGrid"
+      containerId: "{067A5E38-DE3F-43E3-B319-C0074DAA88E8}"
       variants:
         - { name: "Default", itemId: "{B2D75BE0-CE27-431F-BF59-9F49EEC5DF31}" }
         - { name: "TwoColumn", itemId: "{3935D1DD-DC84-4A01-B271-BEF9475C5AE1}" }
@@ -888,8 +892,8 @@ components:
 
     datasourceFolder:
       name: "TrustStatsRows"
-      path: "/sitecore/content/main/main-website/Data/TrustStatsRows"
-      itemId: "{6A826E8E-4AB2-4F62-8605-40430028C64C}"
+      path: "/sitecore/content/main/banfield/Data/TrustStatsRows"
+      itemId: "{C83376DB-ED4D-48ED-A8BB-2ABE61DCF8D9}"
       insertOptionsSet: true
       exampleItem:
         name: "Trust Stats Row"
@@ -914,8 +918,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/TrustStatsRow"
-      containerId: "{7AE37D15-B227-4274-809B-27023796BACD}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/TrustStatsRow"
+      containerId: "{275F10E6-2244-47FC-BA20-5C719C82A3F8}"
       variants:
         - { name: "Default", itemId: "{71BDCB75-6061-460C-98BE-86C4E5E79B3A}" }
         - { name: "WithIcons", itemId: "{A31EA0E4-1E93-43EE-9615-EC73A1451E63}" }
@@ -1008,8 +1012,8 @@ components:
 
     datasourceFolder:
       name: "TestimonialBlocks"
-      path: "/sitecore/content/main/main-website/Data/TestimonialBlocks"
-      itemId: "{E5004E14-EA49-43B7-A093-006648A14A60}"
+      path: "/sitecore/content/main/banfield/Data/TestimonialBlocks"
+      itemId: "{4BE1DFCC-6F06-47AD-B9AB-867083CA7239}"
       insertOptionsSet: true
       exampleItem:
         name: "Testimonial Block"
@@ -1032,8 +1036,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/TestimonialBlock"
-      containerId: "{77FA9798-E911-41DC-804F-5A3649087CB4}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/TestimonialBlock"
+      containerId: "{26F580BA-A440-4888-A661-24C39EF3E7C4}"
       variants:
         - { name: "Default", itemId: "{7C588A0F-5720-4CA7-A50A-4AD02E272B62}" }
         - { name: "Carousel", itemId: "{0F34A807-A42C-4E7D-BD54-EF222EB2D952}" }
@@ -1077,6 +1081,7 @@ components:
         - "WithImage"
         - "Split"
         - "Minimal"
+        - "Banfield"
 
     templates:
       datasource:
@@ -1112,8 +1117,8 @@ components:
 
     datasourceFolder:
       name: "CTABanners"
-      path: "/sitecore/content/main/main-website/Data/CTABanners"
-      itemId: "{F86BE13D-2F5E-4D7E-B2E5-EF4C9637FC4C}"
+      path: "/sitecore/content/main/banfield/Data/CTABanners"
+      itemId: "{4CDB0803-1E08-4E26-95A9-B0817D6782E6}"
       insertOptionsSet: true
       exampleItem:
         name: "CTA Banner"
@@ -1132,13 +1137,14 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/CTABanner"
-      containerId: "{A739A883-D5E1-4CAD-A8EE-5D3287D6B238}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/CTABanner"
+      containerId: "{5F7A9F3B-E6F8-4563-96A1-43ABE9CCB283}"
       variants:
         - { name: "Default", itemId: "{B526E0D8-C4F9-4A21-AFA9-B828119FA988}" }
         - { name: "WithImage", itemId: "{2DC4E1E9-79A0-48C7-A6D9-AC7DD8AFAAA0}" }
         - { name: "Split", itemId: "{9DBA839A-E0F8-47D2-AA8E-29EDA7CC68E6}" }
         - { name: "Minimal", itemId: "{E63EE25F-C889-4FE1-81B7-4611CF5969BE}" }
+        - { name: "Banfield", itemId: "{09CB893F-AF70-4F8C-9AE0-26A78EE4AD20}" }
 
     verification:
       checkedAt: "2026-03-25T18:00:00Z"
@@ -1177,6 +1183,9 @@ components:
         - "TwoColumn"
         - "WithImages"
         - "Carousel"
+        - "BanfieldTwoUp"
+        - "BanfieldStoryCards"
+        - "Banfield"
 
     templates:
       datasource:
@@ -1226,8 +1235,8 @@ components:
 
     datasourceFolder:
       name: "FeatureCardsGrids"
-      path: "/sitecore/content/main/main-website/Data/FeatureCardsGrids"
-      itemId: "{BAB76C01-9A6E-49D5-9F44-22D7EDBE13FE}"
+      path: "/sitecore/content/main/banfield/Data/FeatureCardsGrids"
+      itemId: "{3D5216B1-996B-4372-9C30-AD4E7C73962C}"
       insertOptionsSet: true
       exampleItem:
         name: "Feature Cards Grid"
@@ -1251,13 +1260,16 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/FeatureCardsGrid"
-      containerId: "{72669095-6581-4595-9C9E-2F650BCA4404}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/FeatureCardsGrid"
+      containerId: "{3F3030EB-DD01-46DA-BD1E-D3DA980DB691}"
       variants:
         - { name: "Default", itemId: "{495EF058-D306-4328-ABE4-261E7CFE8E9E}" }
         - { name: "TwoColumn", itemId: "{0BCA5162-9643-49F3-BEE2-6B5243287D5E}" }
         - { name: "WithImages", itemId: "{0378DF47-C562-4BE1-8BA7-DFE429A2015A}" }
         - { name: "Carousel", itemId: "" }  # TODO: create in Sitecore
+        - { name: "BanfieldTwoUp", itemId: "{854477C5-E0F6-4925-A8FD-566B9FCB5657}" }
+        - { name: "BanfieldStoryCards", itemId: "{914E4F2F-073D-4763-96D8-48D803A38214}" }
+        - { name: "Banfield", itemId: "{15D31949-366A-457A-B116-A6D35FA5998B}" }
 
     verification:
       checkedAt: "2026-03-25T18:30:00Z"
@@ -1295,6 +1307,7 @@ components:
         - "Default"
         - "Gallery"
         - "Parallax"
+        - "Banfield"
 
     templates:
       datasource:
@@ -1306,6 +1319,9 @@ components:
           - { name: "GalleryImage", type: "Image" }
           - { name: "Caption", type: "Single-Line Text" }
           - { name: "AltText", type: "Single-Line Text" }
+          - { name: "InstagramImage2", type: "Image", itemId: "{BA0CB62B-4CC0-4D7E-AA98-C624C6933DCE}" }
+          - { name: "InstagramImage3", type: "Image", itemId: "{FD7830B0-2868-4164-B26A-131AA93765F4}" }
+          - { name: "InstagramImage4", type: "Image", itemId: "{2CA8921C-9E84-4E8D-AD56-24D0F743AEEE}" }
         baseTemplatesSet: true
         standardValues:
           itemId: "{7EBFC2AA-CB94-4D39-8979-3656AF605CD1}"
@@ -1328,8 +1344,8 @@ components:
 
     datasourceFolder:
       name: "ImageGalleries"
-      path: "/sitecore/content/main/main-website/Data/ImageGalleries"
-      itemId: "{98392731-3CBC-498C-888B-9669BA639B96}"
+      path: "/sitecore/content/main/banfield/Data/ImageGalleries"
+      itemId: "{C93DBEE4-423A-428A-9ED3-71BE397892FC}"
       insertOptionsSet: true
       exampleItem:
         name: "Image Gallery"
@@ -1348,12 +1364,13 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/ImageGallery"
-      containerId: "{C022A2B3-EF0B-4035-9103-F752D98E0C6A}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/ImageGallery"
+      containerId: "{AAD37E03-5AB0-4E78-B281-82820D5037AD}"
       variants:
         - { name: "Default", itemId: "{36325627-294D-44ED-BD63-2E622F782684}" }
         - { name: "Gallery", itemId: "{CF1F5876-5157-441C-A6FB-7BF150651345}" }
         - { name: "Parallax", itemId: "{CBFFE582-C802-49D8-BFB0-94353D067F8E}" }
+        - { name: "Banfield", itemId: "{4EADD31A-C726-41F2-AD3A-D792D65D4F99}" }
 
     verification:
       checkedAt: "2026-03-25T19:00:00Z"
@@ -1437,8 +1454,8 @@ components:
 
     datasourceFolder:
       name: "LogoClouds"
-      path: "/sitecore/content/main/main-website/Data/LogoClouds"
-      itemId: "{A0F83F36-4BFB-4C6A-9079-A01EC54A5276}"
+      path: "/sitecore/content/main/banfield/Data/LogoClouds"
+      itemId: "{E451BCD4-E1A2-4882-BB1E-614DFC0991B2}"
       insertOptionsSet: true
       exampleItem:
         name: "Logo Cloud"
@@ -1462,8 +1479,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/LogoCloud"
-      containerId: "{0D58C38F-2601-444C-8981-6FB3DCA202EC}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/LogoCloud"
+      containerId: "{1DE92881-CA2E-4C7B-99CE-DD6FF9DB6C92}"
       variants:
         - { name: "Default", itemId: "{125C1A27-2F29-4A84-B45A-DD43279C23CE}" }
         - { name: "Grid", itemId: "{8CCCB55E-D891-4F4B-B8C7-E254DC95C9F1}" }
@@ -1506,6 +1523,7 @@ components:
         - "Default"
         - "Minimal"
         - "MegaFooter"
+        - "Banfield"
 
     templates:
       datasource:
@@ -1537,8 +1555,8 @@ components:
 
     datasourceFolder:
       name: "SiteFooters"
-      path: "/sitecore/content/main/main-website/Data/SiteFooters"
-      itemId: "{79F4A73C-71D2-4959-8FDE-C7D9C8748990}"
+      path: "/sitecore/content/main/banfield/Data/SiteFooters"
+      itemId: "{73A51438-106C-4E83-83D0-53E6E9ADD0B2}"
       insertOptionsSet: true
       exampleItem:
         name: "Site Footer"
@@ -1557,12 +1575,13 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/SiteFooter"
-      containerId: "{613FAEEA-7FDC-453E-96DC-9B52337AC257}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/SiteFooter"
+      containerId: "{1B288582-0FA0-44BC-A211-16310941A0AC}"
       variants:
         - { name: "Default", itemId: "{143CFE84-1E77-4961-975C-38564DC43DB9}" }
         - { name: "Minimal", itemId: "{AF87D61B-F6A8-4036-9BF8-FDB586268D24}" }
         - { name: "MegaFooter", itemId: "{DA131066-F9A2-47F0-A099-F614E61817AA}" }
+        - { name: "Banfield", itemId: "{8AB450B1-F276-422A-888D-F1874123B1DB}" }
 
     verification:
       checkedAt: "2026-03-25T20:00:00Z"
@@ -1594,6 +1613,7 @@ components:
         - "Default"
         - "Banner"
         - "Compact"
+        - "Banfield"
 
     templates:
       datasource:
@@ -1629,8 +1649,8 @@ components:
 
     datasourceFolder:
       name: "NewsletterSignups"
-      path: "/sitecore/content/main/main-website/Data/NewsletterSignups"
-      itemId: "{4046B0A4-5F07-4F4B-8D6F-E04EDE1E1204}"
+      path: "/sitecore/content/main/banfield/Data/NewsletterSignups"
+      itemId: "{C3AF246C-277B-4A7F-B9F0-8000C44B8088}"
       insertOptionsSet: true
       exampleItem:
         name: "Newsletter Signup"
@@ -1649,12 +1669,13 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/NewsletterSignup"
-      containerId: "{3DC77ED9-7155-4AE9-A658-D884E35D949A}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/NewsletterSignup"
+      containerId: "{1BC73AEE-C125-4294-8392-AF54A8B2DCD6}"
       variants:
         - { name: "Default", itemId: "{F0F09912-52F5-4429-8CBF-F6FAA8AD2453}" }
         - { name: "Banner", itemId: "{5FE28EAE-3DC9-4DF5-89B8-0576C940BE01}" }
         - { name: "Compact", itemId: "{1B8FF6FD-6E4A-4A9A-903A-5B512672A552}" }
+        - { name: "Banfield", itemId: "{0EB10251-3A00-4162-B921-70CC9C25FE2D}" }
 
     verification:
       checkedAt: "2026-03-25T20:30:00Z"
@@ -1729,8 +1750,8 @@ components:
 
     datasourceFolder:
       name: "IdentityCaptureForms"
-      path: "/sitecore/content/main/main-website/Data/IdentityCaptureForms"
-      itemId: "{826BD609-C026-458D-901A-C3503DAEF853}"
+      path: "/sitecore/content/main/banfield/Data/IdentityCaptureForms"
+      itemId: "{DDB112B4-048D-4E64-AEA3-D075320D650D}"
       insertOptionsSet: true   # silent-write — verify in Content Editor
       exampleItem:
         name: "Identity Capture Form"
@@ -1749,8 +1770,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/IdentityCaptureForm"
-      containerId: "{24632B0B-55E2-4F2C-8D98-875972209B99}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/IdentityCaptureForm"
+      containerId: "{D8DA21D8-0C19-4B8C-A69C-669D93E7C928}"
       variants:
         - { name: "Default", itemId: "{27234935-C791-404E-84D9-8E83ADD0A60D}" }
 
@@ -1808,8 +1829,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/IdentityEventDevForm"
-      containerId: "{DF35E4E7-28AF-49F7-AB9B-037DABBB5F5F}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/IdentityEventDevForm"
+      containerId: "{7FF99951-A47E-439F-B1EC-EF2B03DA273A}"
       variants:
         - { name: "Default", itemId: "{216D0EE6-3A08-429E-A34B-C1AA1CD7E493}" }
 
@@ -1890,8 +1911,8 @@ components:
 
     datasourceFolder:
       name: "FAQAccordions"
-      path: "/sitecore/content/main/main-website/Data/FAQAccordions"
-      itemId: "{547BF25D-1445-4C45-9C04-66FCB3FD339B}"
+      path: "/sitecore/content/main/banfield/Data/FAQAccordions"
+      itemId: "{49E55A4C-8D34-45C5-AC57-C047DC794948}"
       insertOptionsSet: true
       exampleItem:
         name: "FAQ Accordion"
@@ -1915,8 +1936,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/FAQAccordion"
-      containerId: "{55FB6F57-5566-4CAF-ADDD-18BFB0152893}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/FAQAccordion"
+      containerId: "{8E018675-1014-4F7F-9522-A3B3D6F43444}"
       variants:
         - { name: "Default", itemId: "{3D01B4ED-75E0-4AD3-A6F4-FA47606082CB}" }
         - { name: "AllOpen", itemId: "{FFC0D7F8-8D1C-4A6E-8FC1-DD429718057A}" }
@@ -1991,8 +2012,8 @@ components:
 
     datasourceFolder:
       name: "RichTextBlocks"
-      path: "/sitecore/content/main/main-website/Data/RichTextBlocks"
-      itemId: "{E94DA9F2-19A0-4EEB-9F1C-C5B53DF8D8ED}"
+      path: "/sitecore/content/main/banfield/Data/RichTextBlocks"
+      itemId: "{DA1A7A9A-8410-4C5C-8CDC-220963D293E7}"
       insertOptionsSet: true
       exampleItem:
         name: "Rich Text Block"
@@ -2011,8 +2032,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/RichTextBlock"
-      containerId: "{F11626A1-AE7B-46F7-AB3A-F9EB9779C5EC}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/RichTextBlock"
+      containerId: "{EFF87C75-1CB1-4E5D-AF01-882BC9141DB8}"
       variants:
         - { name: "Default", itemId: "{68885D4E-9808-421D-AB93-30E9FF27D8F1}" }
         - { name: "Centered", itemId: "{61BF7CB2-B65C-4C85-902D-CFA95D0F429D}" }
@@ -2054,6 +2075,7 @@ components:
         - "Centered"
         - "WithVideo"
         - "IconLeft"
+        - "Banfield"
 
     templates:
       datasource:
@@ -2089,8 +2111,8 @@ components:
 
     datasourceFolder:
       name: "FeatureHighlights"
-      path: "/sitecore/content/main/main-website/Data/FeatureHighlights"
-      itemId: "{0A212E28-4EDE-45DE-8A8F-E1004E8AAD25}"
+      path: "/sitecore/content/main/banfield/Data/FeatureHighlights"
+      itemId: "{D2C26394-7A81-41D1-8AAD-415DE9DEB105}"
       insertOptionsSet: true
       exampleItem:
         name: "Feature Highlight"
@@ -2109,13 +2131,14 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/FeatureHighlight"
-      containerId: "{D3E5415A-9247-4572-B146-73E4AEF78195}"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/FeatureHighlight"
+      containerId: "{0375B830-DBB0-48A6-A377-E9C077F87AD8}"
       variants:
         - { name: "Default", itemId: "{0FDFE204-724E-4850-8891-ECC443607643}" }
         - { name: "Centered", itemId: "{3C33C16D-F0D3-4FBF-8D78-CE70CEA0868B}" }
         - { name: "WithVideo", itemId: "{E58A4CB1-BFB4-4FDF-B48D-6254708B05CA}" }
         - { name: "IconLeft", itemId: "{E39E52FE-885D-433B-A2D3-B20F66E8F767}" }
+        - { name: "Banfield", itemId: "{DFC26738-DC5B-47F8-8F5E-07CB23F30E9A}" }
 
     verification:
       checkedAt: "2026-03-25T22:00:00Z"
@@ -2133,6 +2156,106 @@ components:
         - "Silent-write fields"
 
     notes: []
+
+  - name: "LocationFinder"
+    kind: "simple"
+    category: "Content"
+    status: "complete"
+    createdAt: "2026-09-25T21:36:00Z"
+    updatedAt: "2026-09-25T21:40:00Z"
+
+    react:
+      filePath: "src/components/uiim/content/LocationFinder.tsx"
+      componentMapKey: "LocationFinder"
+      variants:
+        - "Default"
+        - "Banfield"
+
+    templates:
+      datasource:
+        name: "LocationFinder"
+        path: "/sitecore/templates/Project/fmc-custom-demo/Components/Content/LocationFinder"
+        itemId: "{10D6F286-4E27-4431-A22A-E43C3AB55A7E}"
+        sectionName: "Data"
+        sectionItemId: "{4D17D77F-452D-4A05-9685-B7C114455786}"
+        fields:
+          - { name: "Title", type: "Single-Line Text", itemId: "{5315EEAF-A43E-4CDC-870D-43D541F11525}" }
+          - { name: "SearchPlaceholder", type: "Single-Line Text", itemId: "{D004AB89-E8C8-43C0-AF6B-F8EBD28FC0E6}" }
+          - { name: "LocationName", type: "Single-Line Text", itemId: "{146A05DE-B0E9-4DE4-9A77-0FBB13B740DA}" }
+          - { name: "LocationAddress", type: "Single-Line Text", itemId: "{58FB8CE0-340A-45B2-A7EC-1B795E69F773}" }
+          - { name: "LocationPhone", type: "Single-Line Text", itemId: "{8AACB653-BB47-4AA5-B3D5-A117B9111408}" }
+          - { name: "PrimaryLink", type: "General Link", itemId: "{FC79B706-742C-447D-A48E-3496B28F4A80}" }
+          - { name: "MapImage", type: "Image", itemId: "{B188AEB5-D994-4F67-8EC4-172DFA9A91F2}" }
+          - { name: "PartnerLogo", type: "Image", itemId: "{F114F9E2-31DA-4A82-9448-10B77E730CA3}" }
+        baseTemplatesSet: true
+        standardValues:
+          itemId: "{DE062289-BFFB-455C-8DAD-BB37C1231E85}"
+          linked: true
+
+      folder:
+        name: "LocationFinder Folder"
+        path: "/sitecore/templates/Project/fmc-custom-demo/Folders/LocationFinder Folder"
+        itemId: "{FE4C0096-9F99-4FE6-9C1B-68BE0086C23D}"
+        standardValues:
+          itemId: "{004A582C-279B-4514-B723-17DAA381EB42}"
+          linked: true
+          masters: ["LocationFinder"]
+
+      renderingParams:
+        name: "LocationFinder"
+        path: "/sitecore/templates/Project/fmc-custom-demo/Rendering Parameters/Content/LocationFinder"
+        itemId: "{7BF41F9F-16BC-4061-AE48-07F0CB003F13}"
+        baseTemplatesSet: true
+
+    datasourceFolder:
+      name: "LocationFinders"
+      path: "/sitecore/content/main/banfield/Data/LocationFinders"
+      itemId: "{971207E7-EF85-4B27-AA66-E66EC2A063A3}"
+      insertOptionsSet: true
+      exampleItem:
+        name: "Banfield - Location Finder"
+        itemId: "{D9818C70-F69A-48E6-95A6-7BEBC67388FA}"
+
+    rendering:
+      name: "LocationFinder"
+      path: "/sitecore/layout/Renderings/Project/fmc-custom-demo/Content/LocationFinder"
+      itemId: "{C34C8D3D-66F6-4F00-8C7E-ABF7D1168AA4}"
+      componentName: "LocationFinder"
+      datasourceTemplatePath: "/sitecore/templates/Project/fmc-custom-demo/Components/Content/LocationFinder"
+      datasourceLocationQuery: "query:$site/*[@@name='Data']/*[@@templatename='LocationFinder Folder']|query:$sharedSites/*[@@name='Data']/*[@@templatename='LocationFinder Folder']"
+      parametersTemplateId: "{7BF41F9F-16BC-4061-AE48-07F0CB003F13}"
+      componentQuery: ""
+      addFieldEditorButton: "1"
+      registeredInAvailableRenderings: true
+
+    headlessVariants:
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/LocationFinder"
+      containerId: "{D1C3C622-DE87-42CC-BB8B-A18E5B0E331D}"
+      variants:
+        - { name: "Default", itemId: "{8438B8DC-36C0-493B-A7C9-5363906BD9E7}" }
+        - { name: "Banfield", itemId: "{E8E3C934-9E36-4FAF-8786-A06B47CC2601}" }
+
+    verification:
+      checkedAt: "2026-09-25T21:40:00Z"
+      passed:
+        - "Template exists with Standard Template + Grid Parameters"
+        - "All 8 fields created with correct Type"
+        - "Standard Values created"
+        - "Folder template + SV created"
+        - "Datasource folder under /Data"
+        - "Banfield datasource populated with map and PetSmart logo"
+        - "Rendering Parameters with 4 base templates"
+        - "JSON Rendering with Component Name LocationFinder and empty ComponentQuery"
+        - "Default Headless Variant created"
+        - "Registered in Available Renderings (verified via get_allowed_comps_by_ph)"
+        - "React Default export + component map generated"
+      failed: []
+      pendingManual:
+        - "__Standard values link (silent-write)"
+        - "__Masters on folder SV and folder instance (silent-write)"
+
+    notes:
+      - "2026-09-25: Custom Banfield store locator. Search input is visual-only. Map is a static Content Hub image."
 
   - name: "HeroBannerCarousel"
     kind: "list"
@@ -2196,8 +2319,8 @@ components:
 
     datasourceFolder:
       name: "HeroBannerCarousels"
-      path: "/sitecore/content/main/main-website/Data/HeroBannerCarousels"
-      itemId: "{E4703202-A87E-4387-987C-6B69E67ACADC}"
+      path: "/sitecore/content/main/banfield/Data/HeroBannerCarousels"
+      itemId: "{0E135A6E-C31D-4764-BFFF-8AC1E11B372E}"
       insertOptionsSet: true
       exampleItem:
         name: "Hero Banner Carousel"
@@ -2281,7 +2404,7 @@ components:
 
     headlessVariants:
       containerId: "{9894746a-f336-4856-bd1f-c1663374703c}"
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/ArticleHero"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/ArticleHero"
       definitions:
         - { name: "Default", itemId: "{71d4165d-543e-4b4f-8c88-da9d8d395163}" }
         - { name: "Minimal", itemId: "{fc567658-54d2-465e-80f4-85feb79c8598}" }
@@ -2337,7 +2460,7 @@ components:
 
     headlessVariants:
       containerId: "{2e05330b-e438-4006-9096-165a2c36e425}"
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/ArticleBody"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/ArticleBody"
       definitions:
         - { name: "Default", itemId: "{4ffc7bca-050e-4867-838d-f3bd19238f8c}" }
         - { name: "WithSidebar", itemId: "{bae365fb-8958-4b03-b494-1beccfd5d897}" }
@@ -2373,7 +2496,7 @@ components:
       registeredInAvailableRenderings: pendingManual
     headlessVariants:
       containerId: "{2571BE88-7763-4827-B661-1C6792B95847}"
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/LandingHero"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/LandingHero"
       definitions:
         - { name: "Default", itemId: "{D1B9E599-F9C5-416F-A204-16F8EBC1E10C}" }
         - { name: "SplitImage", itemId: "{E000909A-01DA-498C-BAB3-54EAC6E2C89F}" }
@@ -2417,7 +2540,7 @@ components:
       registeredInAvailableRenderings: pendingManual
     headlessVariants:
       containerId: "{5ADEF5CB-11B4-4743-AA96-4D7EFEE55C5D}"
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/LandingFeatures"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/LandingFeatures"
       definitions:
         - { name: "Default", itemId: "{31A214D5-7824-476C-8C63-4FB5F942DD28}" }
     verification:
@@ -2456,7 +2579,7 @@ components:
       registeredInAvailableRenderings: pendingManual
     headlessVariants:
       containerId: "{5619F2D9-B432-4A47-AA8A-911937AB991B}"
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/LandingStats"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/LandingStats"
       definitions:
         - { name: "Default", itemId: "{2623EBAE-BF3D-471A-8E7D-176BCF6E4BE6}" }
     verification:
@@ -2495,7 +2618,7 @@ components:
       registeredInAvailableRenderings: pendingManual
     headlessVariants:
       containerId: "{1077B0D2-420D-48E4-ADA2-853C6C0E880A}"
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/LandingSocialProof"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/LandingSocialProof"
       definitions:
         - { name: "Default", itemId: "{8ED8A4F7-10C3-4867-AC0E-B3F79BECC356}" }
     verification:
@@ -2535,7 +2658,7 @@ components:
       registeredInAvailableRenderings: pendingManual
     headlessVariants:
       containerId: "{4FC4C30A-8A86-43CD-AFF9-4D6C53CB0594}"
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/LandingFAQ"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/LandingFAQ"
       definitions:
         - { name: "Default", itemId: "{DCA2DB12-8D54-4AD6-8D43-082683AFA518}" }
     verification:
@@ -2574,7 +2697,7 @@ components:
       registeredInAvailableRenderings: pendingManual
     headlessVariants:
       containerId: "{C27474AD-EC5C-421E-AAAE-1DE43C9FC0D4}"
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/LandingFinalCTA"
+      containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/LandingFinalCTA"
       definitions:
         - { name: "Default", itemId: "{2FFE0507-9D6D-4D93-BFFE-43504C63D10C}" }
     verification:
@@ -2626,8 +2749,8 @@ sharedDataTemplates:
 
     datasourceFolder:
       name: "People"
-      path: "/sitecore/content/main/main-website/Data/People"
-      itemId: "{b4a7e448-2620-458e-9108-e6123c433660}"
+      path: "/sitecore/content/main/banfield/Data/People"
+      itemId: "{D0CFF82E-CEB2-4DC6-98F6-3858BF8163DF}"
       insertOptionsSet: true
       exampleItem:
         name: "Jane Smith"
@@ -2887,8 +3010,8 @@ pageTemplates:
 
     datasourceFolder:
       name: "Search Experiences"
-      path: "/sitecore/content/main/main-website/Data/Search Experiences"
-      itemId: "{1E320CFC-62AD-4378-97F7-6BFF5875BB3A}"
+      path: "/sitecore/content/main/banfield/Data/Search Experiences"
+      itemId: "{5DFD76B1-EF4B-4FA3-AD41-9CEC1E3CD377}"
 
     rendering:
       name: "SearchExperience"
@@ -2929,8 +3052,8 @@ pageTemplates:
 
     datasourceFolder:
       name: "PreviewSearches"
-      path: "/sitecore/content/main/main-website/Data/PreviewSearches"
-      itemId: "{047DA76C-BF7A-4B53-A5EA-3A356A45B6F1}"
+      path: "/sitecore/content/main/banfield/Data/PreviewSearches"
+      itemId: "{9ED18B83-54C8-490B-8254-5379EBEC520D}"
 
     rendering:
       name: "PreviewSearch"
@@ -2969,8 +3092,8 @@ pageTemplates:
 
     datasourceFolder:
       name: "SearchResults"
-      path: "/sitecore/content/main/main-website/Data/SearchResults"
-      itemId: "{A03B9129-4D08-435E-B038-29802CE6A603}"
+      path: "/sitecore/content/main/banfield/Data/SearchResults"
+      itemId: "{E76243C3-F9A9-41FB-B589-636FF9BEA9ED}"
 
     rendering:
       name: "SearchResults"
@@ -3036,8 +3159,8 @@ pageTemplates:
 
     datasourceFolder:
       name: "Search Experiences V2"
-      path: "/sitecore/content/main/main-website/Data/Search Experiences V2"
-      itemId: "{D5C6A76F-1A01-4B05-8B62-337B1B684D45}"
+      path: "/sitecore/content/main/banfield/Data/Search Experiences V2"
+      itemId: "{B200DC76-44B7-47EF-BE68-E5EAE355F47F}"
       insertOptionsSet: true
       exampleItem:
         name: "Search Experience V2 Example"
@@ -3074,9 +3197,9 @@ pageTemplates:
       - "2026-05-20: All 3 pendingManual items verified via get_component and get_allowed_comps_by_ph — datasource template, datasource location, and available renderings all confirmed."
 
 lookups:
-  - path: "/sitecore/content/main/main-website/Data"
-    itemId: "{E6C852B5-B70D-412C-B5C6-E6502842F74E}"
-    lastReadAt: "2026-03-25T12:00:00Z"
+  - path: "/sitecore/content/main/banfield/Data"
+    itemId: "{1E16F823-6AE2-462A-B4D0-BB32B670C3B9}"
+    lastReadAt: "2026-09-25T21:01:30Z"
   - path: "/sitecore/templates/Project/fmc-custom-demo/Components/Search"
     itemId: "{44092340-AF76-44F3-A6C3-AA7347CE9D8B}"
     lastReadAt: "2026-05-20T12:00:00Z"
@@ -3098,12 +3221,12 @@ lookups:
   - path: "/sitecore/templates/Project/fmc-custom-demo/Rendering Parameters"
     itemId: "{BEC41516-9F60-48E0-8E80-D515482B6BCC}"
     lastReadAt: "2026-03-25T12:00:00Z"
-  - path: "/sitecore/content/main/main-website/Presentation/Headless Variants"
-    itemId: "{7BC665DC-D7DA-418E-AEC6-124D6291E93F}"
-    lastReadAt: "2026-03-25T12:00:00Z"
-  - path: "/sitecore/content/main/main-website/Presentation/Available Renderings/Page Content"
-    itemId: "{2BF7E311-E3A5-4290-A043-AB97EA1DFB15}"
-    lastReadAt: "2026-03-25T12:00:00Z"
+  - path: "/sitecore/content/main/banfield/Presentation/Headless Variants"
+    itemId: "{F88DA832-4D5F-4BD2-87B2-CA159CE642BB}"
+    lastReadAt: "2026-09-25T21:01:30Z"
+  - path: "/sitecore/content/main/banfield/Presentation/Available Renderings/Page Content"
+    itemId: "{CC1F584A-4DAB-4852-ABEA-E8C085EF0326}"
+    lastReadAt: "2026-09-25T21:01:30Z"
     note: "Available Renderings — NEVER replace, always concatenate"
   - path: "/sitecore/layout/Renderings/Project/fmc-custom-demo"
     itemId: "{4A1F0B51-F3F3-43D2-B184-C7A9F549154D}"
@@ -3178,7 +3301,7 @@ lookups:
   - path: "/sitecore/templates/Project/fmc-custom-demo/Data/Person"
     itemId: "{513c2b76-7415-48b7-84a5-e663d3bb9129}"
     lastReadAt: "2026-05-18T12:00:00Z"
-  - path: "/sitecore/content/main/main-website/Data/People"
+  - path: "/sitecore/content/main/banfield/Data/People"
     itemId: "{b4a7e448-2620-458e-9108-e6123c433660}"
     lastReadAt: "2026-05-18T12:00:00Z"
   - path: "/sitecore/templates/Project/main/Page Types"
@@ -3284,8 +3407,8 @@ components-searchv3:
 
     datasourceFolder:
       name: "SearchResults"
-      path: "/sitecore/content/main/main-website/Data/SearchResults"
-      itemId: "{A03B9129-4D08-435E-B038-29802CE6A603}"
+      path: "/sitecore/content/main/banfield/Data/SearchResults"
+      itemId: "{E76243C3-F9A9-41FB-B589-636FF9BEA9ED}"
       preExisting: true
       items:
         - name: "Articles Search Results"
@@ -3383,8 +3506,8 @@ components-searchv3:
 
     datasourceFolder:
       name: "SearchCollections"
-      path: "/sitecore/content/main/main-website/Data/SearchCollections"
-      itemId: "{7A7EE0AB-BD25-4CC1-A827-AD88F8C4E75B}"
+      path: "/sitecore/content/main/banfield/Data/SearchCollections"
+      itemId: "{C29B5F08-250D-4921-B158-21C32DBA1EB2}"
       insertOptionsVerified: true  # list_avail_insertopts returns SearchCollection
       items:
         - name: "Latest Articles"
@@ -3507,8 +3630,8 @@ components-searchv3:
 
     datasourceFolder:
       name: "SearchTypeaheads"
-      path: "/sitecore/content/main/main-website/Data/SearchTypeaheads"
-      itemId: "{C9A981B0-4852-4036-BEFA-656E95D6ED7D}"
+      path: "/sitecore/content/main/banfield/Data/SearchTypeaheads"
+      itemId: "{52141060-E4BC-49F8-A901-91F036268D62}"
       insertOptionsVerified: true  # list_avail_insertopts returns SearchTypeahead
       items:
         - name: "Articles Typeahead"
@@ -3680,7 +3803,7 @@ demoContent:
   - name: "Articles Search (SearchExperienceV2 datasource)"
     kind: "dataItem"
     template: "Search Experience V2"
-    path: "/sitecore/content/main/main-website/Data/Search Experiences V2/Articles Search"
+    path: "/sitecore/content/main/banfield/Data/Search Experiences V2/Articles Search"
     itemId: "{638071B9-9241-4096-911B-F5208C30791E}"
     createdAt: "2026-08-06"
     fields:
@@ -3696,7 +3819,7 @@ demoContent:
   - name: "Marcus Webb"
     kind: "dataItem"
     template: "Person"
-    path: "/sitecore/content/main/main-website/Data/People/Marcus Webb"
+    path: "/sitecore/content/main/banfield/Data/People/Marcus Webb"
     itemId: "{EB2E25A6-F68D-4E9F-845F-C7A9B1625A55}"
     createdAt: "2026-08-05"
     notes:

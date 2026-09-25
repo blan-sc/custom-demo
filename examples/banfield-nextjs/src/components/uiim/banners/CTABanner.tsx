@@ -248,3 +248,63 @@ export const Minimal = ({ fields, params, page }: CTABannerProps): JSX.Element =
     </div>
   );
 };
+
+const BanfieldOutlinePill = ({
+  field,
+  isEditing,
+}: {
+  field: LinkField;
+  isEditing?: boolean;
+}) => {
+  if (!field?.value?.href && !isEditing) return null;
+  return (
+    <ContentSdkLink
+      field={field}
+      className="inline-flex items-center justify-center border bg-transparent px-6 py-2 text-sm font-medium transition-opacity hover:opacity-80 rounded-[var(--brand-button-radius,9999px)]"
+      style={{
+        borderColor: 'var(--brand-primary)',
+        color: 'var(--brand-primary)',
+        fontFamily: 'var(--brand-body-font, inherit)',
+      }}
+    />
+  );
+};
+
+/* Banfield — white band, two store-style outline pills */
+export const Banfield = ({ fields, params, page }: CTABannerProps): JSX.Element => {
+  const { styles, RenderingIdentifier } = params;
+  const isEditing = page?.mode?.isEditing;
+  if (!fields) return <CTABannerDefaultComponent />;
+
+  return (
+    <div className={cn('component cta-banner', styles)} id={RenderingIdentifier}>
+      <section
+        className="w-full px-4 py-16"
+        style={{
+          backgroundColor: 'var(--brand-bg, #ffffff)',
+          color: 'var(--brand-fg, #3D3D3D)',
+        }}
+      >
+        <div className="mx-auto max-w-3xl text-center">
+          {(fields.Title?.value || isEditing) && (
+            <Text
+              field={fields.Title}
+              tag="h2"
+              className="text-3xl font-semibold tracking-tight lowercase md:text-4xl font-[var(--brand-heading-font,inherit)]"
+            />
+          )}
+          {(fields.Description?.value || isEditing) && (
+            <ContentSdkRichText
+              field={fields.Description}
+              className="mt-4 text-base opacity-80 font-[var(--brand-body-font,inherit)]"
+            />
+          )}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <BanfieldOutlinePill field={fields.PrimaryLink} isEditing={isEditing} />
+            <BanfieldOutlinePill field={fields.SecondaryLink} isEditing={isEditing} />
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};

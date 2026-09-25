@@ -443,3 +443,160 @@ export const Carousel = ({ fields, params, page }: FeatureCardsGridProps): JSX.E
     </div>
   );
 };
+
+const BanfieldOutlineLink = ({
+  field,
+  isEditing,
+}: {
+  field?: LinkField;
+  isEditing?: boolean;
+}) => {
+  if (!field?.value?.href && !isEditing) return null;
+  return (
+    <ContentSdkLink
+      field={field}
+      className="mt-6 inline-flex items-center justify-center self-start border bg-transparent px-5 py-2 text-sm font-medium transition-opacity hover:opacity-80 rounded-[var(--brand-button-radius,9999px)]"
+      style={{
+        borderColor: 'var(--brand-primary)',
+        color: 'var(--brand-primary)',
+        fontFamily: 'var(--brand-body-font, inherit)',
+      }}
+    />
+  );
+};
+
+/* BanfieldTwoUp — circular illustrations, two airy columns */
+export const BanfieldTwoUp = ({ fields, params, page }: FeatureCardsGridProps): JSX.Element => {
+  const { styles, RenderingIdentifier } = params;
+  const isEditing = page?.mode?.isEditing;
+  const datasource = fields?.data?.datasource;
+  if (!datasource) return <FeatureCardsGridDefaultComponent />;
+  const cards = datasource.children?.results || [];
+
+  return (
+    <div className={cn('component feature-cards-grid', styles)} id={RenderingIdentifier}>
+      <section className="w-full px-4 py-16" style={{ backgroundColor: 'var(--brand-bg, #ffffff)' }}>
+        <div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2">
+          {cards.map((card) => (
+            <div key={card.id} className="flex flex-col items-start">
+              {(card.cardImage?.jsonValue?.value?.src || isEditing) && (
+                <div className="mb-6 h-56 w-56 overflow-hidden rounded-full">
+                  <ContentSdkImage
+                    field={card.cardImage?.jsonValue}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              )}
+              {(card.cardTitle?.jsonValue?.value || isEditing) && (
+                <Text
+                  field={card.cardTitle?.jsonValue}
+                  tag="h3"
+                  className="text-2xl font-semibold lowercase font-[var(--brand-heading-font,inherit)]"
+                  style={{ color: 'var(--brand-fg, #3D3D3D)' }}
+                />
+              )}
+              {(card.cardDescription?.jsonValue?.value || isEditing) && (
+                <ContentSdkRichText
+                  field={card.cardDescription?.jsonValue}
+                  className="mt-3 text-sm leading-relaxed opacity-80 font-[var(--brand-body-font,inherit)]"
+                  style={{ color: 'var(--brand-fg, #3D3D3D)' }}
+                />
+              )}
+              <BanfieldOutlineLink field={card.cardLink?.jsonValue} isEditing={isEditing} />
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+};
+
+/* BanfieldStoryCards — 2x2 circular photo cards */
+export const BanfieldStoryCards = ({ fields, params, page }: FeatureCardsGridProps): JSX.Element => {
+  const { styles, RenderingIdentifier } = params;
+  const isEditing = page?.mode?.isEditing;
+  const datasource = fields?.data?.datasource;
+  if (!datasource) return <FeatureCardsGridDefaultComponent />;
+  const cards = datasource.children?.results || [];
+
+  return (
+    <div className={cn('component feature-cards-grid', styles)} id={RenderingIdentifier}>
+      <section className="w-full px-4 py-16" style={{ backgroundColor: 'var(--brand-bg, #ffffff)' }}>
+        <div className="mx-auto grid max-w-6xl gap-10 sm:grid-cols-2">
+          {cards.map((card) => (
+            <div key={card.id} className="flex flex-col items-start">
+              {(card.cardImage?.jsonValue?.value?.src || isEditing) && (
+                <div className="mb-5 h-48 w-48 overflow-hidden rounded-full">
+                  <ContentSdkImage
+                    field={card.cardImage?.jsonValue}
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+              )}
+              {(card.cardTitle?.jsonValue?.value || isEditing) && (
+                <Text
+                  field={card.cardTitle?.jsonValue}
+                  tag="h3"
+                  className="text-xl font-semibold lowercase font-[var(--brand-heading-font,inherit)]"
+                  style={{ color: 'var(--brand-fg, #3D3D3D)' }}
+                />
+              )}
+              {(card.cardDescription?.jsonValue?.value || isEditing) && (
+                <ContentSdkRichText
+                  field={card.cardDescription?.jsonValue}
+                  className="mt-2 text-sm leading-relaxed opacity-80 font-[var(--brand-body-font,inherit)]"
+                  style={{ color: 'var(--brand-fg, #3D3D3D)' }}
+                />
+              )}
+              <BanfieldOutlineLink field={card.cardLink?.jsonValue} isEditing={isEditing} />
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+};
+
+/* Banfield — three text columns, no card chrome */
+export const Banfield = ({ fields, params, page }: FeatureCardsGridProps): JSX.Element => {
+  const { styles, RenderingIdentifier } = params;
+  const isEditing = page?.mode?.isEditing;
+  const datasource = fields?.data?.datasource;
+  if (!datasource) return <FeatureCardsGridDefaultComponent />;
+  const cards = datasource.children?.results || [];
+
+  return (
+    <div className={cn('component feature-cards-grid', styles)} id={RenderingIdentifier}>
+      <section className="w-full px-4 py-16" style={{ backgroundColor: 'var(--brand-bg, #ffffff)' }}>
+        <div className="mx-auto grid max-w-6xl gap-10 md:grid-cols-3">
+          {cards.map((card) => (
+            <div key={card.id} className="flex flex-col">
+              {(card.cardTitle?.jsonValue?.value || isEditing) && (
+                <Text
+                  field={card.cardTitle?.jsonValue}
+                  tag="h3"
+                  className="text-xl font-semibold font-[var(--brand-heading-font,inherit)]"
+                  style={{ color: 'var(--brand-fg, #3D3D3D)' }}
+                />
+              )}
+              {(card.cardDescription?.jsonValue?.value || isEditing) && (
+                <ContentSdkRichText
+                  field={card.cardDescription?.jsonValue}
+                  className="mt-3 text-sm leading-relaxed opacity-80 font-[var(--brand-body-font,inherit)]"
+                  style={{ color: 'var(--brand-fg, #3D3D3D)' }}
+                />
+              )}
+              {(card.cardLink?.jsonValue?.value?.href || isEditing) && (
+                <ContentSdkLink
+                  field={card.cardLink?.jsonValue}
+                  className="mt-4 text-sm font-medium transition-opacity hover:opacity-80"
+                  style={{ color: 'var(--brand-primary)', fontFamily: 'var(--brand-body-font, inherit)' }}
+                />
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
+};

@@ -276,3 +276,61 @@ export const IconLeft = ({ fields, params, page }: FeatureHighlightProps): JSX.E
     </div>
   );
 };
+
+/* Banfield — text left, photo right, no eyebrow, outline pill */
+export const Banfield = ({ fields, params, page }: FeatureHighlightProps): JSX.Element => {
+  const { styles, RenderingIdentifier } = params;
+  const isEditing = page?.mode?.isEditing;
+  if (!fields) return <FeatureHighlightDefaultComponent />;
+
+  return (
+    <div className={cn('component feature-highlight', styles)} id={RenderingIdentifier}>
+      <section
+        className="w-full px-4 py-16"
+        style={{ backgroundColor: 'var(--brand-bg, #ffffff)' }}
+      >
+        <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2 md:px-6">
+          <div>
+            {isEditing && <Eyebrow field={fields.EyebrowText} isEditing={isEditing} />}
+            {(fields.Title?.value || isEditing) && (
+              <Text
+                field={fields.Title}
+                tag="h2"
+                className="text-3xl font-semibold tracking-tight lowercase md:text-4xl font-[var(--brand-heading-font,inherit)]"
+                style={{ color: 'var(--brand-fg, #3D3D3D)' }}
+              />
+            )}
+            {(fields.Description?.value || isEditing) && (
+              <ContentSdkRichText
+                field={fields.Description}
+                className="mt-4 text-base leading-relaxed opacity-80 font-[var(--brand-body-font,inherit)]"
+                style={{ color: 'var(--brand-fg, #3D3D3D)' }}
+              />
+            )}
+            {(fields.PrimaryLink?.value?.href || isEditing) && (
+              <ContentSdkLink
+                field={fields.PrimaryLink}
+                className="mt-6 inline-flex items-center justify-center border bg-transparent px-6 py-2 text-sm font-medium transition-opacity hover:opacity-80 rounded-[var(--brand-button-radius,9999px)]"
+                style={{
+                  borderColor: 'var(--brand-primary)',
+                  color: 'var(--brand-primary)',
+                  fontFamily: 'var(--brand-body-font, inherit)',
+                }}
+              />
+            )}
+          </div>
+          <div className="relative min-h-[280px] overflow-hidden md:min-h-[360px]">
+            {(fields.FeatureImage?.value?.src || isEditing) && (
+              <SmartMedia
+                field={fields.FeatureImage}
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
+              />
+            )}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};

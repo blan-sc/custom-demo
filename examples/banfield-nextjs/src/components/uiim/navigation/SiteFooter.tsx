@@ -345,3 +345,111 @@ export const MegaFooter = (props: SiteFooterProps): JSX.Element => {
     </div>
   );
 };
+
+const BANFIELD_COLUMNS = [
+  {
+    title: 'Our services',
+    links: ['Wellness exams', 'Vaccinations', 'Dental care', 'Surgery'],
+  },
+  {
+    title: 'Pet parents',
+    links: ['Optimum Wellness Plan', 'myBanfield app', 'Pet health resources', 'Locations'],
+  },
+  {
+    title: 'About',
+    links: ['About Banfield', 'Banfield Foundation', 'Inclusion', 'Newsroom'],
+  },
+  {
+    title: 'Careers',
+    links: ['Join our team', 'Veterinarians', 'Veterinary technicians', 'Hospital teams'],
+  },
+  {
+    title: 'Support',
+    links: ['Make an appointment', 'Contact us', 'FAQs', 'Hospital hours'],
+  },
+  {
+    title: 'Legal',
+    links: ['Privacy policy', 'Terms of use', 'Accessibility', 'Cookie settings'],
+  },
+];
+
+/* Banfield — white mega footer, six columns, logo not inverted */
+export const Banfield = (props: SiteFooterProps): JSX.Element => {
+  const { params } = props;
+  const { styles, RenderingIdentifier } = params;
+  const brandLogo = getBrandLogo(props);
+
+  if (!params) return <SiteFooterDefaultComponent />;
+
+  return (
+    <div className={cn('component site-footer', styles)} id={RenderingIdentifier}>
+      <footer
+        className="w-full"
+        style={{
+          backgroundColor: 'var(--brand-bg, #ffffff)',
+          color: 'var(--brand-fg, #3D3D3D)',
+        }}
+      >
+        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
+          <div className="mb-10">
+            {brandLogo?.value?.src ? (
+              <Link href="/" className="inline-flex items-center">
+                <ContentSdkImage field={brandLogo} className="h-8 w-auto object-contain sm:h-10" />
+              </Link>
+            ) : (
+              <Logo brandLogo={brandLogo} />
+            )}
+          </div>
+
+          <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+            {BANFIELD_COLUMNS.map((col) => (
+              <div key={col.title}>
+                <h3
+                  className="mb-3 text-xs font-semibold uppercase tracking-wider font-[var(--brand-heading-font,inherit)]"
+                  style={{ color: 'var(--brand-fg, #3D3D3D)' }}
+                >
+                  {col.title}
+                </h3>
+                <ul className="space-y-2">
+                  {col.links.map((link) => (
+                    <li key={link}>
+                      <a
+                        href="#"
+                        className="text-sm opacity-70 transition-opacity hover:opacity-100 font-[var(--brand-body-font,inherit)]"
+                      >
+                        {link}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div
+            className="mt-10 flex flex-col items-start justify-between gap-4 border-t pt-8 sm:flex-row sm:items-center"
+            style={{ borderColor: 'var(--brand-border, #E6E6E6)' }}
+          >
+            <p
+              className="text-sm opacity-60 font-[var(--brand-body-font,inherit)]"
+              style={{ color: 'var(--brand-fg, #3D3D3D)' }}
+            >
+              &copy; {new Date().getFullYear()} Banfield Pet Hospital. All rights reserved.
+            </p>
+            <div className="flex items-center gap-4 text-sm opacity-70">
+              <a href="#" className="hover:opacity-100 transition-opacity" aria-label="Facebook">
+                Facebook
+              </a>
+              <a href="#" className="hover:opacity-100 transition-opacity" aria-label="Instagram">
+                Instagram
+              </a>
+              <a href="#" className="hover:opacity-100 transition-opacity">
+                bblog
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};

@@ -356,3 +356,76 @@ export const Minimal = ({ fields, params }: NavigationHeaderProps): JSX.Element 
     </div>
   );
 };
+
+const BanfieldCta = ({
+  label,
+  link,
+  isEditing,
+}: {
+  label?: Field<string>;
+  link?: LinkField;
+  isEditing?: boolean;
+}) => {
+  if (!link?.value?.href && !isEditing) return null;
+
+  const ctaClassName =
+    'hidden md:inline-flex items-center text-sm font-medium transition-opacity hover:opacity-80';
+  const ctaStyle = {
+    color: 'var(--brand-primary)',
+    fontFamily: 'var(--brand-body-font, inherit)',
+  };
+
+  if (!link) {
+    return (
+      <span className={ctaClassName} style={ctaStyle}>
+        {label?.value && <Text field={label} />}
+      </span>
+    );
+  }
+
+  return (
+    <ContentSdkLink field={link} className={ctaClassName} style={ctaStyle}>
+      {label?.value && <Text field={label} />}
+    </ContentSdkLink>
+  );
+};
+
+/* Banfield — white row, text nav, appointment as orange text */
+export const Banfield = ({ fields, params, page, rendering }: NavigationHeaderProps): JSX.Element => {
+  const { styles, RenderingIdentifier } = params;
+  const isEditing = page?.mode?.isEditing;
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const datasource = fields?.data?.datasource;
+  if (!datasource) return <NavigationHeaderDefaultComponent />;
+
+  const links = datasource.children?.results || [];
+  const brandLogo = datasource.brandLogo?.jsonValue;
+
+  return (
+    <div className={cn('component navigation-header', styles)} id={RenderingIdentifier}>
+      <header
+        className="w-full"
+        style={{
+          backgroundColor: 'var(--brand-header-bg, #ffffff)',
+          color: 'var(--brand-header-fg, #3D3D3D)',
+        }}
+      >
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-4 sm:px-6">
+          <Logo brandLogo={brandLogo} />
+          <NavLinks items={links} className="gap-8" />
+          <div className="flex items-center gap-4">
+            <HeaderSearch datasource={datasource} page={page} rendering={rendering} />
+            <BanfieldCta
+              label={datasource.ctaLabel?.jsonValue}
+              link={datasource.ctaLink?.jsonValue}
+              isEditing={isEditing}
+            />
+            <MenuButton open={menuOpen} onClick={() => setMenuOpen(!menuOpen)} />
+          </div>
+        </div>
+        <MobileMenu items={links} open={menuOpen} onClose={() => setMenuOpen(false)} />
+      </header>
+    </div>
+  );
+};

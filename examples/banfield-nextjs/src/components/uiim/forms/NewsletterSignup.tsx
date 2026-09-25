@@ -218,3 +218,74 @@ export const Compact = ({ fields, params, page }: NewsletterSignupProps): JSX.El
     </div>
   );
 };
+
+/* Banfield — stacked center on full-bleed orange */
+export const Banfield = ({ fields, params, page }: NewsletterSignupProps): JSX.Element => {
+  const { styles, RenderingIdentifier } = params;
+  const isEditing = page?.mode?.isEditing;
+  const [submitted, setSubmitted] = useState(false);
+  if (!fields) return <NewsletterSignupDefaultComponent />;
+
+  return (
+    <div className={cn('component newsletter-signup', styles)} id={RenderingIdentifier}>
+      <section
+        className="w-full px-4 py-14"
+        style={{
+          backgroundColor: 'var(--brand-primary)',
+          color: 'var(--brand-primary-foreground)',
+        }}
+      >
+        <div className="mx-auto flex max-w-xl flex-col items-center text-center">
+          {(fields.Title?.value || isEditing) && (
+            <Text
+              field={fields.Title}
+              tag="h2"
+              className="text-3xl font-semibold lowercase font-[var(--brand-heading-font,inherit)]"
+            />
+          )}
+          {(fields.Description?.value || isEditing) && (
+            <ContentSdkRichText
+              field={fields.Description}
+              className="mt-3 text-sm opacity-90 font-[var(--brand-body-font,inherit)]"
+            />
+          )}
+          <div className="mt-6 w-full">
+            {submitted && fields.SuccessMessage?.value ? (
+              <p className="text-sm font-medium font-[var(--brand-body-font,inherit)]">
+                {fields.SuccessMessage.value}
+              </p>
+            ) : (
+              <div className="mx-auto flex w-full max-w-md gap-2">
+                <input
+                  type="email"
+                  placeholder={fields.PlaceholderText?.value || 'Enter your email'}
+                  className="flex-1 border px-4 py-2.5 text-sm font-[var(--brand-body-font,inherit)] rounded-[var(--brand-button-radius,9999px)]"
+                  style={{
+                    borderColor: 'color-mix(in srgb, var(--brand-primary-foreground) 35%, transparent)',
+                    color: 'var(--brand-fg, #3D3D3D)',
+                    backgroundColor: 'var(--brand-bg, #ffffff)',
+                  }}
+                />
+                <button
+                  type="button"
+                  onClick={() => setSubmitted(true)}
+                  className="shrink-0 px-5 py-2.5 text-sm font-semibold transition-opacity hover:opacity-90 font-[var(--brand-body-font,inherit)] rounded-[var(--brand-button-radius,9999px)]"
+                  style={{
+                    backgroundColor: 'var(--brand-primary-foreground)',
+                    color: 'var(--brand-primary)',
+                  }}
+                >
+                  {isEditing && fields.ButtonText ? (
+                    <Text field={fields.ButtonText} />
+                  ) : (
+                    fields.ButtonText?.value || 'Subscribe'
+                  )}
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};

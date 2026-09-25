@@ -29,6 +29,7 @@ import * as SearchItemCommon from 'src/components/search-experience/search-compo
 import * as SearchInput from 'src/components/search-experience/search-components/SearchInput';
 import * as SearchError from 'src/components/search-experience/search-components/SearchError';
 import * as SearchEmptyResults from 'src/components/search-experience/search-components/SearchEmptyResults';
+import * as index from 'src/components/search-experience/search-components/SearchItem/index';
 import * as SearchItemTitle from 'src/components/search-experience/search-components/SearchItem/SearchItemTitle';
 import * as SearchItemTags from 'src/components/search-experience/search-components/SearchItem/SearchItemTags';
 import * as SearchItemSummary from 'src/components/search-experience/search-components/SearchItem/SearchItemSummary';
@@ -36,7 +37,6 @@ import * as SearchItemSubTitle from 'src/components/search-experience/search-com
 import * as SearchItemLink from 'src/components/search-experience/search-components/SearchItem/SearchItemLink';
 import * as SearchItemImage from 'src/components/search-experience/search-components/SearchItem/SearchItemImage';
 import * as SearchItemCategory from 'src/components/search-experience/search-components/SearchItem/SearchItemCategory';
-import * as index from 'src/components/search-experience/search-components/SearchItem/index';
 import * as Navigation from 'src/components/basic/navigation/Navigation';
 import * as SitecoreStyles from 'src/components/basic/content-sdk/SitecoreStyles';
 import * as CdpPageView from 'src/components/basic/content-sdk/CdpPageView';
@@ -71,6 +71,7 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['SearchInput', { ...SearchInput }],
   ['SearchError', { ...SearchError }],
   ['SearchEmptyResults', { ...SearchEmptyResults }],
+  ['index', { ...index }],
   ['SearchItemTitle', { ...SearchItemTitle }],
   ['SearchItemTags', { ...SearchItemTags }],
   ['SearchItemSummary', { ...SearchItemSummary }],
@@ -78,7 +79,6 @@ export const componentMap = new Map<string, NextjsContentSdkComponent>([
   ['SearchItemLink', { ...SearchItemLink }],
   ['SearchItemImage', { ...SearchItemImage }],
   ['SearchItemCategory', { ...SearchItemCategory }],
-  ['index', { ...index }],
   ['Navigation', { ...Navigation }],
   ['SitecoreStyles', { ...SitecoreStyles }],
   ['CdpPageView', { ...CdpPageView }],

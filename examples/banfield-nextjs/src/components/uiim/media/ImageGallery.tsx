@@ -12,6 +12,9 @@ interface ImageGalleryFields {
   GalleryImage: ImageField;
   Caption: Field<string>;
   AltText: Field<string>;
+  InstagramImage2?: ImageField;
+  InstagramImage3?: ImageField;
+  InstagramImage4?: ImageField;
 }
 
 type ImageGalleryProps = ComponentProps & {
@@ -130,6 +133,46 @@ export const Parallax = ({ fields, params, page }: ImageGalleryProps): JSX.Eleme
           </figcaption>
         )}
       </figure>
+    </div>
+  );
+};
+
+/* Banfield — heading plus 2x2 circular Instagram stills */
+export const Banfield = ({ fields, params, page }: ImageGalleryProps): JSX.Element => {
+  const { styles, RenderingIdentifier } = params;
+  const isEditing = page?.mode?.isEditing;
+  if (!fields) return <ImageGalleryDefaultComponent />;
+
+  const photos = [
+    fields.GalleryImage,
+    fields.InstagramImage2,
+    fields.InstagramImage3,
+    fields.InstagramImage4,
+  ];
+
+  return (
+    <div className={cn('component image-gallery', styles)} id={RenderingIdentifier}>
+      <section className="w-full px-4 py-16" style={{ backgroundColor: 'var(--brand-bg, #ffffff)' }}>
+        <div className="mx-auto max-w-5xl">
+          {(fields.Caption?.value || isEditing) && (
+            <Text
+              field={fields.Caption}
+              tag="h2"
+              className="mb-10 text-center text-3xl font-semibold lowercase font-[var(--brand-heading-font,inherit)]"
+              style={{ color: 'var(--brand-fg, #3D3D3D)' }}
+            />
+          )}
+          <div className="grid grid-cols-2 gap-6 md:gap-8">
+            {photos.map((photo, index) =>
+              photo?.value?.src || isEditing ? (
+                <div key={index} className="aspect-square overflow-hidden rounded-full">
+                  <ContentSdkImage field={photo} className="h-full w-full object-cover" />
+                </div>
+              ) : null
+            )}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
