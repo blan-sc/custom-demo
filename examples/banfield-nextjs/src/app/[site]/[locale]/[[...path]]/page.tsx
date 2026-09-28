@@ -98,18 +98,30 @@ export const generateMetadata = async ({ params }: PageProps) => {
   const page = await client.getPage(path ?? [], { site, locale });
   const fields = page?.layout.sitecore.route?.fields as RouteFields;
 
+  // SXA-style templates name these fields base*; older templates use the unprefixed names.
+  const fieldText = (...names: string[]) =>
+    names
+      .map((name) => (fields?.[name] as { value?: unknown } | undefined)?.value)
+      .map((value) => (value ? String(value) : ""))
+      .find(Boolean) || "";
+
   // Parse keywords from comma-separated string to array
-  const keywordsString = fields?.metadataKeywords?.value?.toString() || "";
+  const keywordsString = fieldText("baseMetadataKeywords", "metadataKeywords");
   const keywords = keywordsString
     ? keywordsString.split(",").map((k: string) => k.trim())
     : [];
 
+  const title = fieldText("baseMetadataTitle", "metadataTitle", "Title") || "Page";
+  const description = fieldText(
+    "baseMetadataDescription",
+    "metadataDescription",
+    "baseOgDescription",
+    "ogDescription"
+  );
+
   return {
-    title: fields?.Title?.value?.toString() || "Page",
-    description:
-      fields?.ogDescription?.value?.toString() ||
-      fields?.metadataDescription?.value?.toString() ||
-      "Sitecore Next.js Basic Example",
+    title,
+    ...(description && { description }),
     keywords,
     ...(canonicalUrl && {
       alternates: {
@@ -117,13 +129,15 @@ export const generateMetadata = async ({ params }: PageProps) => {
       },
     }),
     openGraph: {
-      title: fields?.ogTitle?.value?.toString() || "Page",
-      description:
-        fields?.ogDescription?.value?.toString() ||
-        fields?.metadataDescription?.value?.toString() ||
-        "Sitecore Next.js Basic Example",
+      title: fieldText("baseOgTitle", "ogTitle") || title,
+      ...(fieldText("baseOgDescription", "ogDescription") || description
+        ? { description: fieldText("baseOgDescription", "ogDescription") || description }
+        : {}),
       url: canonicalUrl,
-      images: fields?.ogImage?.value?.src || fields?.thumbnailImage?.value?.src,
+      images:
+        (fields?.baseOgImage as { value?: { src?: string } } | undefined)?.value?.src ||
+        fields?.ogImage?.value?.src ||
+        fields?.thumbnailImage?.value?.src,
     },
   };
 };
