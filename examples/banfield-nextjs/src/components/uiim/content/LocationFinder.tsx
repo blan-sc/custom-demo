@@ -183,6 +183,10 @@ export const Banfield = ({ fields, params, page }: LocationFinderProps): JSX.Ele
   } = fields;
 
   const placeholderText = SearchPlaceholder?.value || 'Enter zip code or city + state';
+  // No map image authored: embed a map of the authored address instead
+  const mapQuery = LocationAddress?.value
+    ? `Banfield Pet Hospital, ${LocationAddress.value}`
+    : '';
 
   return (
     <div className={cn('component location-finder', styles)} id={RenderingIdentifier}>
@@ -256,7 +260,7 @@ export const Banfield = ({ fields, params, page }: LocationFinderProps): JSX.Ele
               </div>
             </div>
 
-            {MapImage && (MapImage.value?.src || isEditing) && (
+            {MapImage?.value?.src || (isEditing && MapImage) ? (
               <div className="relative min-h-[260px] md:min-h-[320px]">
                 <ContentSdkImage
                   field={MapImage}
@@ -265,6 +269,16 @@ export const Banfield = ({ fields, params, page }: LocationFinderProps): JSX.Ele
                   className="object-cover"
                 />
               </div>
+            ) : (
+              mapQuery && (
+                <iframe
+                  title={`Map of ${LocationName?.value || 'Banfield Pet Hospital'}`}
+                  src={`https://maps.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=11&output=embed`}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="h-full min-h-[260px] w-full border-0 md:min-h-[320px]"
+                />
+              )
             )}
           </div>
         </div>

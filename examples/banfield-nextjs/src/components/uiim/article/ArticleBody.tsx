@@ -43,13 +43,13 @@ function KeyTakeaways({
 
   return (
     <aside
-      className="mb-10 rounded-lg border-l-4 border-blue-500 bg-blue-50 p-6"
+      className="mb-10 rounded-lg border-l-4 border-[var(--brand-primary)] bg-[var(--brand-muted,#F7F7F7)] p-6"
       data-testid="key-takeaways"
     >
-      <h2 className="mb-3 text-lg font-semibold text-blue-900">Key Takeaways</h2>
+      <h2 className="mb-3 text-lg font-semibold text-[var(--brand-title-fg,#333436)]">Key Takeaways</h2>
       <ContentSdkRichText
         field={field}
-        className="prose prose-sm max-w-none text-blue-800"
+        className="prose prose-sm max-w-none text-[var(--brand-body-fg,#65686B)]"
       />
     </aside>
   );
@@ -105,7 +105,7 @@ function AuthorBio({
           {(fields?.personLinkedIn?.value?.href || isEditing) && (
             <ContentSdkLink
               field={fields?.personLinkedIn as LinkField}
-              className="mt-2 inline-block text-sm font-medium text-blue-600 hover:text-blue-800"
+              className="mt-2 inline-block text-sm font-medium text-[var(--brand-primary)] hover:underline"
               data-testid="author-bio-linkedin"
             />
           )}

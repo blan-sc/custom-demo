@@ -3860,3 +3860,28 @@ banfieldDemoPages:
     notes:
       - "add_component_on_page auto-created unused local datasources under the page's Data folder (41828faf, fe3e4592, 9b0c50ec, 53dd82ab); safe to delete."
       - "add_component_on_page auto-selected the newest variant for ProductPricingCards and ValuePropositionGrid; HeroBanner and FAQAccordion must be switched in Page Builder."
+  - name: "Home personalization (market variants)"
+    route: "/"
+    pageId: "{CC5B4E53-CF48-4C36-98F3-439D9E1A42C2}"
+    personalizeFlowId: "ba7327c2-9f27-4ca1-ae08-84e302a3c23b"
+    variants:
+      - name: "Tampa Bay families"
+        variantId: "f8d23d1ac27c47e2a55e51a9b6b87b08"
+        audience: "Country Region = US/FL OR utm_campaign = tampa"
+        heroDatasource: "{5608FA2D-551F-4B40-B7B4-C1722C30B11E}"
+        locationFinderDatasource: "{B092B91F-A4F0-4D95-BA1F-94D5377B4D76}"  # Brandon-Riverview #0320
+      - name: "Charlotte-area families"
+        variantId: "9b5401666e624661b2f8ecc733310505"
+        audience: "Country Region = US/NC OR utm_campaign = charlotte"
+        heroDatasource: "{C75904ED-8AFC-4CE6-85DA-778FFC6E5D98}"
+        locationFinderDatasource: "{5ACC0923-2A66-4C17-8275-B483851CC683}"  # Cornelius #5118
+    notes:
+      - "Configured with set_component_variant COPY (keeps FieldNames) then set_component_datasource per variant. SWAP resets FieldNames to a default variant; avoid it."
+      - "COPY left unused datasource copies: HeroBanners/Banfield - Hero Banner_var1, _var2; LocationFinders/Banfield - Location Finder_var1, _var2. Safe to delete."
+      - "Variants only render after Home is published (PersonalizeProxy reads published layout)."
+  - name: "dental-care-for-dogs-and-cats"
+    route: "/Articles/dental-care-for-dogs-and-cats"
+    pageId: "{BEC097C0-2A8A-4E89-B68B-544BB8FFC457}"
+    template: "Article Page Template {74360AD2-D3DF-4FCE-834C-2F5420488677}"
+    notes:
+      - "14 generic DXP starter articles under /Articles set to __Never publish = 1 (2026-09-28); unverified via API echo, check Publish tab."

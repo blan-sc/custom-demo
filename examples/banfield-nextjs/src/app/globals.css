@@ -196,3 +196,24 @@
    Only use this if the inlined :root block above is empty.
    Next.js App Router may strip this import — verify in DevTools. */
 /* @import './globals-brand.css'; */
+
+/* Minimal rich-text styles for `.prose` (the @tailwindcss/typography plugin is not installed).
+   Used by article bodies so authored h2/lists/links read as structured content. */
+@layer components {
+  .prose { color: var(--brand-body-fg, inherit); line-height: 1.8; }
+  .prose > * + * { margin-top: 1em; }
+  .prose h2 {
+    margin-top: 2em;
+    font-family: var(--brand-heading-font, inherit);
+    font-size: 1.6em;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--brand-heading-fg, inherit);
+  }
+  .prose h3 { margin-top: 1.5em; font-size: 1.2em; font-weight: 600; color: var(--brand-title-fg, inherit); }
+  .prose ul { list-style: disc; padding-left: 1.4em; }
+  .prose ol { list-style: decimal; padding-left: 1.4em; }
+  .prose li + li { margin-top: 0.35em; }
+  .prose strong { font-weight: 600; color: var(--brand-title-fg, inherit); }
+  .prose a { color: var(--brand-primary); text-decoration: underline; text-underline-offset: 2px; }
+}

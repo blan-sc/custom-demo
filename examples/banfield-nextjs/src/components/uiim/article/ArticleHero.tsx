@@ -160,7 +160,7 @@ export const Default = ({ params, page }: ComponentProps): JSX.Element => {
               <Text
                 field={title}
                 tag="h1"
-                className="mx-auto max-w-4xl text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl"
+                className="mx-auto max-w-4xl text-4xl font-semibold tracking-tight font-[family-name:var(--brand-heading-font,inherit)] md:text-5xl lg:text-6xl"
                 data-testid="article-title"
               />
             )}
@@ -223,7 +223,7 @@ export const Minimal = ({ params, page }: ComponentProps): JSX.Element => {
             <Text
               field={title}
               tag="h1"
-              className="text-4xl font-bold tracking-tight text-gray-900 md:text-5xl lg:text-6xl"
+              className="text-4xl font-semibold tracking-tight font-[family-name:var(--brand-heading-font,inherit)] text-gray-900 md:text-5xl lg:text-6xl"
               data-testid="article-title"
             />
           )}
@@ -282,7 +282,7 @@ export const SplitImage = ({ params, page }: ComponentProps): JSX.Element => {
               <Text
                 field={title}
                 tag="h1"
-                className="text-4xl font-bold tracking-tight text-gray-900 md:text-5xl"
+                className="text-4xl font-semibold tracking-tight font-[family-name:var(--brand-heading-font,inherit)] text-gray-900 md:text-5xl"
                 data-testid="article-title"
               />
             )}
