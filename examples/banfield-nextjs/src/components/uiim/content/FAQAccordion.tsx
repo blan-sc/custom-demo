@@ -6,6 +6,7 @@ import {
 } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { cn } from '@/lib/utils';
+import { BANFIELD_CONTAINER, HighlightedTitle } from '@/lib/banfield-ui';
 
 interface FAQItemFields {
   id: string;
@@ -215,6 +216,95 @@ export const TwoColumn = ({ fields, params, page }: FAQAccordionProps): JSX.Elem
                 <AccordionItem key={item.id} item={item} isEditing={isEditing} />
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+const stripHtml = (html = ''): string =>
+  html
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+/** schema.org FAQPage built from the authored Q&A so answer engines get the same content as readers. */
+const FaqJsonLd = ({ items }: { items: FAQItemFields[] }): JSX.Element | null => {
+  const entities = items
+    .map((item) => ({
+      question: item.question?.jsonValue?.value || '',
+      answer: stripHtml(item.answer?.jsonValue?.value || ''),
+    }))
+    .filter((entry) => entry.question && entry.answer)
+    .map((entry) => ({
+      '@type': 'Question',
+      name: entry.question,
+      acceptedAnswer: { '@type': 'Answer', text: entry.answer },
+    }));
+  if (!entities.length) return null;
+
+  const json = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: entities,
+  }).replace(/</g, '\\u003c');
+
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: json }} />;
+};
+
+/* Banfield — left-aligned two-tone heading, divider accordion, FAQPage JSON-LD for answer engines */
+export const Banfield = ({ fields, params, page }: FAQAccordionProps): JSX.Element => {
+  const { styles, RenderingIdentifier } = params;
+  const isEditing = page?.mode?.isEditing;
+  const datasource = fields?.data?.datasource;
+  if (!datasource) return <FAQAccordionDefaultComponent />;
+  const items = datasource.children?.results || [];
+
+  return (
+    <div className={cn('component faq-accordion', styles)} id={RenderingIdentifier}>
+      {!isEditing && <FaqJsonLd items={items} />}
+      <section className="w-full bg-white py-12 md:py-16">
+        <div className={cn(BANFIELD_CONTAINER, 'max-w-[900px]')}>
+          {(datasource.title?.jsonValue?.value || isEditing) && (
+            <HighlightedTitle
+              field={datasource.title?.jsonValue}
+              tag="h2"
+              isEditing={isEditing}
+              className="mb-6 text-[1.8rem] font-semibold leading-tight md:text-[2.25rem] font-[family-name:var(--brand-heading-font,inherit)]"
+              style={{ color: 'var(--brand-heading-fg, #65686B)' }}
+            />
+          )}
+          <div className="border-t" style={{ borderColor: 'var(--brand-border, #E6E6E6)' }}>
+            {items.map((item) => (
+              <details key={item.id} className="group border-b" style={{ borderColor: 'var(--brand-border, #E6E6E6)' }}>
+                <summary
+                  className="flex cursor-pointer list-none items-center justify-between py-4 text-left text-[0.95rem] font-medium font-[family-name:var(--brand-body-font,inherit)] [&::-webkit-details-marker]:hidden"
+                  style={{ color: 'var(--brand-title-fg, #333436)' }}
+                >
+                  {(item.question?.jsonValue?.value || isEditing) && (
+                    <Text field={item.question?.jsonValue} tag="span" className="flex-1 pr-4" />
+                  )}
+                  <span
+                    aria-hidden
+                    className="text-xl leading-none transition-transform duration-200 group-open:rotate-45"
+                    style={{ color: 'var(--brand-primary)' }}
+                  >
+                    +
+                  </span>
+                </summary>
+                <div className="pb-5 pr-8">
+                  {(item.answer?.jsonValue?.value || isEditing) && (
+                    <ContentSdkRichText
+                      field={item.answer?.jsonValue}
+                      className="text-[0.85rem] leading-[1.8] font-[family-name:var(--brand-body-font,inherit)]"
+                      style={{ color: 'var(--brand-body-fg, #65686B)' }}
+                    />
+                  )}
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </section>

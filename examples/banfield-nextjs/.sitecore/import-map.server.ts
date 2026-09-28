@@ -13,7 +13,7 @@ import * as React_7214d18997ee864dd178de7b3a8430f6783e8b89 from 'react';
 import { NextImage, RichText, Text, Link, AppPlaceholder } from '@sitecore-content-sdk/nextjs';
 import { cn } from '@/lib/utils';
 import Link_a258c208ba01265ca0aa9c7abae745cc7141aa63 from 'next/link';
-import { Instagram, Sparkles, MapPin, Phone, Search } from 'lucide-react';
+import { Instagram, Sparkles, CircleCheck, MapPin, Phone, Search } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
 import { BANFIELD_CONTAINER, HighlightedTitle, BanfieldButton } from '@/lib/banfield-ui';
 import { SmartMedia } from '@/components/uiim/media/SmartMedia';
@@ -65,6 +65,7 @@ const importMap = [
     exports: [
       { name: 'Instagram', value: Instagram },
       { name: 'Sparkles', value: Sparkles },
+      { name: 'CircleCheck', value: CircleCheck },
       { name: 'MapPin', value: MapPin },
       { name: 'Phone', value: Phone },
       { name: 'Search', value: Search },

@@ -380,3 +380,52 @@ export const Banfield = ({ fields, params, page }: HeroBannerProps): JSX.Element
     </div>
   );
 };
+
+/* BanfieldSplit — interior-page hero: two-tone Zilla h1 left, 16:9 image right (for centered art like OWP illustrations) */
+export const BanfieldSplit = ({ fields, params, page }: HeroBannerProps): JSX.Element => {
+  const { styles, RenderingIdentifier } = params;
+  const isEditing = page?.mode?.isEditing;
+  if (!fields) return <HeroBannerDefaultComponent />;
+
+  return (
+    <div className={cn('component hero-banner', styles)} id={RenderingIdentifier}>
+      <section className="w-full bg-white py-10 md:py-14">
+        <div className={cn(BANFIELD_CONTAINER, 'grid items-center gap-8 md:grid-cols-[1fr_1.1fr]')}>
+          <div className="space-y-4">
+            {(fields.Title?.value || isEditing) && (
+              <HighlightedTitle
+                field={fields.Title}
+                tag="h1"
+                isEditing={isEditing}
+                className="text-[2.25rem] font-semibold leading-[1.1] md:text-[2.75rem] font-[family-name:var(--brand-heading-font,inherit)]"
+                style={{ color: 'var(--brand-heading-fg, #65686B)' }}
+              />
+            )}
+            {(fields.Subtitle?.value || isEditing) && (
+              <ContentSdkRichText
+                field={fields.Subtitle}
+                className="text-[0.92rem] leading-[1.8] font-[family-name:var(--brand-body-font,inherit)] [&_p+p]:mt-3"
+                style={{ color: 'var(--brand-body-fg, #65686B)' }}
+              />
+            )}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <BanfieldButton field={fields.PrimaryLink} isEditing={isEditing} />
+              <BanfieldButton field={fields.SecondaryLink} isEditing={isEditing} variant="text" />
+            </div>
+          </div>
+          {(fields.HeroImage?.value?.src || isEditing) && (
+            <div className="relative aspect-video w-full overflow-hidden">
+              <SmartMedia
+                field={fields.HeroImage}
+                fill
+                priority
+                sizes="(min-width: 768px) 55vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          )}
+        </div>
+      </section>
+    </div>
+  );
+};

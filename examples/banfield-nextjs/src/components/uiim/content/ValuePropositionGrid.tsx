@@ -10,6 +10,8 @@ import {
 } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { cn } from '@/lib/utils';
+import { CircleCheck } from 'lucide-react';
+import { BANFIELD_CONTAINER, BanfieldButton, HighlightedTitle } from '@/lib/banfield-ui';
 
 interface ValuePropositionItemFields {
   id: string;
@@ -296,6 +298,71 @@ export const Horizontal = ({ fields, params, page }: ValuePropositionGridProps):
                       style={{ color: 'var(--brand-primary)' }}
                     />
                   )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+/* Banfield — "included in every plan" list: 3-column, left-aligned, icon or orange check */
+export const Banfield = ({ fields, params, page }: ValuePropositionGridProps): JSX.Element => {
+  const { styles, RenderingIdentifier } = params;
+  const isEditing = page?.mode?.isEditing;
+  const datasource = fields?.data?.datasource;
+  if (!datasource) return <ValuePropositionGridDefaultComponent />;
+  const items = datasource.children?.results || [];
+
+  return (
+    <div className={cn('component value-proposition-grid', styles)} id={RenderingIdentifier}>
+      <section className="w-full py-12 md:py-16" style={{ backgroundColor: 'var(--brand-muted, #F7F7F7)' }}>
+        <div className={BANFIELD_CONTAINER}>
+          {(datasource.title?.jsonValue?.value || isEditing) && (
+            <HighlightedTitle
+              field={datasource.title?.jsonValue}
+              tag="h2"
+              isEditing={isEditing}
+              className="text-[1.8rem] font-semibold leading-tight md:text-[2.25rem] font-[family-name:var(--brand-heading-font,inherit)]"
+              style={{ color: 'var(--brand-heading-fg, #65686B)' }}
+            />
+          )}
+          {(datasource.description?.jsonValue?.value || isEditing) && (
+            <ContentSdkRichText
+              field={datasource.description?.jsonValue}
+              className="mt-3 max-w-2xl text-[0.92rem] leading-[1.8] font-[family-name:var(--brand-body-font,inherit)]"
+              style={{ color: 'var(--brand-body-fg, #65686B)' }}
+            />
+          )}
+          <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
+            {items.map((item) => (
+              <div key={item.id} className="flex items-start gap-3">
+                {item.itemIcon?.jsonValue?.value?.src ? (
+                  <div className="relative h-8 w-8 shrink-0">
+                    <ContentSdkImage field={item.itemIcon.jsonValue} fill sizes="32px" className="object-contain" />
+                  </div>
+                ) : (
+                  <CircleCheck aria-hidden className="mt-0.5 h-6 w-6 shrink-0" style={{ color: 'var(--brand-primary)' }} />
+                )}
+                <div>
+                  {(item.itemTitle?.jsonValue?.value || isEditing) && (
+                    <Text
+                      field={item.itemTitle?.jsonValue}
+                      tag="h3"
+                      className="text-base font-medium font-[family-name:var(--brand-body-font,inherit)]"
+                      style={{ color: 'var(--brand-title-fg, #333436)' }}
+                    />
+                  )}
+                  {(item.itemDescription?.jsonValue?.value || isEditing) && (
+                    <ContentSdkRichText
+                      field={item.itemDescription?.jsonValue}
+                      className="mt-1 text-[0.8rem] leading-[1.7] font-[family-name:var(--brand-body-font,inherit)]"
+                      style={{ color: 'var(--brand-body-fg, #65686B)' }}
+                    />
+                  )}
+                  <BanfieldButton field={item.itemLink?.jsonValue} isEditing={isEditing} variant="text" className="mt-1" />
                 </div>
               </div>
             ))}

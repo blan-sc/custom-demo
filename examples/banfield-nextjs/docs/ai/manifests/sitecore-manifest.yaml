@@ -325,6 +325,7 @@ components:
     headlessVariants:
       containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/HeroBanner"
       containerId: "{4DAED364-0F95-41D0-9B43-548DCC4CAE35}"
+        - { name: "BanfieldSplit", itemId: "{3EE1166E-500F-4F96-8CCA-69C5DAE249FB}" }
       variants:
         - { name: "Default", itemId: "{51E32CC6-C761-4E8D-A9EB-03A11D358DC4}" }
         - { name: "SplitImageText", itemId: "{085ED09F-42C4-4C25-BB70-CC13D3F9AF8F}" }
@@ -577,6 +578,7 @@ components:
     headlessVariants:
       containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/ProductPricingCards"
       containerId: "{84D29482-9A33-4A33-B75F-A3027DAFB759}"
+        - { name: "Banfield", itemId: "{8C434804-5639-4CBC-9CD9-97D42C2ADBE1}" }
       variants:
         - { name: "Default", itemId: "{8059925F-0667-437B-AD6F-450BAF663C08}" }
         - { name: "Horizontal", itemId: "{C9B441F5-71A8-46E6-AE86-478930CA907F}" }
@@ -804,6 +806,7 @@ components:
     headlessVariants:
       containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/ValuePropositionGrid"
       containerId: "{067A5E38-DE3F-43E3-B319-C0074DAA88E8}"
+        - { name: "Banfield", itemId: "{A713F736-A55C-419E-AB22-7185914492E6}" }
       variants:
         - { name: "Default", itemId: "{B2D75BE0-CE27-431F-BF59-9F49EEC5DF31}" }
         - { name: "TwoColumn", itemId: "{3935D1DD-DC84-4A01-B271-BEF9475C5AE1}" }
@@ -1946,6 +1949,7 @@ components:
     headlessVariants:
       containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/FAQAccordion"
       containerId: "{8E018675-1014-4F7F-9522-A3B3D6F43444}"
+        - { name: "Banfield", itemId: "{ADB7F03F-4DBE-4D54-A292-68C657DC1FCA}" }
       variants:
         - { name: "Default", itemId: "{3D01B4ED-75E0-4AD3-A6F4-FA47606082CB}" }
         - { name: "AllOpen", itemId: "{FFC0D7F8-8D1C-4A6E-8FC1-DD429718057A}" }
@@ -3841,3 +3845,18 @@ demoContent:
   # but item still resolves via get_content_item_by_id afterwards — delete did NOT
   # take effect. Status: pendingManual — DELETE MANUALLY in Content Editor before
   # publishing /Home/Articles.
+
+# Banfield demo pages (2026-09-28)
+banfieldDemoPages:
+  - name: "optimum-wellness-plan"
+    route: "/products/optimum-wellness-plan"
+    pageId: "{26EEADD3-1442-4DA1-B438-591D7D8CB48B}"
+    parentPageId: "{6733D461-5F70-4F90-B296-0399BFCE40EB}"  # /products
+    components:
+      - { name: "HeroBanner", variant: "BanfieldSplit", datasource: "{F833C3DA-A96A-4C51-8E21-31F46119555F}", status: "variant pendingManual" }
+      - { name: "ProductPricingCards", variant: "Banfield", datasource: "{408D8BBC-0A4D-49AB-9064-9F5C93E44720}", status: "complete" }
+      - { name: "ValuePropositionGrid", variant: "Banfield", datasource: "{7A2C1593-717A-466C-8F78-16064A056D5C}", status: "complete" }
+      - { name: "FAQAccordion", variant: "Banfield", datasource: "{E24FEF05-2808-430F-84A8-E4E66286EC26}", status: "variant pendingManual" }
+    notes:
+      - "add_component_on_page auto-created unused local datasources under the page's Data folder (41828faf, fe3e4592, 9b0c50ec, 53dd82ab); safe to delete."
+      - "add_component_on_page auto-selected the newest variant for ProductPricingCards and ValuePropositionGrid; HeroBanner and FAQAccordion must be switched in Page Builder."

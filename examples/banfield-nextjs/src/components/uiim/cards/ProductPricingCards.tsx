@@ -10,6 +10,7 @@ import {
 } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { cn } from '@/lib/utils';
+import { BANFIELD_CONTAINER, BanfieldButton, HighlightedTitle } from '@/lib/banfield-ui';
 
 interface ProductCardFields {
   id: string;
@@ -361,6 +362,88 @@ export const Highlighted = ({ fields, params, page }: ProductPricingCardsProps):
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+/* Banfield — life-stage package cards: flat bordered tiles, optional 16:9 photo, square CTA */
+export const Banfield = ({ fields, params, page }: ProductPricingCardsProps): JSX.Element => {
+  const { styles, RenderingIdentifier } = params;
+  const isEditing = page?.mode?.isEditing;
+  const datasource = fields?.data?.datasource;
+  if (!datasource) return <ProductPricingCardsDefaultComponent />;
+  const cards = datasource.children?.results || [];
+
+  return (
+    <div className={cn('component product-pricing-cards', styles)} id={RenderingIdentifier}>
+      <section className="w-full bg-white py-12 md:py-16">
+        <div className={BANFIELD_CONTAINER}>
+          {(datasource.title?.jsonValue?.value || isEditing) && (
+            <HighlightedTitle
+              field={datasource.title?.jsonValue}
+              tag="h2"
+              isEditing={isEditing}
+              className="text-[1.8rem] font-semibold leading-tight md:text-[2.25rem] font-[family-name:var(--brand-heading-font,inherit)]"
+              style={{ color: 'var(--brand-heading-fg, #65686B)' }}
+            />
+          )}
+          {(datasource.description?.jsonValue?.value || isEditing) && (
+            <ContentSdkRichText
+              field={datasource.description?.jsonValue}
+              className="mt-3 max-w-2xl text-[0.92rem] leading-[1.8] font-[family-name:var(--brand-body-font,inherit)]"
+              style={{ color: 'var(--brand-body-fg, #65686B)' }}
+            />
+          )}
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {cards.map((card) => (
+              <div
+                key={card.id}
+                className="flex flex-col border bg-white"
+                style={{ borderColor: 'var(--brand-border, #E6E6E6)' }}
+              >
+                {card.cardImage?.jsonValue && (card.cardImage.jsonValue.value?.src || isEditing) && (
+                  <div className="relative aspect-video w-full overflow-hidden">
+                    <ContentSdkImage
+                      field={card.cardImage.jsonValue}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                )}
+                <div className="flex flex-1 flex-col p-5">
+                  <Badge field={card.badgeText?.jsonValue} isEditing={isEditing} />
+                  {(card.cardTitle?.jsonValue?.value || isEditing) && (
+                    <HighlightedTitle
+                      field={card.cardTitle?.jsonValue}
+                      tag="h3"
+                      isEditing={isEditing}
+                      className="text-xl font-medium lowercase font-[family-name:var(--brand-body-font,inherit)]"
+                      style={{ color: 'var(--brand-title-fg, #333436)' }}
+                    />
+                  )}
+                  {(card.priceText?.jsonValue?.value || isEditing) && (
+                    <Text
+                      field={card.priceText?.jsonValue}
+                      tag="p"
+                      className="mt-1 text-sm font-semibold font-[family-name:var(--brand-body-font,inherit)]"
+                      style={{ color: 'var(--brand-primary)' }}
+                    />
+                  )}
+                  {(card.cardDescription?.jsonValue?.value || isEditing) && (
+                    <ContentSdkRichText
+                      field={card.cardDescription?.jsonValue}
+                      className="mt-3 flex-1 text-[0.8rem] leading-[1.8] font-[family-name:var(--brand-body-font,inherit)]"
+                      style={{ color: 'var(--brand-body-fg, #65686B)' }}
+                    />
+                  )}
+                  <BanfieldButton field={card.cardLink?.jsonValue} isEditing={isEditing} className="mt-5 self-start" />
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
