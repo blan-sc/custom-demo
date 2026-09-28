@@ -139,7 +139,7 @@ export const SmartMedia = ({
         height={DEFAULT_FALLBACK_HEIGHT}
         sizes={sizes}
         priority={priority}
-        alt={alt}
+        alt={alt ?? (val?.alt as string | undefined)}
         className={className}
       />
     );
@@ -153,7 +153,7 @@ export const SmartMedia = ({
       fill={fill}
       sizes={sizes}
       priority={priority}
-      alt={alt}
+      alt={alt ?? (val?.alt as string | undefined)}
       className={className}
     />
   );

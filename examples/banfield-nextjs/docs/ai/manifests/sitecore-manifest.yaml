@@ -194,11 +194,18 @@ components:
       itemId: "{269FF4BC-2DFC-46E7-A066-53C3BE5110A8}"
       insertOptionsSet: true
       exampleItem:
+        # Datasource used by the banfield Header partial design (verified from layout JSON 2026-09-27).
+        # {8254EB2C-...} is main-website's copy — do not edit it for banfield.
         name: "Main Navigation"
-        itemId: "{8254EB2C-9F05-4082-8CB7-48A968EA6EF1}"
+        itemId: "{B2E64751-8294-478F-A8CC-558BA4891015}"
       exampleChildren:
-        - { name: "Home", itemId: "{F244D21A-540D-4451-B3E0-7BDEDCB00DC3}" }
-        - { name: "About", itemId: "{C3B693C8-0135-4B86-BE16-7823180171DD}" }
+        - { name: "About", label: "Our services", itemId: "{15FF8110-BB5F-4BC2-AC15-756B56A5C7C0}" }
+        - { name: "Preventive care packages", itemId: "{816B3E75-17F0-4AD3-A046-3440ABC2A5D8}" }
+        - { name: "Pet health resources", itemId: "{55D2AFFB-58CB-49A2-A672-CA3C4C7B1C53}" }
+        - { name: "About us", itemId: "{0A16DC58-2E29-4E7F-9C1C-A82866FF9039}" }
+        - { name: "Careers", itemId: "{3AFCEE77-DD6C-44CC-86BC-61CADC584E9D}" }
+      unusedItems:
+        - { name: "Banfield - Main Navigation", itemId: "{CFBCC2A2-C974-4B2B-BED2-AEA4CA5A8CE6}", note: "Not assigned to the header" }
 
     rendering:
       name: "NavigationHeader"
@@ -1140,7 +1147,8 @@ components:
       containerPath: "/sitecore/content/main/banfield/Presentation/Headless Variants/CTABanner"
       containerId: "{5F7A9F3B-E6F8-4563-96A1-43ABE9CCB283}"
       variants:
-        - { name: "Default", itemId: "{B526E0D8-C4F9-4A21-AFA9-B828119FA988}" }
+        # Default ID corrected 2026-09-27 via MCP: banfield Home uses {428DF0F6-D271-421C-A5EB-6799FF54922E}
+        - { name: "Default", itemId: "{428DF0F6-D271-421C-A5EB-6799FF54922E}" }
         - { name: "WithImage", itemId: "{2DC4E1E9-79A0-48C7-A6D9-AC7DD8AFAAA0}" }
         - { name: "Split", itemId: "{9DBA839A-E0F8-47D2-AA8E-29EDA7CC68E6}" }
         - { name: "Minimal", itemId: "{E63EE25F-C889-4FE1-81B7-4611CF5969BE}" }

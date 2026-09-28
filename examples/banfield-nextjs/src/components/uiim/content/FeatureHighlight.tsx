@@ -11,6 +11,7 @@ import {
 import { ComponentProps } from 'lib/component-props';
 import { cn } from '@/lib/utils';
 import { SmartMedia } from '@/components/uiim/media/SmartMedia';
+import { BANFIELD_CONTAINER, BanfieldButton, HighlightedTitle } from '@/lib/banfield-ui';
 
 interface FeatureHighlightFields {
   EyebrowText: Field<string>;
@@ -79,14 +80,14 @@ export const Default = ({ fields, params, page }: FeatureHighlightProps): JSX.El
               <Text
                 field={fields.Title}
                 tag="h2"
-                className="text-3xl font-bold tracking-tight sm:text-4xl font-[var(--brand-heading-font,inherit)]"
+                className="text-3xl font-bold tracking-tight sm:text-4xl font-[family-name:var(--brand-heading-font,inherit)]"
                 style={{ color: 'var(--brand-fg, #111111)' }}
               />
             )}
             {(fields.Description?.value || isEditing) && (
               <ContentSdkRichText
                 field={fields.Description}
-                className="mt-4 text-base opacity-70 font-[var(--brand-body-font,inherit)]"
+                className="mt-4 text-base opacity-70 font-[family-name:var(--brand-body-font,inherit)]"
                 style={{ color: 'var(--brand-fg, #111111)' }}
               />
             )}
@@ -129,14 +130,14 @@ export const Centered = ({ fields, params, page }: FeatureHighlightProps): JSX.E
               <Text
                 field={fields.Title}
                 tag="h2"
-                className="text-3xl font-bold tracking-tight sm:text-4xl font-[var(--brand-heading-font,inherit)]"
+                className="text-3xl font-bold tracking-tight sm:text-4xl font-[family-name:var(--brand-heading-font,inherit)]"
                 style={{ color: 'var(--brand-fg, #111111)' }}
               />
             )}
             {(fields.Description?.value || isEditing) && (
               <ContentSdkRichText
                 field={fields.Description}
-                className="mx-auto mt-4 max-w-2xl text-base opacity-70 font-[var(--brand-body-font,inherit)]"
+                className="mx-auto mt-4 max-w-2xl text-base opacity-70 font-[family-name:var(--brand-body-font,inherit)]"
                 style={{ color: 'var(--brand-fg, #111111)' }}
               />
             )}
@@ -179,14 +180,14 @@ export const WithVideo = ({ fields, params, page }: FeatureHighlightProps): JSX.
               <Text
                 field={fields.Title}
                 tag="h2"
-                className="text-3xl font-bold tracking-tight sm:text-4xl font-[var(--brand-heading-font,inherit)]"
+                className="text-3xl font-bold tracking-tight sm:text-4xl font-[family-name:var(--brand-heading-font,inherit)]"
                 style={{ color: 'var(--brand-fg, #111111)' }}
               />
             )}
             {(fields.Description?.value || isEditing) && (
               <ContentSdkRichText
                 field={fields.Description}
-                className="mt-4 text-base opacity-70 font-[var(--brand-body-font,inherit)]"
+                className="mt-4 text-base opacity-70 font-[family-name:var(--brand-body-font,inherit)]"
                 style={{ color: 'var(--brand-fg, #111111)' }}
               />
             )}
@@ -252,14 +253,14 @@ export const IconLeft = ({ fields, params, page }: FeatureHighlightProps): JSX.E
               <Text
                 field={fields.Title}
                 tag="h3"
-                className="text-xl font-bold font-[var(--brand-heading-font,inherit)]"
+                className="text-xl font-bold font-[family-name:var(--brand-heading-font,inherit)]"
                 style={{ color: 'var(--brand-fg, #111111)' }}
               />
             )}
             {(fields.Description?.value || isEditing) && (
               <ContentSdkRichText
                 field={fields.Description}
-                className="mt-2 text-sm opacity-70 font-[var(--brand-body-font,inherit)]"
+                className="mt-2 text-sm opacity-70 font-[family-name:var(--brand-body-font,inherit)]"
                 style={{ color: 'var(--brand-fg, #111111)' }}
               />
             )}
@@ -277,7 +278,7 @@ export const IconLeft = ({ fields, params, page }: FeatureHighlightProps): JSX.E
   );
 };
 
-/* Banfield — text left, photo right, no eyebrow, outline pill */
+/* Banfield — compact copy left (two-tone Poppins title, › link), 16:9 photo right */
 export const Banfield = ({ fields, params, page }: FeatureHighlightProps): JSX.Element => {
   const { styles, RenderingIdentifier } = params;
   const isEditing = page?.mode?.isEditing;
@@ -285,50 +286,38 @@ export const Banfield = ({ fields, params, page }: FeatureHighlightProps): JSX.E
 
   return (
     <div className={cn('component feature-highlight', styles)} id={RenderingIdentifier}>
-      <section
-        className="w-full px-4 py-16"
-        style={{ backgroundColor: 'var(--brand-bg, #ffffff)' }}
-      >
-        <div className="mx-auto grid max-w-6xl items-center gap-10 md:grid-cols-2 md:px-6">
-          <div>
+      <section className="w-full bg-white py-12">
+        <div className={cn(BANFIELD_CONTAINER, 'grid items-center gap-8 md:grid-cols-[1fr_1.1fr]')}>
+          <div className="md:px-2">
             {isEditing && <Eyebrow field={fields.EyebrowText} isEditing={isEditing} />}
             {(fields.Title?.value || isEditing) && (
-              <Text
+              <HighlightedTitle
                 field={fields.Title}
                 tag="h2"
-                className="text-3xl font-semibold tracking-tight lowercase md:text-4xl font-[var(--brand-heading-font,inherit)]"
-                style={{ color: 'var(--brand-fg, #3D3D3D)' }}
+                isEditing={isEditing}
+                className="text-2xl font-medium lowercase font-[family-name:var(--brand-body-font,inherit)]"
+                style={{ color: 'var(--brand-title-fg, #333436)' }}
               />
             )}
             {(fields.Description?.value || isEditing) && (
               <ContentSdkRichText
                 field={fields.Description}
-                className="mt-4 text-base leading-relaxed opacity-80 font-[var(--brand-body-font,inherit)]"
-                style={{ color: 'var(--brand-fg, #3D3D3D)' }}
+                className="mt-3 text-[0.8rem] leading-[1.8] font-[family-name:var(--brand-body-font,inherit)]"
+                style={{ color: 'var(--brand-body-fg, #65686B)' }}
               />
             )}
-            {(fields.PrimaryLink?.value?.href || isEditing) && (
-              <ContentSdkLink
-                field={fields.PrimaryLink}
-                className="mt-6 inline-flex items-center justify-center border bg-transparent px-6 py-2 text-sm font-medium transition-opacity hover:opacity-80 rounded-[var(--brand-button-radius,9999px)]"
-                style={{
-                  borderColor: 'var(--brand-primary)',
-                  color: 'var(--brand-primary)',
-                  fontFamily: 'var(--brand-body-font, inherit)',
-                }}
-              />
-            )}
+            <BanfieldButton field={fields.PrimaryLink} isEditing={isEditing} variant="text" className="mt-3" />
           </div>
-          <div className="relative min-h-[280px] overflow-hidden md:min-h-[360px]">
-            {(fields.FeatureImage?.value?.src || isEditing) && (
+          {(fields.FeatureImage?.value?.src || isEditing) && (
+            <div className="relative aspect-video w-full overflow-hidden">
               <SmartMedia
                 field={fields.FeatureImage}
                 fill
-                sizes="(min-width: 768px) 50vw, 100vw"
+                sizes="(min-width: 768px) 55vw, 100vw"
                 className="object-cover"
               />
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </section>
     </div>

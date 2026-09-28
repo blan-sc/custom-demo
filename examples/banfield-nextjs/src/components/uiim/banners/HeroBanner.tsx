@@ -10,6 +10,7 @@ import {
 import { ComponentProps } from 'lib/component-props';
 import { cn } from '@/lib/utils';
 import { SmartMedia } from '@/components/uiim/media/SmartMedia';
+import { BANFIELD_CONTAINER, BanfieldButton, HighlightedTitle } from '@/lib/banfield-ui';
 
 interface HeroBannerFields {
   Title: Field<string>;
@@ -67,27 +68,6 @@ const SecondaryButton = ({
   );
 };
 
-const OutlinePill = ({
-  field,
-  isEditing,
-}: {
-  field: LinkField;
-  isEditing?: boolean;
-}) => {
-  if (!field?.value?.href && !isEditing) return null;
-  return (
-    <ContentSdkLink
-      field={field}
-      className="inline-flex items-center justify-center border bg-transparent px-6 py-2.5 text-sm font-medium transition-opacity hover:opacity-80 rounded-[var(--brand-button-radius,9999px)]"
-      style={{
-        borderColor: 'var(--brand-primary)',
-        color: 'var(--brand-primary)',
-        fontFamily: 'var(--brand-body-font, inherit)',
-      }}
-    />
-  );
-};
-
 /* ────────────────────────────────────────────
    Default — centered text on colored background
    ──────────────────────────────────────────── */
@@ -111,7 +91,7 @@ export const Default = ({ fields, params, page }: HeroBannerProps): JSX.Element 
             <Text
               field={fields.Title}
               tag="h1"
-              className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-[var(--brand-heading-font,inherit)]"
+              className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-[family-name:var(--brand-heading-font,inherit)]"
             />
           )}
           {(fields.Subtitle?.value || isEditing) && (
@@ -154,7 +134,7 @@ export const SplitImageText = ({ fields, params, page }: HeroBannerProps): JSX.E
               <Text
                 field={fields.Title}
                 tag="h1"
-                className="text-4xl font-bold tracking-tight sm:text-5xl font-[var(--brand-heading-font,inherit)]"
+                className="text-4xl font-bold tracking-tight sm:text-5xl font-[family-name:var(--brand-heading-font,inherit)]"
               />
             )}
             {(fields.Subtitle?.value || isEditing) && (
@@ -216,7 +196,7 @@ export const BackgroundImage = ({ fields, params, page }: HeroBannerProps): JSX.
               <Text
                 field={fields.Title}
                 tag="h1"
-                className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-[var(--brand-heading-font,inherit)]"
+                className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-[family-name:var(--brand-heading-font,inherit)]"
               />
             )}
             {(fields.Subtitle?.value || isEditing) && (
@@ -284,7 +264,7 @@ export const VideoBackground = ({ fields, params, page }: HeroBannerProps): JSX.
               <Text
                 field={fields.Title}
                 tag="h1"
-                className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-[var(--brand-heading-font,inherit)]"
+                className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-[family-name:var(--brand-heading-font,inherit)]"
               />
             )}
             {(fields.Subtitle?.value || isEditing) && (
@@ -327,7 +307,7 @@ export const Minimal = ({ fields, params, page }: HeroBannerProps): JSX.Element 
             <Text
               field={fields.Title}
               tag="h1"
-              className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-[var(--brand-heading-font,inherit)]"
+              className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl font-[family-name:var(--brand-heading-font,inherit)]"
             />
           )}
           {(fields.Subtitle?.value || isEditing) && (
@@ -346,61 +326,54 @@ export const Minimal = ({ fields, params, page }: HeroBannerProps): JSX.Element 
   );
 };
 
-/* Banfield variant — white split hero, orange last word, outline pills */
+/* Banfield — full-bleed photo with copy over its white left side; `*phrase*` in Title renders orange on its own line */
 export const Banfield = ({ fields, params, page }: HeroBannerProps): JSX.Element => {
   const { styles, RenderingIdentifier } = params;
   const isEditing = page?.mode?.isEditing;
   if (!fields) return <HeroBannerDefaultComponent />;
 
-  const titleValue = fields.Title?.value || '';
-  const words = titleValue.trim().split(/\s+/);
-  const lastWord = words.pop() || '';
-  const leadingWords = words.join(' ');
-
   return (
     <div className={cn('component hero-banner', styles)} id={RenderingIdentifier}>
-      <section
-        className="w-full"
-        style={{
-          backgroundColor: 'var(--brand-bg, #ffffff)',
-          color: 'var(--brand-fg, #3D3D3D)',
-        }}
-      >
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 md:grid-cols-2 md:px-6">
-          <div className="space-y-6">
-            {(fields.Title?.value || isEditing) &&
-              (isEditing ? (
-                <Text
-                  field={fields.Title}
-                  tag="h1"
-                  className="text-[2.75rem] font-semibold leading-[1.1] tracking-tight lowercase md:text-6xl font-[var(--brand-heading-font,inherit)]"
-                />
-              ) : (
-                <h1 className="text-[2.75rem] font-semibold leading-[1.1] tracking-tight lowercase md:text-6xl font-[var(--brand-heading-font,inherit)]">
-                  {leadingWords}{' '}
-                  <span style={{ color: 'var(--brand-primary)' }}>{lastWord}</span>
-                </h1>
-              ))}
+      <section className="relative w-full overflow-hidden bg-white md:min-h-[clamp(460px,42vw,640px)]">
+        {(fields.HeroImage?.value?.src || isEditing) && (
+          <div className="relative aspect-video w-full md:absolute md:inset-0 md:aspect-auto">
+            <SmartMedia
+              field={fields.HeroImage}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-right"
+            />
+          </div>
+        )}
+        <div
+          className={cn(
+            BANFIELD_CONTAINER,
+            'relative flex items-center py-10 md:min-h-[clamp(460px,42vw,640px)] md:py-16'
+          )}
+        >
+          <div className="max-w-[28rem] space-y-4">
+            {(fields.Title?.value || isEditing) && (
+              <HighlightedTitle
+                field={fields.Title}
+                tag="h1"
+                isEditing={isEditing}
+                highlightClassName="block"
+                className="text-[2.5rem] font-semibold leading-[1.05] lowercase md:text-5xl font-[family-name:var(--brand-heading-font,inherit)]"
+                style={{ color: 'var(--brand-heading-fg, #65686B)' }}
+              />
+            )}
             {(fields.Subtitle?.value || isEditing) && (
               <ContentSdkRichText
                 field={fields.Subtitle}
-                className="max-w-lg text-base leading-relaxed opacity-80 font-[var(--brand-body-font,inherit)]"
+                className="text-[0.92rem] leading-[1.8] font-[family-name:var(--brand-body-font,inherit)]"
+                style={{ color: 'var(--brand-body-fg, #65686B)' }}
               />
             )}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <OutlinePill field={fields.PrimaryLink} isEditing={isEditing} />
-              <OutlinePill field={fields.SecondaryLink} isEditing={isEditing} />
+            <div className="flex flex-wrap items-center gap-3 pt-2 lg:flex-nowrap">
+              <BanfieldButton field={fields.PrimaryLink} isEditing={isEditing} />
+              <BanfieldButton field={fields.SecondaryLink} isEditing={isEditing} />
             </div>
-          </div>
-          <div className="relative min-h-[320px] overflow-hidden md:min-h-[440px]">
-            {(fields.HeroImage?.value?.src || isEditing) && (
-              <SmartMedia
-                field={fields.HeroImage}
-                fill
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover"
-              />
-            )}
           </div>
         </div>
       </section>

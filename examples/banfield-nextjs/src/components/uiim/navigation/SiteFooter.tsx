@@ -95,7 +95,7 @@ const SocialIcons = () => (
 
 const Copyright = () => (
   <p
-    className="text-sm opacity-50 font-[var(--brand-body-font,inherit)]"
+    className="text-sm opacity-50 font-[family-name:var(--brand-body-font,inherit)]"
     style={{ color: 'var(--brand-footer-fg, #ffffff)' }}
   >
     &copy; {new Date().getFullYear()} BrandName. All rights reserved.
@@ -127,7 +127,7 @@ export const Default = (props: SiteFooterProps): JSX.Element => {
             <div className="md:col-span-2 space-y-4">
               <Logo brandLogo={brandLogo} />
               <p
-                className="max-w-xs text-sm opacity-60 font-[var(--brand-body-font,inherit)]"
+                className="max-w-xs text-sm opacity-60 font-[family-name:var(--brand-body-font,inherit)]"
               >
                 Building the future of digital experiences. Trusted by teams worldwide.
               </p>
@@ -138,7 +138,7 @@ export const Default = (props: SiteFooterProps): JSX.Element => {
             {LINK_COLUMNS.map((col) => (
               <div key={col.title}>
                 <h3
-                  className="mb-3 text-sm font-semibold uppercase tracking-wider opacity-70 font-[var(--brand-heading-font,inherit)]"
+                  className="mb-3 text-sm font-semibold uppercase tracking-wider opacity-70 font-[family-name:var(--brand-heading-font,inherit)]"
                 >
                   {col.title}
                 </h3>
@@ -147,7 +147,7 @@ export const Default = (props: SiteFooterProps): JSX.Element => {
                     <li key={link}>
                       <a
                         href="#"
-                        className="text-sm opacity-60 transition-opacity hover:opacity-100 font-[var(--brand-body-font,inherit)]"
+                        className="text-sm opacity-60 transition-opacity hover:opacity-100 font-[family-name:var(--brand-body-font,inherit)]"
                       >
                         {link}
                       </a>
@@ -201,7 +201,7 @@ export const Minimal = (props: SiteFooterProps): JSX.Element => {
               <a
                 key={link}
                 href="#"
-                className="transition-opacity hover:opacity-100 font-[var(--brand-body-font,inherit)]"
+                className="transition-opacity hover:opacity-100 font-[family-name:var(--brand-body-font,inherit)]"
               >
                 {link}
               </a>
@@ -251,10 +251,10 @@ export const MegaFooter = (props: SiteFooterProps): JSX.Element => {
         >
           <div className="mx-auto flex max-w-7xl flex-col items-center gap-4 px-4 py-8 sm:flex-row sm:justify-between sm:px-6">
             <div>
-              <h3 className="text-lg font-semibold font-[var(--brand-heading-font,inherit)]">
+              <h3 className="text-lg font-semibold font-[family-name:var(--brand-heading-font,inherit)]">
                 Subscribe to our newsletter
               </h3>
-              <p className="mt-1 text-sm opacity-60 font-[var(--brand-body-font,inherit)]">
+              <p className="mt-1 text-sm opacity-60 font-[family-name:var(--brand-body-font,inherit)]">
                 Get the latest updates delivered to your inbox.
               </p>
             </div>
@@ -288,7 +288,7 @@ export const MegaFooter = (props: SiteFooterProps): JSX.Element => {
           <div className="grid gap-8 md:grid-cols-6">
             <div className="md:col-span-2 space-y-4">
               <Logo brandLogo={brandLogo} />
-              <p className="max-w-xs text-sm opacity-60 font-[var(--brand-body-font,inherit)]">
+              <p className="max-w-xs text-sm opacity-60 font-[family-name:var(--brand-body-font,inherit)]">
                 Building the future of digital experiences. Trusted by teams worldwide.
               </p>
               <SocialIcons />
@@ -296,13 +296,13 @@ export const MegaFooter = (props: SiteFooterProps): JSX.Element => {
 
             {LINK_COLUMNS.map((col) => (
               <div key={col.title}>
-                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider opacity-70 font-[var(--brand-heading-font,inherit)]">
+                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider opacity-70 font-[family-name:var(--brand-heading-font,inherit)]">
                   {col.title}
                 </h3>
                 <ul className="space-y-2">
                   {col.links.map((link) => (
                     <li key={link}>
-                      <a href="#" className="text-sm opacity-60 transition-opacity hover:opacity-100 font-[var(--brand-body-font,inherit)]">
+                      <a href="#" className="text-sm opacity-60 transition-opacity hover:opacity-100 font-[family-name:var(--brand-body-font,inherit)]">
                         {link}
                       </a>
                     </li>
@@ -313,13 +313,13 @@ export const MegaFooter = (props: SiteFooterProps): JSX.Element => {
 
             {extraColumns.map((col) => (
               <div key={col.title}>
-                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider opacity-70 font-[var(--brand-heading-font,inherit)]">
+                <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider opacity-70 font-[family-name:var(--brand-heading-font,inherit)]">
                   {col.title}
                 </h3>
                 <ul className="space-y-2">
                   {col.links.map((link) => (
                     <li key={link}>
-                      <a href="#" className="text-sm opacity-60 transition-opacity hover:opacity-100 font-[var(--brand-body-font,inherit)]">
+                      <a href="#" className="text-sm opacity-60 transition-opacity hover:opacity-100 font-[family-name:var(--brand-body-font,inherit)]">
                         {link}
                       </a>
                     </li>
@@ -348,28 +348,28 @@ export const MegaFooter = (props: SiteFooterProps): JSX.Element => {
 
 const BANFIELD_COLUMNS = [
   {
-    title: 'Our services',
-    links: ['Wellness exams', 'Vaccinations', 'Dental care', 'Surgery'],
+    title: 'Visit Banfield',
+    links: ['Find a location near me', 'Make an appointment', 'Ways to get care', 'Important forms'],
   },
   {
-    title: 'Pet parents',
-    links: ['Optimum Wellness Plan', 'myBanfield app', 'Pet health resources', 'Locations'],
+    title: 'Banfield Pet Hospital',
+    links: ['About Banfield', 'Community involvement', 'Newsroom', 'Inclusion and diversity'],
   },
   {
-    title: 'About',
-    links: ['About Banfield', 'Banfield Foundation', 'Inclusion', 'Newsroom'],
+    title: 'Products and services',
+    links: ['Optimum Wellness Plans®', 'Services', 'Price estimator', 'Pet Chat℠'],
   },
   {
-    title: 'Careers',
-    links: ['Join our team', 'Veterinarians', 'Veterinary technicians', 'Hospital teams'],
+    title: 'Shop Banfield',
+    links: ['Shop medications', 'Shop for Optimum Wellness Plans®', 'Shipping', 'AutoShip', 'FAQs'],
   },
   {
-    title: 'Support',
-    links: ['Make an appointment', 'Contact us', 'FAQs', 'Hospital hours'],
+    title: 'Health and wellness information',
+    links: ['Wellness at Banfield', 'Pet health resources', 'Puppy hub', 'Kitten hub', 'MyBanfield portal'],
   },
   {
-    title: 'Legal',
-    links: ['Privacy policy', 'Terms of use', 'Accessibility', 'Cookie settings'],
+    title: 'More from Banfield',
+    links: ['Banfield Foundation', 'Banfield Exchange', 'Careers'],
   },
 ];
 
@@ -405,7 +405,7 @@ export const Banfield = (props: SiteFooterProps): JSX.Element => {
             {BANFIELD_COLUMNS.map((col) => (
               <div key={col.title}>
                 <h3
-                  className="mb-3 text-xs font-semibold uppercase tracking-wider font-[var(--brand-heading-font,inherit)]"
+                  className="mb-3 text-[0.8rem] font-medium font-[family-name:var(--brand-body-font,inherit)]"
                   style={{ color: 'var(--brand-fg, #3D3D3D)' }}
                 >
                   {col.title}
@@ -415,7 +415,7 @@ export const Banfield = (props: SiteFooterProps): JSX.Element => {
                     <li key={link}>
                       <a
                         href="#"
-                        className="text-sm opacity-70 transition-opacity hover:opacity-100 font-[var(--brand-body-font,inherit)]"
+                        className="text-sm opacity-70 transition-opacity hover:opacity-100 font-[family-name:var(--brand-body-font,inherit)]"
                       >
                         {link}
                       </a>
@@ -431,10 +431,10 @@ export const Banfield = (props: SiteFooterProps): JSX.Element => {
             style={{ borderColor: 'var(--brand-border, #E6E6E6)' }}
           >
             <p
-              className="text-sm opacity-60 font-[var(--brand-body-font,inherit)]"
+              className="text-sm opacity-60 font-[family-name:var(--brand-body-font,inherit)]"
               style={{ color: 'var(--brand-fg, #3D3D3D)' }}
             >
-              &copy; {new Date().getFullYear()} Banfield Pet Hospital. All rights reserved.
+              Banfield Pet Hospital, an affiliate of Mars, Incorporated &middot; &copy; {new Date().getFullYear()} Mars or Affiliates
             </p>
             <div className="flex items-center gap-4 text-sm opacity-70">
               <a href="#" className="hover:opacity-100 transition-opacity" aria-label="Facebook">

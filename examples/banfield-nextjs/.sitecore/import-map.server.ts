@@ -13,8 +13,9 @@ import * as React_7214d18997ee864dd178de7b3a8430f6783e8b89 from 'react';
 import { NextImage, RichText, Text, Link, AppPlaceholder } from '@sitecore-content-sdk/nextjs';
 import { cn } from '@/lib/utils';
 import Link_a258c208ba01265ca0aa9c7abae745cc7141aa63 from 'next/link';
-import { Sparkles } from 'lucide-react';
+import { Instagram, Sparkles, MapPin, Phone, Search } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
+import { BANFIELD_CONTAINER, HighlightedTitle, BanfieldButton } from '@/lib/banfield-ui';
 import { SmartMedia } from '@/components/uiim/media/SmartMedia';
 import { Slot } from '@radix-ui/react-slot';
 import { cva } from 'class-variance-authority';
@@ -62,8 +63,20 @@ const importMap = [
   {
     module: 'lucide-react',
     exports: [
+      { name: 'Instagram', value: Instagram },
       { name: 'Sparkles', value: Sparkles },
+      { name: 'MapPin', value: MapPin },
+      { name: 'Phone', value: Phone },
+      { name: 'Search', value: Search },
       { name: '*', value: LucideIcons },
+    ]
+  },
+  {
+    module: '@/lib/banfield-ui',
+    exports: [
+      { name: 'BANFIELD_CONTAINER', value: BANFIELD_CONTAINER },
+      { name: 'HighlightedTitle', value: HighlightedTitle },
+      { name: 'BanfieldButton', value: BanfieldButton },
     ]
   },
   {

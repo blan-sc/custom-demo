@@ -8,6 +8,7 @@ import {
 } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { cn } from '@/lib/utils';
+import { BANFIELD_CONTAINER } from '@/lib/banfield-ui';
 
 interface NewsletterSignupFields {
   Title: Field<string>;
@@ -49,7 +50,7 @@ const FormRow = ({
   if (submitted && fields.SuccessMessage?.value) {
     return (
       <p
-        className="text-sm font-medium font-[var(--brand-body-font,inherit)]"
+        className="text-sm font-medium font-[family-name:var(--brand-body-font,inherit)]"
         style={{ color: 'var(--brand-primary)' }}
       >
         {fields.SuccessMessage.value}
@@ -63,7 +64,7 @@ const FormRow = ({
         type="email"
         placeholder={fields.PlaceholderText?.value || 'Enter your email'}
         className={cn(
-          'flex-1 rounded-[var(--brand-button-radius,0.375rem)] border px-4 py-2.5 text-sm font-[var(--brand-body-font,inherit)]',
+          'flex-1 rounded-[var(--brand-button-radius,0.375rem)] border px-4 py-2.5 text-sm font-[family-name:var(--brand-body-font,inherit)]',
           inputClassName
         )}
         style={{
@@ -77,7 +78,7 @@ const FormRow = ({
         type="button"
         onClick={onSubmit}
         className={cn(
-          'shrink-0 rounded-[var(--brand-button-radius,0.375rem)] px-5 py-2.5 text-sm font-semibold transition-opacity hover:opacity-90 font-[var(--brand-body-font,inherit)]',
+          'shrink-0 rounded-[var(--brand-button-radius,0.375rem)] px-5 py-2.5 text-sm font-semibold transition-opacity hover:opacity-90 font-[family-name:var(--brand-body-font,inherit)]',
           buttonClassName
         )}
         style={buttonStyle || {
@@ -115,14 +116,14 @@ export const Default = ({ fields, params, page }: NewsletterSignupProps): JSX.El
             <Text
               field={fields.Title}
               tag="h2"
-              className="text-2xl font-bold font-[var(--brand-heading-font,inherit)]"
+              className="text-2xl font-bold font-[family-name:var(--brand-heading-font,inherit)]"
               style={{ color: 'var(--brand-fg, #111111)' }}
             />
           )}
           {(fields.Description?.value || isEditing) && (
             <ContentSdkRichText
               field={fields.Description}
-              className="mt-3 text-sm opacity-70 font-[var(--brand-body-font,inherit)]"
+              className="mt-3 text-sm opacity-70 font-[family-name:var(--brand-body-font,inherit)]"
               style={{ color: 'var(--brand-fg, #111111)' }}
             />
           )}
@@ -164,13 +165,13 @@ export const Banner = ({ fields, params, page }: NewsletterSignupProps): JSX.Ele
               <Text
                 field={fields.Title}
                 tag="h2"
-                className="text-2xl font-bold font-[var(--brand-heading-font,inherit)]"
+                className="text-2xl font-bold font-[family-name:var(--brand-heading-font,inherit)]"
               />
             )}
             {(fields.Description?.value || isEditing) && (
               <ContentSdkRichText
                 field={fields.Description}
-                className="mt-2 text-sm opacity-90 font-[var(--brand-body-font,inherit)]"
+                className="mt-2 text-sm opacity-90 font-[family-name:var(--brand-body-font,inherit)]"
               />
             )}
           </div>
@@ -219,7 +220,7 @@ export const Compact = ({ fields, params, page }: NewsletterSignupProps): JSX.El
   );
 };
 
-/* Banfield — stacked center on full-bleed orange */
+/* Banfield — full-bleed orange band, left-aligned: Zilla title, wide square input + white-outline button */
 export const Banfield = ({ fields, params, page }: NewsletterSignupProps): JSX.Element => {
   const { styles, RenderingIdentifier } = params;
   const isEditing = page?.mode?.isEditing;
@@ -229,59 +230,57 @@ export const Banfield = ({ fields, params, page }: NewsletterSignupProps): JSX.E
   return (
     <div className={cn('component newsletter-signup', styles)} id={RenderingIdentifier}>
       <section
-        className="w-full px-4 py-14"
+        className="w-full py-8 md:py-10"
         style={{
           backgroundColor: 'var(--brand-primary)',
           color: 'var(--brand-primary-foreground)',
         }}
       >
-        <div className="mx-auto flex max-w-xl flex-col items-center text-center">
+        <div className={cn(BANFIELD_CONTAINER, 'md:px-12')}>
           {(fields.Title?.value || isEditing) && (
             <Text
               field={fields.Title}
               tag="h2"
-              className="text-3xl font-semibold lowercase font-[var(--brand-heading-font,inherit)]"
+              className="text-[1.6rem] font-semibold leading-tight lowercase font-[family-name:var(--brand-heading-font,inherit)]"
             />
           )}
           {(fields.Description?.value || isEditing) && (
             <ContentSdkRichText
               field={fields.Description}
-              className="mt-3 text-sm opacity-90 font-[var(--brand-body-font,inherit)]"
+              className="mt-2 text-sm opacity-90 font-[family-name:var(--brand-body-font,inherit)]"
             />
           )}
-          <div className="mt-6 w-full">
+          <div className="mt-5">
             {submitted && fields.SuccessMessage?.value ? (
-              <p className="text-sm font-medium font-[var(--brand-body-font,inherit)]">
+              <p className="text-sm font-medium font-[family-name:var(--brand-body-font,inherit)]">
                 {fields.SuccessMessage.value}
               </p>
             ) : (
-              <div className="mx-auto flex w-full max-w-md gap-2">
+              <form
+                className="flex flex-col gap-4 sm:flex-row sm:gap-6"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  setSubmitted(true);
+                }}
+              >
                 <input
                   type="email"
-                  placeholder={fields.PlaceholderText?.value || 'Enter your email'}
-                  className="flex-1 border px-4 py-2.5 text-sm font-[var(--brand-body-font,inherit)] rounded-[var(--brand-button-radius,9999px)]"
-                  style={{
-                    borderColor: 'color-mix(in srgb, var(--brand-primary-foreground) 35%, transparent)',
-                    color: 'var(--brand-fg, #3D3D3D)',
-                    backgroundColor: 'var(--brand-bg, #ffffff)',
-                  }}
+                  aria-label={fields.PlaceholderText?.value || 'Email address'}
+                  placeholder={fields.PlaceholderText?.value || 'Email address'}
+                  className="border-0 bg-white px-4 py-2 text-sm outline-none sm:flex-[2] font-[family-name:var(--brand-body-font,inherit)]"
+                  style={{ color: 'var(--brand-fg, #3D3D3D)' }}
                 />
                 <button
-                  type="button"
-                  onClick={() => setSubmitted(true)}
-                  className="shrink-0 px-5 py-2.5 text-sm font-semibold transition-opacity hover:opacity-90 font-[var(--brand-body-font,inherit)] rounded-[var(--brand-button-radius,9999px)]"
-                  style={{
-                    backgroundColor: 'var(--brand-primary-foreground)',
-                    color: 'var(--brand-primary)',
-                  }}
+                  type="submit"
+                  className="border-2 border-white bg-transparent px-6 py-1.5 text-[0.92rem] font-medium text-white transition-colors hover:bg-white hover:text-[var(--brand-primary)] sm:flex-1 font-[family-name:var(--brand-body-font,inherit)]"
                 >
                   {isEditing && fields.ButtonText ? (
                     <Text field={fields.ButtonText} />
                   ) : (
-                    fields.ButtonText?.value || 'Subscribe'
+                    fields.ButtonText?.value || 'Sign up'
                   )}
                 </button>
-              </div>
+              </form>
             )}
           </div>
         </div>

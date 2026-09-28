@@ -413,7 +413,7 @@ export const Banfield = ({ fields, params, page, rendering }: NavigationHeaderPr
       >
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-6 px-4 py-4 sm:px-6">
           <Logo brandLogo={brandLogo} />
-          <NavLinks items={links} className="gap-8" />
+          <NavLinks items={links} className="gap-6 whitespace-nowrap [&_a]:text-[0.8rem]" />
           <div className="flex items-center gap-4">
             <HeaderSearch datasource={datasource} page={page} rendering={rendering} />
             <BanfieldCta

@@ -7,6 +7,8 @@ import {
 } from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
 import { cn } from '@/lib/utils';
+import { Instagram } from 'lucide-react';
+import { BANFIELD_CONTAINER, HighlightedTitle } from '@/lib/banfield-ui';
 
 interface ImageGalleryFields {
   GalleryImage: ImageField;
@@ -48,7 +50,7 @@ export const Default = ({ fields, params, page }: ImageGalleryProps): JSX.Elemen
         )}
         {(fields.Caption?.value || isEditing) && (
           <figcaption
-            className="px-4 py-3 text-center text-sm font-[var(--brand-body-font,inherit)]"
+            className="px-4 py-3 text-center text-sm font-[family-name:var(--brand-body-font,inherit)]"
             style={{ color: 'var(--brand-muted-foreground, #6b7280)' }}
           >
             <Text field={fields.Caption} />
@@ -80,7 +82,7 @@ export const Gallery = ({ fields, params, page }: ImageGalleryProps): JSX.Elemen
         )}
         {(fields.Caption?.value || isEditing) && (
           <figcaption
-            className="mt-3 text-center text-sm font-[var(--brand-body-font,inherit)]"
+            className="mt-3 text-center text-sm font-[family-name:var(--brand-body-font,inherit)]"
             style={{ color: 'var(--brand-muted-foreground, #6b7280)' }}
           >
             <Text field={fields.Caption} />
@@ -123,7 +125,7 @@ export const Parallax = ({ fields, params, page }: ImageGalleryProps): JSX.Eleme
         )}
         {(fields.Caption?.value || isEditing) && (
           <figcaption
-            className="px-4 py-3 text-center text-sm font-[var(--brand-body-font,inherit)]"
+            className="px-4 py-3 text-center text-sm font-[family-name:var(--brand-body-font,inherit)]"
             style={{
               backgroundColor: 'var(--brand-bg, #ffffff)',
               color: 'var(--brand-muted-foreground, #6b7280)',
@@ -137,7 +139,9 @@ export const Parallax = ({ fields, params, page }: ImageGalleryProps): JSX.Eleme
   );
 };
 
-/* Banfield — heading plus 2x2 circular Instagram stills */
+const BANFIELD_INSTAGRAM_URL = 'https://www.instagram.com/banfieldpethospital/';
+
+/* Banfield — two-tone heading, four square Instagram stills in a row, handle button */
 export const Banfield = ({ fields, params, page }: ImageGalleryProps): JSX.Element => {
   const { styles, RenderingIdentifier } = params;
   const isEditing = page?.mode?.isEditing;
@@ -152,24 +156,44 @@ export const Banfield = ({ fields, params, page }: ImageGalleryProps): JSX.Eleme
 
   return (
     <div className={cn('component image-gallery', styles)} id={RenderingIdentifier}>
-      <section className="w-full px-4 py-16" style={{ backgroundColor: 'var(--brand-bg, #ffffff)' }}>
-        <div className="mx-auto max-w-5xl">
+      <section className="w-full bg-white py-10">
+        <div className={BANFIELD_CONTAINER}>
           {(fields.Caption?.value || isEditing) && (
-            <Text
+            <HighlightedTitle
               field={fields.Caption}
               tag="h2"
-              className="mb-10 text-center text-3xl font-semibold lowercase font-[var(--brand-heading-font,inherit)]"
-              style={{ color: 'var(--brand-fg, #3D3D3D)' }}
+              isEditing={isEditing}
+              className="mb-2 text-xl font-medium font-[family-name:var(--brand-body-font,inherit)]"
+              style={{ color: 'var(--brand-title-fg, #333436)' }}
             />
           )}
-          <div className="grid grid-cols-2 gap-6 md:gap-8">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
             {photos.map((photo, index) =>
-              photo?.value?.src || isEditing ? (
-                <div key={index} className="aspect-square overflow-hidden rounded-full">
-                  <ContentSdkImage field={photo} className="h-full w-full object-cover" />
+              photo && (photo.value?.src || isEditing) ? (
+                <div key={index} className="relative aspect-square overflow-hidden">
+                  <ContentSdkImage
+                    field={photo}
+                    fill
+                    sizes="(min-width: 768px) 25vw, 50vw"
+                    className="object-cover"
+                  />
                 </div>
               ) : null
             )}
+          </div>
+          <p className="mt-2 text-right text-[0.65rem]" style={{ color: 'var(--brand-body-fg, #65686B)' }}>
+            by @banfieldpethospital
+          </p>
+          <div className="mt-6 flex justify-center">
+            <a
+              href={BANFIELD_INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 border-2 border-[var(--brand-primary)] bg-white px-[30px] py-1.5 text-[0.92rem] font-medium text-[var(--brand-primary)] transition-colors hover:bg-[var(--brand-primary)] hover:text-white font-[family-name:var(--brand-body-font,inherit)]"
+            >
+              <Instagram aria-hidden className="h-4 w-4" />
+              Banfieldpethospital
+            </a>
           </div>
         </div>
       </section>

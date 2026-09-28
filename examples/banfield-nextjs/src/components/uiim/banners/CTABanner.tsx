@@ -76,13 +76,13 @@ export const Default = ({ fields, params, page }: CTABannerProps): JSX.Element =
             <Text
               field={fields.Title}
               tag="h2"
-              className="text-3xl font-bold tracking-tight sm:text-4xl font-[var(--brand-heading-font,inherit)]"
+              className="text-3xl font-bold tracking-tight sm:text-4xl font-[family-name:var(--brand-heading-font,inherit)]"
             />
           )}
           {(fields.Description?.value || isEditing) && (
             <ContentSdkRichText
               field={fields.Description}
-              className="mt-4 text-lg opacity-90 font-[var(--brand-body-font,inherit)]"
+              className="mt-4 text-lg opacity-90 font-[family-name:var(--brand-body-font,inherit)]"
             />
           )}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -127,13 +127,13 @@ export const WithImage = ({ fields, params, page }: CTABannerProps): JSX.Element
               <Text
                 field={fields.Title}
                 tag="h2"
-                className="text-3xl font-bold tracking-tight sm:text-4xl font-[var(--brand-heading-font,inherit)]"
+                className="text-3xl font-bold tracking-tight sm:text-4xl font-[family-name:var(--brand-heading-font,inherit)]"
               />
             )}
             {(fields.Description?.value || isEditing) && (
               <ContentSdkRichText
                 field={fields.Description}
-                className="mt-4 text-lg opacity-90 font-[var(--brand-body-font,inherit)]"
+                className="mt-4 text-lg opacity-90 font-[family-name:var(--brand-body-font,inherit)]"
               />
             )}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -171,14 +171,14 @@ export const Split = ({ fields, params, page }: CTABannerProps): JSX.Element => 
               <Text
                 field={fields.Title}
                 tag="h2"
-                className="text-3xl font-bold tracking-tight sm:text-4xl font-[var(--brand-heading-font,inherit)]"
+                className="text-3xl font-bold tracking-tight sm:text-4xl font-[family-name:var(--brand-heading-font,inherit)]"
                 style={{ color: 'var(--brand-fg, #111111)' }}
               />
             )}
             {(fields.Description?.value || isEditing) && (
               <ContentSdkRichText
                 field={fields.Description}
-                className="mt-4 text-base font-[var(--brand-body-font,inherit)]"
+                className="mt-4 text-base font-[family-name:var(--brand-body-font,inherit)]"
                 style={{ color: 'var(--brand-muted-foreground, #6b7280)' }}
               />
             )}
@@ -217,14 +217,14 @@ export const Minimal = ({ fields, params, page }: CTABannerProps): JSX.Element =
               <Text
                 field={fields.Title}
                 tag="p"
-                className="text-lg font-semibold font-[var(--brand-heading-font,inherit)]"
+                className="text-lg font-semibold font-[family-name:var(--brand-heading-font,inherit)]"
                 style={{ color: 'var(--brand-fg, #111111)' }}
               />
             )}
             {(fields.Description?.value || isEditing) && (
               <ContentSdkRichText
                 field={fields.Description}
-                className="mt-1 text-sm font-[var(--brand-body-font,inherit)]"
+                className="mt-1 text-sm font-[family-name:var(--brand-body-font,inherit)]"
                 style={{ color: 'var(--brand-muted-foreground, #6b7280)' }}
               />
             )}
@@ -249,28 +249,55 @@ export const Minimal = ({ fields, params, page }: CTABannerProps): JSX.Element =
   );
 };
 
-const BanfieldOutlinePill = ({
-  field,
-  isEditing,
-}: {
-  field: LinkField;
-  isEditing?: boolean;
-}) => {
-  if (!field?.value?.href && !isEditing) return null;
+const AppleGlyph = () => (
+  <svg viewBox="0 0 24 24" aria-hidden className="h-5 w-5 fill-white">
+    <path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701" />
+  </svg>
+);
+
+const PlayGlyph = () => (
+  <svg viewBox="0 0 24 24" aria-hidden className="h-5 w-5">
+    <path fill="#00D7FE" d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z" />
+    <path fill="#FFCE00" d="m17.1 8.7 3.4 1.9c1 .6 1 2.2 0 2.8l-3.4 1.9L13.8 12z" />
+    <path fill="#00F076" d="M3.6 1.8c.3-.2.8-.2 1.2 0l12.3 6.9-3.3 3.3z" />
+    <path fill="#FF3A44" d="m13.8 12 3.3 3.3-12.3 6.9c-.4.2-.9.2-1.2 0z" />
+  </svg>
+);
+
+/* Store badge chrome (glyph + two-line label) chosen from the link URL; falls back to the link text */
+const StoreBadge = ({ field, isEditing }: { field?: LinkField; isEditing?: boolean }) => {
+  if (!field || (!field.value?.href && !isEditing)) return null;
+
+  const badgeClassName =
+    'inline-flex h-10 items-center gap-2 rounded-md border border-[#A6A6A6] bg-black px-2.5 text-white transition-opacity hover:opacity-85';
+
+  if (isEditing) {
+    return <ContentSdkLink field={field} className={cn(badgeClassName, 'text-xs')} />;
+  }
+
+  const href = field.value?.href || '';
+  const store = /apple\.com/i.test(href) ? 'apple' : /play\.google/i.test(href) ? 'google' : null;
+  const label = field.value?.text || '';
+
   return (
-    <ContentSdkLink
-      field={field}
-      className="inline-flex items-center justify-center border bg-transparent px-6 py-2 text-sm font-medium transition-opacity hover:opacity-80 rounded-[var(--brand-button-radius,9999px)]"
-      style={{
-        borderColor: 'var(--brand-primary)',
-        color: 'var(--brand-primary)',
-        fontFamily: 'var(--brand-body-font, inherit)',
-      }}
-    />
+    <ContentSdkLink field={field} className={badgeClassName} aria-label={label || undefined}>
+      {store === 'apple' && <AppleGlyph />}
+      {store === 'google' && <PlayGlyph />}
+      <span className="flex flex-col text-left leading-none">
+        {store && (
+          <span className="text-[0.55rem] uppercase tracking-wide">
+            {store === 'apple' ? 'Download on the' : 'Get it on'}
+          </span>
+        )}
+        <span className="text-[0.95rem] font-medium">
+          {store === 'apple' ? 'App Store' : store === 'google' ? 'Google Play' : label}
+        </span>
+      </span>
+    </ContentSdkLink>
   );
 };
 
-/* Banfield — white band, two store-style outline pills */
+/* Banfield — slim full-bleed orange strip: title + app store badges on one row */
 export const Banfield = ({ fields, params, page }: CTABannerProps): JSX.Element => {
   const { styles, RenderingIdentifier } = params;
   const isEditing = page?.mode?.isEditing;
@@ -279,29 +306,23 @@ export const Banfield = ({ fields, params, page }: CTABannerProps): JSX.Element 
   return (
     <div className={cn('component cta-banner', styles)} id={RenderingIdentifier}>
       <section
-        className="w-full px-4 py-16"
+        className="w-full px-4 py-3.5"
         style={{
-          backgroundColor: 'var(--brand-bg, #ffffff)',
-          color: 'var(--brand-fg, #3D3D3D)',
+          backgroundColor: 'var(--brand-primary)',
+          color: 'var(--brand-primary-foreground)',
         }}
       >
-        <div className="mx-auto max-w-3xl text-center">
+        <div className="mx-auto flex max-w-[1140px] flex-col items-center justify-center gap-3 sm:flex-row sm:gap-24">
           {(fields.Title?.value || isEditing) && (
             <Text
               field={fields.Title}
               tag="h2"
-              className="text-3xl font-semibold tracking-tight lowercase md:text-4xl font-[var(--brand-heading-font,inherit)]"
+              className="text-[0.95rem] font-semibold font-[family-name:var(--brand-body-font,inherit)]"
             />
           )}
-          {(fields.Description?.value || isEditing) && (
-            <ContentSdkRichText
-              field={fields.Description}
-              className="mt-4 text-base opacity-80 font-[var(--brand-body-font,inherit)]"
-            />
-          )}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <BanfieldOutlinePill field={fields.PrimaryLink} isEditing={isEditing} />
-            <BanfieldOutlinePill field={fields.SecondaryLink} isEditing={isEditing} />
+          <div className="flex items-center gap-2">
+            <StoreBadge field={fields.SecondaryLink} isEditing={isEditing} />
+            <StoreBadge field={fields.PrimaryLink} isEditing={isEditing} />
           </div>
         </div>
       </section>

@@ -107,9 +107,13 @@
   --brand-footer-fg: #65686B;
   --brand-heading-font: 'Zilla Slab', serif;
   --brand-body-font: 'Poppins', sans-serif;
-  --brand-radius: 9999px;
-  --brand-button-radius: 9999px;
+  --brand-button-radius: 0px;
   --brand-card-radius: 0px;
+  /* Banfield: gray Zilla Slab display headings, near-black Poppins card titles, gray body copy */
+  --brand-heading-fg: #65686B;
+  --brand-title-fg: #333436;
+  --brand-body-fg: #65686B;
+  --brand-highlight: #D74100;
 }
 
 @layer base {
@@ -184,6 +188,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--brand-body-font);
   }
 }
 

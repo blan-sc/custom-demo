@@ -56,10 +56,10 @@ spacing:
   containerPadding: "1.5rem"
 
 shape:
-  borderRadius: "9999px"
-  buttonRadius: "9999px"
+  borderRadius: "0px"
+  buttonRadius: "0px"
   cardRadius: "0px"
-  imageRadius: "9999px"
+  imageRadius: "0px"
   shadowStyle: "none"
   borderStyle: "none"
 
@@ -82,8 +82,8 @@ tailwind:
     heading: ["Zilla Slab", "serif"]
     body: ["Poppins", "sans-serif"]
   borderRadius:
-    DEFAULT: "9999px"
-    button: "9999px"
+    DEFAULT: "0px"
+    button: "0px"
     card: "0px"
 
 cssVariables: |
@@ -106,9 +106,12 @@ cssVariables: |
     --brand-ring: #D74100;
     --brand-heading-font: 'Zilla Slab', serif;
     --brand-body-font: 'Poppins', sans-serif;
-    --brand-radius: 9999px;
-    --brand-button-radius: 9999px;
+    --brand-button-radius: 0px;
     --brand-card-radius: 0px;
+    --brand-heading-fg: #65686B;
+    --brand-title-fg: #333436;
+    --brand-body-fg: #65686B;
+    --brand-highlight: #D74100;
   }
 
 extraction:
@@ -119,9 +122,11 @@ extraction:
     - "Page is almost entirely white. Header is a white/transparent bar; footer is white with a full-bleed orange newsletter strip above it."
     - "Headlines use Zilla Slab (serif, weight 600) at ~64px; body and some H2s use Poppins. Content is written in lowercase."
     - "GT Walsheim Bold is a proprietary wordmark font (bhere). Demo uses Poppins as the sans substitute."
-    - "Buttons are pill-shaped (fully rounded). Hero CTAs are orange outline pills on white, not solid fills."
-    - "Card imagery is circular; cards themselves are flat with no shadow or border."
-    - "Hero is split-image-text: large lowercase headline + body + two outline CTAs on the left, veterinarian photo on the right. Not a full-bleed overlay."
+    - "CORRECTED 2026-09-27 (computed styles): buttons are SQUARE (border-radius 0), 2px orange border, white fill, Poppins 500 ~14.7px, padding 6px 30px. Not pills."
+    - "CORRECTED 2026-09-27: card/hero imagery is rectangular 16:9 with object-fit cover, no radius. Not circles. All DAM card assets are 1920x1080."
+    - "CORRECTED 2026-09-27: hero is a full-bleed 16:9 photo whose left third is empty backdrop; copy sits over that area. Not a half-column split."
+    - "Headings are two-tone: one phrase in orange. Authored as *phrase* in title fields; rendered by HighlightedTitle in src/lib/banfield-ui.tsx."
+    - "Zilla Slab 600 (#65686B) for display titles (hero, story cards, location, newsletter); Poppins 500 (#333436) for card titles (two-up, foundation, Instagram)."
     - "Teal #00A3C4 is a visual sample from illustration panels (glow-up card, meds card). Not a CSS custom property."
     - "Scraper :root variables were leftover Bootstrap tokens (#007bff / #6c757d) — ignored."
     - "Older public brand sheets list green #047832 and gold #BD9C52. Those do not match the current banfield.com homepage."
