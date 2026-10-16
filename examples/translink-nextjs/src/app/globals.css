@@ -86,29 +86,28 @@
    An unlayered :root block above @layer base ALWAYS wins the cascade.
    =================================================================== */
 
-/* CLIENT THEME — uncomment or replace with client values from Phase 4:
+/* TransLink — docs/ai/themes/translink.theme.yaml */
 :root {
-  --brand-primary: #00827f;
+  --brand-primary: #00355f;
   --brand-primary-foreground: #ffffff;
-  --brand-accent: #00dc00;
-  --brand-accent-foreground: #1a1a1a;
-  --brand-dark: #1a1a2e;
+  --brand-accent: #ffd200;
+  --brand-accent-foreground: #00174d;
+  --brand-dark: #00174d;
   --brand-dark-foreground: #ffffff;
   --brand-bg: #ffffff;
-  --brand-fg: #1a1a2e;
-  --brand-muted: #f5f5f5;
-  --brand-muted-foreground: #6b7280;
-  --brand-border: #e5e7eb;
-  --brand-header-bg: #1a1a2e;
-  --brand-header-fg: #ffffff;
-  --brand-footer-bg: #1a1a2e;
-  --brand-footer-fg: #9ca3af;
-  --brand-heading-font: 'Poppins', sans-serif;
-  --brand-body-font: 'Open Sans', sans-serif;
-  --brand-button-radius: 0.375rem;
-  --brand-card-radius: 0.75rem;
+  --brand-fg: #00355f;
+  --brand-muted: #f2f5f7;
+  --brand-muted-foreground: #00355f;
+  --brand-border: #c2d1d9;
+  --brand-header-bg: #ffffff;
+  --brand-header-fg: #00355f;
+  --brand-footer-bg: #ffffff;
+  --brand-footer-fg: #00355f;
+  --brand-heading-font: "Fira Sans", "Segoe UI", sans-serif;
+  --brand-body-font: "Fira Sans", "Segoe UI", sans-serif;
+  --brand-button-radius: 0.25rem;
+  --brand-card-radius: 0.1875rem;
 }
-*/
 
 @layer base {
   :root {

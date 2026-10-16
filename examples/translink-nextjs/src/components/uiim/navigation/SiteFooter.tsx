@@ -38,16 +38,31 @@ const SiteFooterDefaultComponent = (): JSX.Element => (
 
 const LINK_COLUMNS = [
   {
-    title: 'Products',
-    links: ['Overview', 'Features', 'Pricing', 'Integrations'],
+    title: 'Getting Around',
+    links: [
+      { label: 'Trip Planner', href: 'https://www.translink.ca/' },
+      { label: 'Schedules & Maps', href: 'https://www.translink.ca/schedules-and-maps' },
+      { label: 'Fares and Zones', href: 'https://www.translink.ca/transit-fares/pricing-and-fare-zones' },
+      { label: 'Alerts', href: 'https://www.translink.ca/alerts' },
+    ],
   },
   {
-    title: 'Company',
-    links: ['About', 'Careers', 'Blog', 'Press'],
+    title: 'Resources',
+    links: [
+      { label: 'Rider Guide', href: 'https://www.translink.ca/rider-guide' },
+      { label: 'News', href: 'https://www.translink.ca/news' },
+      { label: 'Plans & Projects', href: 'https://www.translink.ca/plans-and-projects' },
+      { label: 'Compass Card', href: 'https://www.compasscard.ca/' },
+    ],
   },
   {
-    title: 'Support',
-    links: ['Help Center', 'Contact', 'Documentation', 'Status'],
+    title: 'Contact Us',
+    links: [
+      { label: 'About TransLink', href: 'https://www.translink.ca/about-us' },
+      { label: 'Careers', href: 'https://www.translink.ca/about-us/careers' },
+      { label: 'Accessibility', href: 'https://www.translink.ca/rider-guide/transit-accessibility' },
+      { label: 'Contact', href: 'https://www.translink.ca/about-us/contact-us' },
+    ],
   },
 ];
 
@@ -98,7 +113,7 @@ const Copyright = () => (
     className="text-sm opacity-50 font-[var(--brand-body-font,inherit)]"
     style={{ color: 'var(--brand-footer-fg, #ffffff)' }}
   >
-    &copy; {new Date().getFullYear()} BrandName. All rights reserved.
+    &copy; {new Date().getFullYear()} TransLink. All rights reserved.
   </p>
 );
 
@@ -129,7 +144,7 @@ export const Default = (props: SiteFooterProps): JSX.Element => {
               <p
                 className="max-w-xs text-sm opacity-60 font-[var(--brand-body-font,inherit)]"
               >
-                Building the future of digital experiences. Trusted by teams worldwide.
+                Metro Vancouver’s transportation network, serving residents and visitors with public transit, major roads, bridges, and trip planning.
               </p>
               <SocialIcons />
             </div>
@@ -144,12 +159,12 @@ export const Default = (props: SiteFooterProps): JSX.Element => {
                 </h3>
                 <ul className="space-y-2">
                   {col.links.map((link) => (
-                    <li key={link}>
+                    <li key={link.label}>
                       <a
-                        href="#"
+                        href={link.href}
                         className="text-sm opacity-60 transition-opacity hover:opacity-100 font-[var(--brand-body-font,inherit)]"
                       >
-                        {link}
+                        {link.label}
                       </a>
                     </li>
                   ))}
@@ -289,7 +304,7 @@ export const MegaFooter = (props: SiteFooterProps): JSX.Element => {
             <div className="md:col-span-2 space-y-4">
               <Logo brandLogo={brandLogo} />
               <p className="max-w-xs text-sm opacity-60 font-[var(--brand-body-font,inherit)]">
-                Building the future of digital experiences. Trusted by teams worldwide.
+                Metro Vancouver’s transportation network, serving residents and visitors with public transit, major roads, bridges, and trip planning.
               </p>
               <SocialIcons />
             </div>
@@ -301,9 +316,9 @@ export const MegaFooter = (props: SiteFooterProps): JSX.Element => {
                 </h3>
                 <ul className="space-y-2">
                   {col.links.map((link) => (
-                    <li key={link}>
-                      <a href="#" className="text-sm opacity-60 transition-opacity hover:opacity-100 font-[var(--brand-body-font,inherit)]">
-                        {link}
+                    <li key={link.label}>
+                      <a href={link.href} className="text-sm opacity-60 transition-opacity hover:opacity-100 font-[var(--brand-body-font,inherit)]">
+                        {link.label}
                       </a>
                     </li>
                   ))}
