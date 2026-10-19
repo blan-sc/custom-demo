@@ -5,9 +5,12 @@
 > starters in `examples/` are NOT used — ignore them.**
 
 Turn a client's homepage (screenshot + URL) into a themed, content-filled Sitecore XM Cloud demo
-on your own environment. Once setup is done, you build a demo by typing one sentence and attaching
-a screenshot — the agent does the rest, pausing once for your approval before it writes anything to
-Sitecore.
+on your own environment. Once setup is done, you build a demo by running **one skill command** —
+`sitecore-build-demo` — with a screenshot attached. The agent does the rest, pausing once for your
+approval before it writes anything to Sitecore.
+
+Works in **Claude Code**, **Cursor**, and **Pi**. All three read the same skills from
+`examples/basic-nextjs/.agents/skills/` — always start your agent from `examples/basic-nextjs`.
 
 > **Recommended models:** for your first run, use an advanced/frontier model — **Opus**, **Fable**,
 > or **Codex** — for the most reliable end-to-end result. It also works okay with Cursor's basic
@@ -28,19 +31,22 @@ git checkout main && git pull
 git checkout -b <client>-demo
 ```
 
-Use one branch per demo so each runs on its own isolated environment.
+Use one branch per demo so each runs on its own isolated environment. Client work (theme, variants,
+custom components) lives only on that demo branch: push it there to deploy the demo, but never merge
+it into `main` or include it in pull requests to the framework.
 
 ## Step 2 — Install dependencies
 
 ```bash
 npm install
-npx playwright install chromium
+npm run agents:browsers   # Chromium for the site scraper (once per machine)
+npm run agents:setup      # git pre-commit hook that keeps agent files in sync (once per clone)
 ```
 
 Verify the scraper runs (must be run from inside `examples/basic-nextjs`):
 
 ```bash
-node docs/ai/scripts/site-scraper.mjs --help
+node .agents/skills/sitecore-extract-theme/scripts/site-scraper.mjs --help
 ```
 
 ## Step 3 — Deploy the app
@@ -53,16 +59,20 @@ node docs/ai/scripts/site-scraper.mjs --help
   have a login, client images are uploaded there automatically. This step is optional — without it,
   images fall back to manual upload.
 
-## Step 4 — Connect the marketer MCP
+## Step 4 — Open your agent and connect the marketer MCP
 
-In your coding agent (e.g. Claude Code), connect the `sitecore-marketer` MCP server pointed at your
-XM Cloud environment:
+The repo already declares two MCP servers — `sitecore_marketer` (creates and updates Sitecore
+items) and `sitecore_docs` (official Sitecore docs). Open your agent **in `examples/basic-nextjs`**
+and sign in to them:
 
-```
-/mcp
-```
+| Agent | How |
+|---|---|
+| **Claude Code** | Run `claude` in `examples/basic-nextjs`, approve the project MCP servers, then `/mcp` and sign in to `sitecore_marketer`. |
+| **Cursor** | Open the `examples/basic-nextjs` folder, then *Settings → MCP*: enable both servers and sign in to `sitecore_marketer`. |
+| **Pi** | Run `pi` in `examples/basic-nextjs` and **trust the project** when asked — Pi only loads the project skills and MCP servers after that. Then `/mcp` and sign in to `sitecore_marketer`. |
 
-If a Sitecore call later says "token expired", run `/mcp` again and retry.
+Sign in with the account for **your** XM Cloud environment. If a Sitecore call later says "token
+expired", run `/mcp` again (or re-authenticate in Cursor's MCP settings) and retry.
 
 ## Step 5 — Add Content Hub credentials _(optional)_
 
@@ -72,7 +82,8 @@ Skip this step if you are not using Content Hub — images will fall back to man
 cp docs/ai/config/credentials.example.yaml docs/ai/config/credentials.local.yaml
 ```
 
-Edit `docs/ai/config/credentials.local.yaml` (gitignored — never committed):
+Edit `docs/ai/config/credentials.local.yaml` (gitignored — never committed; the file must have
+exactly this name):
 
 ```yaml
 contentHub:
@@ -85,25 +96,51 @@ contentHub:
   uploadConfig: "AssetUploadConfiguration"
 ```
 
-Validate the credentials:
+The uploader authenticates when an upload/verification run starts. `--dry-run` only inspects an
+existing image manifest; it does **not** validate credentials or make remote calls.
 
-```bash
-node docs/ai/scripts/upload-to-content-hub.mjs --images-dir docs/ai/demos/test --dry-run
-# prints [auth] OK when valid
-```
+## Step 6 — Run the demo build skill
 
-The file must be named `credentials.local.yaml`.
+The demo builder is the **`sitecore-build-demo`** skill. It is **command-only**: the agent never
+starts it on its own, so asking in plain words ("create a custom demo for …") will not kick it off —
+run the command explicitly, followed by the client URL, and **attach a full-page screenshot** of the
+client homepage in the same message.
 
-## Step 6 — Run the demo build
+| Agent | Type this | Attach the screenshot by… |
+|---|---|---|
+| **Claude Code** | `/sitecore-build-demo create a custom demo for https://www.yokohama-tws.com/de-de` | pasting or dragging the image into the prompt |
+| **Cursor** | `/sitecore-build-demo create a custom demo for https://www.yokohama-tws.com/de-de` | pasting or dragging the image into the chat |
+| **Pi** | `/skill:sitecore-build-demo create a custom demo for https://www.yokohama-tws.com/de-de` | pasting it (`Ctrl+V`; `Alt+V` on Windows/WSL), dragging it in, or typing `@` and picking the file |
 
-Ask your agent this, and **attach a full-page screenshot** of the client homepage:
+Tips:
 
-```
-create a custom demo for https://www.yokohama-tws.com/de-de
-```
+- **A screenshot is required** — the build stops at Phase 0 and asks for one if it is missing. If
+  your terminal cannot attach images, save it inside the repo (e.g.
+  `docs/ai/demos/<client>/homepage.png` — the `demos/` folder is gitignored) and reference it
+  with `@`.
+- **Non-English sites** are supported; all content is translated to English automatically.
+- **Interrupted?** Re-run the command with `resume demo for <client>` (e.g.
+  `/sitecore-build-demo resume demo for yokohama`). Every Sitecore write is recorded in
+  `docs/ai/demos/<client>/` (`recovery-*.json`, `mcp-*.json`, `demo-progress.yaml`), so the build
+  continues where it stopped and never repeats a write. Keep those files, don't edit them, and don't
+  start a new build in the same folder. Details:
+  [`references/recovery.md`](examples/basic-nextjs/.agents/skills/sitecore-build-demo/references/recovery.md).
+- Typing `/sitecore-` lists every demo-builder skill. Everyday component work (create a component,
+  add a variant, fix a rendering) does **not** need a command — just ask, and the agent picks the
+  right skill (see `examples/basic-nextjs/AGENTS.md`).
 
-A screenshot is required — the build will not start without one. Non-English source sites are
-supported; all content is translated to English automatically.
+### What the skill does
+
+| Phase | What happens | You |
+|---|---|---|
+| 0 – 0.5 | Collects inputs, validates Content Hub credentials, checks the Sitecore manifest against your environment | answer any questions |
+| 1 | Extracts the brand theme (colors, fonts, shape) from the site | **confirm the theme** |
+| 2 | Analyzes the screenshot, maps every section to a template component + variant, and inspects the target site (existing demo, shared Header/Footer) | **approve the plan** (Step 7) |
+| 2.5 – 3 | Extracts real content, uploads images to Content Hub, creates any custom component definitions, then creates and fills datasource items | — |
+| 4 – 5.5 | Applies the theme and (if chosen) creates pixel-perfect variants | **review the theme change** |
+| 6 – 7 | Assembles the Home page with each component's planned variant, replaces Header/Footer with the client variants (if approved), and writes a summary with your remaining to-do list | finish the demo (Step 8) |
+
+All working files land in `examples/basic-nextjs/docs/ai/demos/<client>/`.
 
 ## Step 7 — Approve the plan
 
@@ -111,17 +148,33 @@ The agent analyzes the page and stops to ask you:
 
 - Is the build plan correct? Approved to proceed?
 - Pixel-perfect custom variants, or generic template variants?
+- Replace the shared Header/Footer so they use the client variants? The plan names the instances
+  that will be removed and the pages affected (usually every page of the site). Approving this is
+  the confirmation the removal needs.
+- Replace the existing page components it would reuse (e.g. the starter Hero) so they get the
+  client variants, and remove leftover starter components (e.g. a search strip)? The plan lists
+  each one; approving is the confirmation.
+- If the site already holds **another client's demo**, it also asks you to confirm repurposing it.
 
 Answer, and it continues: extract content, upload images, create and fill datasources, apply the
-theme, build variants, and assemble the page.
+theme, build variants, and assemble the page with the planned variants.
 
 ## Step 8 — Finish the demo
 
-When it completes, do the short manual list it hands you (in `docs/ai/demos/<client>/`):
+When it completes, do the short manual list it hands you (`demo-summary.md` and `manual-tasks.md`
+in `docs/ai/demos/<client>/`):
 
-1. Set component variants in the Pages editor (from `variant-checklist.md`).
-2. Wire NavigationHeader + SiteFooter in the Header/Footer partial designs.
-3. Restart the dev server / redeploy so new components load.
+1. Set the few variants it could not apply (`variant-checklist.md`): anything reported as not
+   applied, or components you chose to keep rather than replace. Replaced components and
+   Header/Footer get their variants automatically.
+2. Delete the placeholder datasource items that adding components creates (listed in
+   `manual-tasks.md`, from `cleanupDatasources` in `assembly-result.json`) in Content Editor.
+3. Add media the scraper could not capture (e.g. hero video posters, CSS background images).
+4. Commit and push the demo branch, then restart the dev server / redeploy so new variants load.
+5. Check the page in Pages, then publish.
+
+If the summary says **partial**, read its unresolved items before doing anything by hand. Resume
+the build (Step 6) rather than recreating items.
 
 To view locally:
 
@@ -199,7 +252,8 @@ Map title=<TitleField>, description=<BodyField>, image=<ImageField>,
 link=<UrlField>, date=<DateField>. Results page: <page>.
 ```
 
-Following the capabilities registry, the agent creates the datasource templates/renderings (first
+The agent uses the `sitecore-search` skill (no command needed — it is picked automatically) and,
+following the capabilities registry, creates the datasource templates/renderings (first
 time only), one datasource item per component with your index GUID + attribute mappings, places
 the components (results page + strip), and wires the **header search** via the NavigationHeader
 datasource's `Search` section (leave its `SearchIndex` empty for no header search).
@@ -212,12 +266,12 @@ Any mapping you leave empty degrades gracefully — cards simply render without 
 cd examples/basic-nextjs
 
 # HTTP boundary: dumps the exact attribute names + documents the index returns
-node docs/ai/scripts/search-probe.mjs <index-guid> [keyphrase]
+node .agents/skills/sitecore-search/scripts/search-probe.mjs <index-guid> [keyphrase]
 
 # Browser protocols (dev server running):
-node docs/ai/scripts/search-verify.mjs      # results page
-node docs/ai/scripts/collection-verify.mjs  # latest-content strip
-node docs/ai/scripts/typeahead-verify.mjs   # typeahead + ?q= handoff
+node .agents/skills/sitecore-search/scripts/search-verify.mjs      # results page
+node .agents/skills/sitecore-search/scripts/collection-verify.mjs  # latest-content strip
+node .agents/skills/sitecore-search/scripts/typeahead-verify.mjs   # typeahead + ?q= handoff
 ```
 
 The browser scripts assert this repo's built-in articles corpus — for a different vertical, ask
