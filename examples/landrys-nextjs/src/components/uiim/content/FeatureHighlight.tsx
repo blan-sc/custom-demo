@@ -276,3 +276,54 @@ export const IconLeft = ({ fields, params, page }: FeatureHighlightProps): JSX.E
     </div>
   );
 };
+
+/* Landrys variant — photo beside copy, text link instead of a filled button */
+export const Landrys = ({ fields, params, page }: FeatureHighlightProps): JSX.Element => {
+  const { styles, RenderingIdentifier } = params;
+  const isEditing = page?.mode?.isEditing;
+  if (!fields) return <FeatureHighlightDefaultComponent />;
+
+  return (
+    <div className={cn('component feature-highlight', styles)} id={RenderingIdentifier}>
+      <section className="w-full px-4 py-12 md:py-16" style={{ backgroundColor: 'var(--brand-bg)' }}>
+        <div className="mx-auto grid max-w-[1600px] items-center gap-8 md:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] md:px-6">
+          {(fields.FeatureImage?.value?.src || isEditing) && (
+            <div className="relative aspect-[4/3] overflow-hidden">
+              <SmartMedia
+                field={fields.FeatureImage}
+                fill
+                sizes="(min-width: 768px) 45vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+          )}
+          <div className="max-w-xl">
+            <Eyebrow field={fields.EyebrowText} isEditing={isEditing} />
+            {(fields.Title?.value || isEditing) && (
+              <Text
+                field={fields.Title}
+                tag="h2"
+                className="text-3xl font-medium leading-tight tracking-tight sm:text-4xl font-[var(--brand-heading-font,inherit)]"
+                style={{ color: 'var(--brand-fg)' }}
+              />
+            )}
+            {(fields.Description?.value || isEditing) && (
+              <ContentSdkRichText
+                field={fields.Description}
+                className="mt-4 text-base leading-relaxed font-[var(--brand-body-font,inherit)]"
+                style={{ color: 'var(--brand-muted-fg, var(--brand-fg))' }}
+              />
+            )}
+            {(fields.PrimaryLink?.value?.href || isEditing) && (
+              <ContentSdkLink
+                field={fields.PrimaryLink}
+                className="mt-6 inline-flex text-sm font-semibold uppercase tracking-wide underline underline-offset-4"
+                style={{ color: 'var(--brand-primary)' }}
+              />
+            )}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};

@@ -113,3 +113,33 @@ export const Highlight = ({ fields, params, page }: AnnouncementBarProps): JSX.E
     </div>
   );
 };
+
+/* Landrys variant — thin red utility strip, message left and one link right */
+export const Landrys = ({ fields, params, page }: AnnouncementBarProps): JSX.Element => {
+  const { styles, RenderingIdentifier } = params;
+  const isEditing = page?.mode?.isEditing;
+
+  if (!fields) return <AnnouncementBarDefaultComponent />;
+
+  const barStyles = getBarStyles(fields.BackgroundColor?.value);
+
+  return (
+    <div className={cn('component announcement-bar', styles)} id={RenderingIdentifier}>
+      <div
+        className={cn('w-full px-4 py-1.5 text-[13px] font-[var(--brand-body-font,inherit)]', barStyles.bg, barStyles.text)}
+      >
+        <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-4">
+          {(fields.Message?.value || isEditing) && (
+            <Text field={fields.Message} tag="span" className="font-medium" />
+          )}
+          {(fields.BarLink?.value?.href || isEditing) && (
+            <ContentSdkLink
+              field={fields.BarLink}
+              className="font-medium underline-offset-2 hover:underline"
+            />
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};

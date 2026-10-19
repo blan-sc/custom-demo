@@ -356,3 +356,64 @@ export const Minimal = ({ fields, params }: NavigationHeaderProps): JSX.Element 
     </div>
   );
 };
+
+/* Landrys variant — white bar, tracked uppercase links, red location button */
+export const Landrys = ({ fields, params, page, rendering }: NavigationHeaderProps): JSX.Element => {
+  const { styles, RenderingIdentifier } = params;
+  const isEditing = page?.mode?.isEditing;
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const datasource = fields?.data?.datasource;
+  if (!datasource) return <NavigationHeaderDefaultComponent />;
+
+  const links = datasource.children?.results || [];
+  const brandLogo = datasource.brandLogo?.jsonValue;
+  const ctaLink = datasource.ctaLink?.jsonValue;
+  const ctaLabel = datasource.ctaLabel?.jsonValue;
+
+  return (
+    <div className={cn('component navigation-header', styles)} id={RenderingIdentifier}>
+      <header
+        className="w-full border-b"
+        style={{
+          backgroundColor: 'var(--brand-header-bg, #ffffff)',
+          borderColor: 'var(--brand-border, #e6e6e6)',
+        }}
+      >
+        <div className="mx-auto flex max-w-[1600px] items-center justify-between gap-6 px-6 py-3">
+          <Logo brandLogo={brandLogo} className="shrink-0" />
+          <nav className="hidden flex-1 items-center justify-center gap-5 lg:flex">
+            {links.map((item) => (
+              <ContentSdkLink
+                key={item.id}
+                field={item.linkUrl?.jsonValue}
+                className="text-[13px] font-medium uppercase tracking-[0.04em] transition-opacity hover:opacity-70 font-[var(--brand-body-font,inherit)]"
+                style={{ color: 'var(--brand-header-fg, inherit)' }}
+              >
+                {item.linkText?.jsonValue?.value && <Text field={item.linkText.jsonValue} />}
+              </ContentSdkLink>
+            ))}
+          </nav>
+          <div className="flex items-center gap-3">
+            <HeaderSearch datasource={datasource} page={page} rendering={rendering} />
+            {(ctaLink?.value?.href || isEditing) && (
+              <ContentSdkLink
+                field={ctaLink}
+                className="hidden items-center px-4 py-2 text-[13px] font-semibold uppercase tracking-wide lg:inline-flex"
+                style={{
+                  backgroundColor: 'var(--brand-primary)',
+                  color: 'var(--brand-primary-foreground)',
+                  borderRadius: 'var(--brand-button-radius)',
+                }}
+              >
+                {(ctaLabel?.value || isEditing) && <Text field={ctaLabel} />}
+              </ContentSdkLink>
+            )}
+            <MenuButton open={menuOpen} onClick={() => setMenuOpen(!menuOpen)} />
+          </div>
+        </div>
+        <MobileMenu items={links} open={menuOpen} onClose={() => setMenuOpen(false)} />
+      </header>
+    </div>
+  );
+};

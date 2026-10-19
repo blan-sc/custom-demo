@@ -248,3 +248,41 @@ export const Minimal = ({ fields, params, page }: CTABannerProps): JSX.Element =
     </div>
   );
 };
+
+/* Landrys variant — centered meetup band. Go is the primary link; there is no zip field. */
+export const Landrys = ({ fields, params, page }: CTABannerProps): JSX.Element => {
+  const { styles, RenderingIdentifier } = params;
+  const isEditing = page?.mode?.isEditing;
+  if (!fields) return <CTABannerDefaultComponent />;
+
+  return (
+    <div className={cn('component cta-banner', styles)} id={RenderingIdentifier}>
+      <section className="w-full px-4 py-16 md:py-20" style={{ backgroundColor: 'var(--brand-muted)' }}>
+        <div className="mx-auto max-w-3xl text-center">
+          {(fields.Title?.value || isEditing) && (
+            <Text
+              field={fields.Title}
+              tag="h2"
+              className="text-4xl font-medium tracking-tight font-[var(--brand-heading-font,inherit)]"
+              style={{ color: 'var(--brand-fg)' }}
+            />
+          )}
+          {(fields.Description?.value || isEditing) && (
+            <ContentSdkRichText
+              field={fields.Description}
+              className="mx-auto mt-4 max-w-2xl text-base font-[var(--brand-body-font,inherit)]"
+              style={{ color: 'var(--brand-muted-fg, var(--brand-fg))' }}
+            />
+          )}
+          <div className="mt-8 flex justify-center">
+            <PrimaryButton
+              field={fields.PrimaryLink}
+              isEditing={isEditing}
+              className="min-w-16 bg-[var(--brand-primary)] text-[var(--brand-primary-foreground)] uppercase tracking-wide"
+            />
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};

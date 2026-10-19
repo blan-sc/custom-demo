@@ -1,20 +1,27 @@
 generatedAt: "2026-03-20T09:00:00Z"
-lastUpdatedAt: "2026-08-18T00:00:00Z"
+lastUpdatedAt: "2026-10-19T19:20:00Z"
 lastUpdatedBy: "claude-agent"
 
 project:
-  siteCollection: "main"
-  siteName: "main-website"
+
+# 2026-10-19: retargeted from main/main-website to landrys/landrys.
+# Shared template and rendering IDs were re-read and still match.
+# Datasource folder IDs, headless variant container IDs, and the Page Content
+# Available Renderings item were re-resolved on the landrys site.
+# Example datasource item IDs and individual Variant Definition IDs were NOT
+# re-resolved. Do not write to those IDs; they may still belong to main-website.
+  siteCollection: "landrys"
+  siteName: "landrys"
   sdk: "@sitecore-content-sdk/nextjs"
   renderingsRoot: "/sitecore/layout/Renderings/Project/fmc-custom-demo"
   projectTemplatesRoot: "/sitecore/templates/Project/fmc-custom-demo"
-  dataRoot: "/sitecore/content/main/main-website/Data"
+  dataRoot: "/sitecore/content/landrys/landrys/Data"
   projectFoldersRoot: "/sitecore/templates/Project/fmc-custom-demo/Folders"
   renderingParamsRoot: "/sitecore/templates/Project/fmc-custom-demo/Rendering Parameters"
-  headlessVariantsRoot: "/sitecore/content/main/main-website/Presentation/Headless Variants"
+  headlessVariantsRoot: "/sitecore/content/landrys/landrys/Presentation/Headless Variants"
 
 availableRenderings:
-  itemId: "{2BF7E311-E3A5-4290-A043-AB97EA1DFB15}"
+  itemId: "{D1BA624F-3D6C-4258-83BF-B2BCC8ADC748}"
   lastKnownValue: "{55790BFE-783E-4FF0-BD53-F81D3857DAD4}|{C5F905F8-FD1F-444E-A9E5-AC6B774FF0DE}|{2492BAC4-DA07-4C86-87F0-9873D40E2276}|{9C6D53E3-FE57-4638-AF7B-6D68304C7A94}|{3836D951-BB14-43AC-9231-649B7F245DC5}|{E97DCF2B-8011-41E0-A605-8A379F3DF1AA}|{A41A47A5-D305-4ADC-BFC8-CCB0F301DDCF}|{EFE73752-6046-45A8-92F4-7A68430A0759}|{EAA7CC9B-4657-410E-9A25-CD33C700261B}|{58490557-5582-4B19-9E31-CE6A80F95D93}|{4281E3CD-2309-4427-9A3E-D69FDD32FCDA}|{E6D0C7C1-ACFF-4E85-8600-196649FEFFB9}|{90021266-66B3-47B6-9709-A070F56064A1}|{F6A1FA05-15FC-46C9-B921-98E79EFF5F4E}|{E194B962-0617-4A10-B4DB-2A4D19248C13}|{E1BCD607-51C4-4248-8EE2-B7F474D40B3E}|{A53006E8-C66B-419F-859D-7CFA92E7E26B}|{4E7E77EF-529C-4C28-A5D8-94C5ACA065FF}|{C739DB42-43E5-4DAC-B5FC-404EDDC9E37C}|{0F7C27E2-B960-47E9-AB85-F8A9C45D0F9C}|{D008D5FE-B27E-419F-889C-115B3D48A114}|{85CC2A41-AC6F-4C10-9C2F-44308B48C453}|{4C5C1FA5-C077-491D-9686-40D0F68EF03E}|{83BD1231-A48F-4F54-A361-20904C69A641}|{0E64EDCA-06DD-469A-B3D1-93D8700A8F41}|{505B6BB0-DEEA-46F9-9AB2-7020E386F4F0}|{C9FFEF83-C928-4346-AA68-14B3EE0B0017}|{B92A0B89-790F-4D94-89C7-B361C8688765}|{9E525B59-B9BF-4EB7-B75D-10811EF6100D}|{66E80043-36E4-48AE-8CAF-EEF4A77690BE}|{5A8724FB-D6E6-4C9D-8A4A-EFD8750B0019}|{14FCB11C-364D-4BC2-9238-B29B4C6F8145}|{FAA6D190-2A7C-4A18-A09D-7E5D33A5BDAF}|{06D05BB6-2DD6-457A-BC64-22A07F7D4359}"
   lastUpdatedAt: "2026-08-18T00:00:00Z"
   renderingCount: 37
@@ -68,8 +75,8 @@ components:
 
     datasourceFolder:
       name: "AnnouncementBars"
-      path: "/sitecore/content/main/main-website/Data/AnnouncementBars"
-      itemId: "{93B0A4DC-4E8A-42DB-85A4-D54E7A64D737}"
+      path: "/sitecore/content/landrys/landrys/Data/AnnouncementBars"
+      itemId: "{5D0A57C1-47B7-4076-AA1D-231651544611}"
       insertOptionsSet: true
       exampleItem:
         name: "Announcement Bar"
@@ -88,8 +95,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/AnnouncementBar"
-      containerId: "{6F2C4B0A-5592-4E3C-A1D1-DDA54BD90CC0}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/AnnouncementBar"
+      containerId: "{B8F02B87-3E17-40B0-978F-E171EAFE3D90}"
       variants:
         - { name: "Default", itemId: "{C443BF0E-5B40-4F84-98A2-F0825E83E345}" }
         - { name: "Highlight", itemId: "{6A6E7095-E948-46F1-A37B-260ADA3604FF}" }
@@ -189,8 +196,8 @@ components:
 
     datasourceFolder:
       name: "NavigationHeaders"
-      path: "/sitecore/content/main/main-website/Data/NavigationHeaders"
-      itemId: "{A1055559-2113-4BAF-B3C3-05C38404DED2}"
+      path: "/sitecore/content/landrys/landrys/Data/NavigationHeaders"
+      itemId: "{F09CF0ED-6900-404D-8062-F31D86DAFB76}"
       insertOptionsSet: true
       exampleItem:
         name: "Main Navigation"
@@ -213,8 +220,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/NavigationHeader"
-      containerId: "{C215D8ED-461E-4AE4-8D57-94CC5CDEC8DF}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/NavigationHeader"
+      containerId: "{BD9C5C78-0FC2-47D2-B0DD-6FE72323BE06}"
       variants:
         - { name: "Default", itemId: "{150B9AFE-2B9F-48AD-8F01-036666057814}" }
         - { name: "Transparent", itemId: "{A46EFC9D-7CF0-4C92-9577-1D94FD1D9782}" }
@@ -293,8 +300,8 @@ components:
 
     datasourceFolder:
       name: "HeroBanners"
-      path: "/sitecore/content/main/main-website/Data/HeroBanners"
-      itemId: "{79A9DFE3-D529-4ED3-8105-DCA4C0A3B25C}"
+      path: "/sitecore/content/landrys/landrys/Data/HeroBanners"
+      itemId: "{E3EAA75A-14B1-41AF-982E-7A13B01CA752}"
       insertOptionsSet: true
       exampleItem:
         name: "Hero Banner"
@@ -313,8 +320,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/HeroBanner"
-      containerId: "{D28D8B6E-3030-4D49-9558-44B7EED789B8}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/HeroBanner"
+      containerId: "{1960C3A0-3908-4D65-AC7A-C65C98AE24F0}"
       variants:
         - { name: "Default", itemId: "{51E32CC6-C761-4E8D-A9EB-03A11D358DC4}" }
         - { name: "SplitImageText", itemId: "{085ED09F-42C4-4C25-BB70-CC13D3F9AF8F}" }
@@ -410,8 +417,8 @@ components:
 
     datasourceFolder:
       name: "TabNavigationSections"
-      path: "/sitecore/content/main/main-website/Data/TabNavigationSections"
-      itemId: "{62A76B57-53E0-4F57-A793-E5CF0CC8ADA5}"
+      path: "/sitecore/content/landrys/landrys/Data/TabNavigationSections"
+      itemId: "{CE342F9E-559F-465D-8D90-348E0A4C0412}"
       insertOptionsSet: true
       exampleItem:
         name: "Tab Navigation Section"
@@ -434,8 +441,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/TabNavigationSection"
-      containerId: "{5DF30ECF-56D0-4599-BB2A-C6737C30C333}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/TabNavigationSection"
+      containerId: "{F52A88E3-A132-4A32-A7BF-4C719059A8AF}"
       variants:
         - { name: "Default", itemId: "{37CD0AB0-A6F4-4F5B-9032-666FA10925D4}" }
         - { name: "Underline", itemId: "{F6AB5E2B-D266-4BAC-8536-48404A6EF04A}" }
@@ -539,8 +546,8 @@ components:
 
     datasourceFolder:
       name: "ProductPricingCards"
-      path: "/sitecore/content/main/main-website/Data/ProductPricingCards"
-      itemId: "{B5C8AA4C-5B7D-4008-8945-68F7D909134F}"
+      path: "/sitecore/content/landrys/landrys/Data/ProductPricingCards"
+      itemId: "{1EADC187-4519-4C6B-B142-7612BC4B15AE}"
       insertOptionsSet: true
       exampleItem:
         name: "Product Pricing Cards"
@@ -564,8 +571,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/ProductPricingCards"
-      containerId: "{2D0654D5-0BFB-4ABB-9B42-83278B8AEC42}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/ProductPricingCards"
+      containerId: "{FBF2C58E-5D75-4AC9-98E5-BA772A6901AB}"
       variants:
         - { name: "Default", itemId: "{8059925F-0667-437B-AD6F-450BAF663C08}" }
         - { name: "Horizontal", itemId: "{C9B441F5-71A8-46E6-AE86-478930CA907F}" }
@@ -649,8 +656,8 @@ components:
 
     datasourceFolder:
       name: "LegalComplianceBanners"
-      path: "/sitecore/content/main/main-website/Data/LegalComplianceBanners"
-      itemId: "{6565D16E-5989-481B-AF40-CFFA4D58DF12}"
+      path: "/sitecore/content/landrys/landrys/Data/LegalComplianceBanners"
+      itemId: "{F78C576A-1689-435F-B60D-461BBA339AFA}"
       insertOptionsSet: true
       exampleItem:
         name: "Legal Compliance Banner"
@@ -669,8 +676,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/LegalComplianceBanner"
-      containerId: "{A5368715-1C3A-49CC-88A7-1FFB98645A93}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/LegalComplianceBanner"
+      containerId: "{7BA69C98-5977-4983-9641-BD83A26EF63E}"
       variants:
         - { name: "Default", itemId: "{E3E57B11-8697-4BC7-B56F-352091BDC6BC}" }
         - { name: "WithImage", itemId: "{21600F34-BAD3-4EF8-88C9-03F723EEE608}" }
@@ -766,8 +773,8 @@ components:
 
     datasourceFolder:
       name: "ValuePropositionGrids"
-      path: "/sitecore/content/main/main-website/Data/ValuePropositionGrids"
-      itemId: "{BE69F95D-9D08-4C4B-ADF3-59007B2E0BB4}"
+      path: "/sitecore/content/landrys/landrys/Data/ValuePropositionGrids"
+      itemId: "{DDFB4228-F8BD-4EB6-96B7-2A2D2C521DDE}"
       insertOptionsSet: true
       exampleItem:
         name: "Value Proposition Grid"
@@ -791,8 +798,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/ValuePropositionGrid"
-      containerId: "{24A8E37E-7102-407A-9899-8CD940160F39}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/ValuePropositionGrid"
+      containerId: "{84B7ABE1-EE7B-4342-8026-675BED8FBAF2}"
       variants:
         - { name: "Default", itemId: "{B2D75BE0-CE27-431F-BF59-9F49EEC5DF31}" }
         - { name: "TwoColumn", itemId: "{3935D1DD-DC84-4A01-B271-BEF9475C5AE1}" }
@@ -888,8 +895,8 @@ components:
 
     datasourceFolder:
       name: "TrustStatsRows"
-      path: "/sitecore/content/main/main-website/Data/TrustStatsRows"
-      itemId: "{6A826E8E-4AB2-4F62-8605-40430028C64C}"
+      path: "/sitecore/content/landrys/landrys/Data/TrustStatsRows"
+      itemId: "{1EA4A69B-74BC-403C-839A-4D70C92C4E60}"
       insertOptionsSet: true
       exampleItem:
         name: "Trust Stats Row"
@@ -914,8 +921,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/TrustStatsRow"
-      containerId: "{7AE37D15-B227-4274-809B-27023796BACD}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/TrustStatsRow"
+      containerId: "{B081E8CD-7420-485C-87F8-7C894E48A100}"
       variants:
         - { name: "Default", itemId: "{71BDCB75-6061-460C-98BE-86C4E5E79B3A}" }
         - { name: "WithIcons", itemId: "{A31EA0E4-1E93-43EE-9615-EC73A1451E63}" }
@@ -1008,8 +1015,8 @@ components:
 
     datasourceFolder:
       name: "TestimonialBlocks"
-      path: "/sitecore/content/main/main-website/Data/TestimonialBlocks"
-      itemId: "{E5004E14-EA49-43B7-A093-006648A14A60}"
+      path: "/sitecore/content/landrys/landrys/Data/TestimonialBlocks"
+      itemId: "{978A24A6-A7E3-4287-842D-56A652465680}"
       insertOptionsSet: true
       exampleItem:
         name: "Testimonial Block"
@@ -1032,8 +1039,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/TestimonialBlock"
-      containerId: "{77FA9798-E911-41DC-804F-5A3649087CB4}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/TestimonialBlock"
+      containerId: "{CB3AED5F-6ABC-430D-BD28-3A512DAEF159}"
       variants:
         - { name: "Default", itemId: "{7C588A0F-5720-4CA7-A50A-4AD02E272B62}" }
         - { name: "Carousel", itemId: "{0F34A807-A42C-4E7D-BD54-EF222EB2D952}" }
@@ -1112,8 +1119,8 @@ components:
 
     datasourceFolder:
       name: "CTABanners"
-      path: "/sitecore/content/main/main-website/Data/CTABanners"
-      itemId: "{F86BE13D-2F5E-4D7E-B2E5-EF4C9637FC4C}"
+      path: "/sitecore/content/landrys/landrys/Data/CTABanners"
+      itemId: "{E5AD530E-6C8C-4655-9356-DD0C7B0C3742}"
       insertOptionsSet: true
       exampleItem:
         name: "CTA Banner"
@@ -1132,8 +1139,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/CTABanner"
-      containerId: "{A739A883-D5E1-4CAD-A8EE-5D3287D6B238}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/CTABanner"
+      containerId: "{1FE62B70-E463-4785-BDC7-A60281CEFA1B}"
       variants:
         - { name: "Default", itemId: "{B526E0D8-C4F9-4A21-AFA9-B828119FA988}" }
         - { name: "WithImage", itemId: "{2DC4E1E9-79A0-48C7-A6D9-AC7DD8AFAAA0}" }
@@ -1226,8 +1233,8 @@ components:
 
     datasourceFolder:
       name: "FeatureCardsGrids"
-      path: "/sitecore/content/main/main-website/Data/FeatureCardsGrids"
-      itemId: "{BAB76C01-9A6E-49D5-9F44-22D7EDBE13FE}"
+      path: "/sitecore/content/landrys/landrys/Data/FeatureCardsGrids"
+      itemId: "{724F8D1C-A42C-4521-B316-50B133223592}"
       insertOptionsSet: true
       exampleItem:
         name: "Feature Cards Grid"
@@ -1251,8 +1258,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/FeatureCardsGrid"
-      containerId: "{72669095-6581-4595-9C9E-2F650BCA4404}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/FeatureCardsGrid"
+      containerId: "{A25E2949-5DCF-40BF-A6BB-CDD73EE6D19A}"
       variants:
         - { name: "Default", itemId: "{495EF058-D306-4328-ABE4-261E7CFE8E9E}" }
         - { name: "TwoColumn", itemId: "{0BCA5162-9643-49F3-BEE2-6B5243287D5E}" }
@@ -1328,8 +1335,8 @@ components:
 
     datasourceFolder:
       name: "ImageGalleries"
-      path: "/sitecore/content/main/main-website/Data/ImageGalleries"
-      itemId: "{98392731-3CBC-498C-888B-9669BA639B96}"
+      path: "/sitecore/content/landrys/landrys/Data/ImageGalleries"
+      itemId: "{81511C0D-47FA-4115-A55D-82043E69D9FB}"
       insertOptionsSet: true
       exampleItem:
         name: "Image Gallery"
@@ -1348,8 +1355,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/ImageGallery"
-      containerId: "{C022A2B3-EF0B-4035-9103-F752D98E0C6A}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/ImageGallery"
+      containerId: "{679014FE-49FE-407D-AF6D-CE45AA52354A}"
       variants:
         - { name: "Default", itemId: "{36325627-294D-44ED-BD63-2E622F782684}" }
         - { name: "Gallery", itemId: "{CF1F5876-5157-441C-A6FB-7BF150651345}" }
@@ -1437,8 +1444,8 @@ components:
 
     datasourceFolder:
       name: "LogoClouds"
-      path: "/sitecore/content/main/main-website/Data/LogoClouds"
-      itemId: "{A0F83F36-4BFB-4C6A-9079-A01EC54A5276}"
+      path: "/sitecore/content/landrys/landrys/Data/LogoClouds"
+      itemId: "{391D8DCB-C291-4A10-9EB5-2B08F1BC02D1}"
       insertOptionsSet: true
       exampleItem:
         name: "Logo Cloud"
@@ -1462,8 +1469,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/LogoCloud"
-      containerId: "{0D58C38F-2601-444C-8981-6FB3DCA202EC}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/LogoCloud"
+      containerId: "{3F0D687D-F7D4-4A59-ABFE-DF99FC678349}"
       variants:
         - { name: "Default", itemId: "{125C1A27-2F29-4A84-B45A-DD43279C23CE}" }
         - { name: "Grid", itemId: "{8CCCB55E-D891-4F4B-B8C7-E254DC95C9F1}" }
@@ -1537,8 +1544,8 @@ components:
 
     datasourceFolder:
       name: "SiteFooters"
-      path: "/sitecore/content/main/main-website/Data/SiteFooters"
-      itemId: "{79F4A73C-71D2-4959-8FDE-C7D9C8748990}"
+      path: "/sitecore/content/landrys/landrys/Data/SiteFooters"
+      itemId: "{F22F35A3-BBAE-4721-988F-DF18B11B36A0}"
       insertOptionsSet: true
       exampleItem:
         name: "Site Footer"
@@ -1557,8 +1564,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/SiteFooter"
-      containerId: "{613FAEEA-7FDC-453E-96DC-9B52337AC257}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/SiteFooter"
+      containerId: "{D16DD677-9C1A-4E68-A7D6-D21C77FD42E9}"
       variants:
         - { name: "Default", itemId: "{143CFE84-1E77-4961-975C-38564DC43DB9}" }
         - { name: "Minimal", itemId: "{AF87D61B-F6A8-4036-9BF8-FDB586268D24}" }
@@ -1629,8 +1636,8 @@ components:
 
     datasourceFolder:
       name: "NewsletterSignups"
-      path: "/sitecore/content/main/main-website/Data/NewsletterSignups"
-      itemId: "{4046B0A4-5F07-4F4B-8D6F-E04EDE1E1204}"
+      path: "/sitecore/content/landrys/landrys/Data/NewsletterSignups"
+      itemId: "{A5168C71-829F-40AF-97D6-C06D1FE06D44}"
       insertOptionsSet: true
       exampleItem:
         name: "Newsletter Signup"
@@ -1649,8 +1656,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/NewsletterSignup"
-      containerId: "{3DC77ED9-7155-4AE9-A658-D884E35D949A}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/NewsletterSignup"
+      containerId: "{87910966-BB72-4E63-8353-C12598AB7702}"
       variants:
         - { name: "Default", itemId: "{F0F09912-52F5-4429-8CBF-F6FAA8AD2453}" }
         - { name: "Banner", itemId: "{5FE28EAE-3DC9-4DF5-89B8-0576C940BE01}" }
@@ -1729,8 +1736,8 @@ components:
 
     datasourceFolder:
       name: "IdentityCaptureForms"
-      path: "/sitecore/content/main/main-website/Data/IdentityCaptureForms"
-      itemId: "{826BD609-C026-458D-901A-C3503DAEF853}"
+      path: "/sitecore/content/landrys/landrys/Data/IdentityCaptureForms"
+      itemId: "{28C74D3A-8169-4F9E-AD3F-79DFCDD2F5E4}"
       insertOptionsSet: true   # silent-write — verify in Content Editor
       exampleItem:
         name: "Identity Capture Form"
@@ -1749,8 +1756,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/IdentityCaptureForm"
-      containerId: "{24632B0B-55E2-4F2C-8D98-875972209B99}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/IdentityCaptureForm"
+      containerId: "{724D48D7-693B-409C-9F5B-F63E3EBA5E26}"
       variants:
         - { name: "Default", itemId: "{27234935-C791-404E-84D9-8E83ADD0A60D}" }
 
@@ -1808,8 +1815,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/IdentityEventDevForm"
-      containerId: "{DF35E4E7-28AF-49F7-AB9B-037DABBB5F5F}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/IdentityEventDevForm"
+      containerId: "{5A0DBCC7-7C08-4FF3-9721-27972B94A051}"
       variants:
         - { name: "Default", itemId: "{216D0EE6-3A08-429E-A34B-C1AA1CD7E493}" }
 
@@ -1890,8 +1897,8 @@ components:
 
     datasourceFolder:
       name: "FAQAccordions"
-      path: "/sitecore/content/main/main-website/Data/FAQAccordions"
-      itemId: "{547BF25D-1445-4C45-9C04-66FCB3FD339B}"
+      path: "/sitecore/content/landrys/landrys/Data/FAQAccordions"
+      itemId: "{20CAA706-13B6-4806-80C7-B87F61FDF7D7}"
       insertOptionsSet: true
       exampleItem:
         name: "FAQ Accordion"
@@ -1915,8 +1922,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/FAQAccordion"
-      containerId: "{55FB6F57-5566-4CAF-ADDD-18BFB0152893}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/FAQAccordion"
+      containerId: "{3E595464-5E4D-4D70-A80C-9694CC88E070}"
       variants:
         - { name: "Default", itemId: "{3D01B4ED-75E0-4AD3-A6F4-FA47606082CB}" }
         - { name: "AllOpen", itemId: "{FFC0D7F8-8D1C-4A6E-8FC1-DD429718057A}" }
@@ -1991,8 +1998,8 @@ components:
 
     datasourceFolder:
       name: "RichTextBlocks"
-      path: "/sitecore/content/main/main-website/Data/RichTextBlocks"
-      itemId: "{E94DA9F2-19A0-4EEB-9F1C-C5B53DF8D8ED}"
+      path: "/sitecore/content/landrys/landrys/Data/RichTextBlocks"
+      itemId: "{F27B5D9E-3788-43C8-A572-A6AAE10581A4}"
       insertOptionsSet: true
       exampleItem:
         name: "Rich Text Block"
@@ -2011,8 +2018,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/RichTextBlock"
-      containerId: "{F11626A1-AE7B-46F7-AB3A-F9EB9779C5EC}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/RichTextBlock"
+      containerId: "{B00E14C7-B963-4A5E-8545-AFEBCB72C7B4}"
       variants:
         - { name: "Default", itemId: "{68885D4E-9808-421D-AB93-30E9FF27D8F1}" }
         - { name: "Centered", itemId: "{61BF7CB2-B65C-4C85-902D-CFA95D0F429D}" }
@@ -2089,8 +2096,8 @@ components:
 
     datasourceFolder:
       name: "FeatureHighlights"
-      path: "/sitecore/content/main/main-website/Data/FeatureHighlights"
-      itemId: "{0A212E28-4EDE-45DE-8A8F-E1004E8AAD25}"
+      path: "/sitecore/content/landrys/landrys/Data/FeatureHighlights"
+      itemId: "{C95E8068-A0BA-4AD2-9CAD-EE3ABB14AD05}"
       insertOptionsSet: true
       exampleItem:
         name: "Feature Highlight"
@@ -2109,8 +2116,8 @@ components:
       registeredInAvailableRenderings: true
 
     headlessVariants:
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/FeatureHighlight"
-      containerId: "{D3E5415A-9247-4572-B146-73E4AEF78195}"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/FeatureHighlight"
+      containerId: "{B5D407A6-5F3A-4E63-9EFE-84692639A975}"
       variants:
         - { name: "Default", itemId: "{0FDFE204-724E-4850-8891-ECC443607643}" }
         - { name: "Centered", itemId: "{3C33C16D-F0D3-4FBF-8D78-CE70CEA0868B}" }
@@ -2196,8 +2203,8 @@ components:
 
     datasourceFolder:
       name: "HeroBannerCarousels"
-      path: "/sitecore/content/main/main-website/Data/HeroBannerCarousels"
-      itemId: "{E4703202-A87E-4387-987C-6B69E67ACADC}"
+      path: "/sitecore/content/landrys/landrys/Data/HeroBannerCarousels"
+      itemId: "{E144F9B0-8836-4797-87D8-93AA71105F59}"
       insertOptionsSet: true
       exampleItem:
         name: "Hero Banner Carousel"
@@ -2281,7 +2288,7 @@ components:
 
     headlessVariants:
       containerId: "{9894746a-f336-4856-bd1f-c1663374703c}"
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/ArticleHero"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/ArticleHero"
       definitions:
         - { name: "Default", itemId: "{71d4165d-543e-4b4f-8c88-da9d8d395163}" }
         - { name: "Minimal", itemId: "{fc567658-54d2-465e-80f4-85feb79c8598}" }
@@ -2337,7 +2344,7 @@ components:
 
     headlessVariants:
       containerId: "{2e05330b-e438-4006-9096-165a2c36e425}"
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/ArticleBody"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/ArticleBody"
       definitions:
         - { name: "Default", itemId: "{4ffc7bca-050e-4867-838d-f3bd19238f8c}" }
         - { name: "WithSidebar", itemId: "{bae365fb-8958-4b03-b494-1beccfd5d897}" }
@@ -2373,7 +2380,7 @@ components:
       registeredInAvailableRenderings: pendingManual
     headlessVariants:
       containerId: "{2571BE88-7763-4827-B661-1C6792B95847}"
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/LandingHero"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/LandingHero"
       definitions:
         - { name: "Default", itemId: "{D1B9E599-F9C5-416F-A204-16F8EBC1E10C}" }
         - { name: "SplitImage", itemId: "{E000909A-01DA-498C-BAB3-54EAC6E2C89F}" }
@@ -2417,7 +2424,7 @@ components:
       registeredInAvailableRenderings: pendingManual
     headlessVariants:
       containerId: "{5ADEF5CB-11B4-4743-AA96-4D7EFEE55C5D}"
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/LandingFeatures"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/LandingFeatures"
       definitions:
         - { name: "Default", itemId: "{31A214D5-7824-476C-8C63-4FB5F942DD28}" }
     verification:
@@ -2456,7 +2463,7 @@ components:
       registeredInAvailableRenderings: pendingManual
     headlessVariants:
       containerId: "{5619F2D9-B432-4A47-AA8A-911937AB991B}"
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/LandingStats"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/LandingStats"
       definitions:
         - { name: "Default", itemId: "{2623EBAE-BF3D-471A-8E7D-176BCF6E4BE6}" }
     verification:
@@ -2495,7 +2502,7 @@ components:
       registeredInAvailableRenderings: pendingManual
     headlessVariants:
       containerId: "{1077B0D2-420D-48E4-ADA2-853C6C0E880A}"
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/LandingSocialProof"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/LandingSocialProof"
       definitions:
         - { name: "Default", itemId: "{8ED8A4F7-10C3-4867-AC0E-B3F79BECC356}" }
     verification:
@@ -2535,7 +2542,7 @@ components:
       registeredInAvailableRenderings: pendingManual
     headlessVariants:
       containerId: "{4FC4C30A-8A86-43CD-AFF9-4D6C53CB0594}"
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/LandingFAQ"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/LandingFAQ"
       definitions:
         - { name: "Default", itemId: "{DCA2DB12-8D54-4AD6-8D43-082683AFA518}" }
     verification:
@@ -2574,7 +2581,7 @@ components:
       registeredInAvailableRenderings: pendingManual
     headlessVariants:
       containerId: "{C27474AD-EC5C-421E-AAAE-1DE43C9FC0D4}"
-      containerPath: "/sitecore/content/main/main-website/Presentation/Headless Variants/LandingFinalCTA"
+      containerPath: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/LandingFinalCTA"
       definitions:
         - { name: "Default", itemId: "{2FFE0507-9D6D-4D93-BFFE-43504C63D10C}" }
     verification:
@@ -2626,8 +2633,8 @@ sharedDataTemplates:
 
     datasourceFolder:
       name: "People"
-      path: "/sitecore/content/main/main-website/Data/People"
-      itemId: "{b4a7e448-2620-458e-9108-e6123c433660}"
+      path: "/sitecore/content/landrys/landrys/Data/People"
+      itemId: "{7D61B201-7A06-4173-9BAB-C9A32A31370D}"
       insertOptionsSet: true
       exampleItem:
         name: "Jane Smith"
@@ -2672,7 +2679,7 @@ pageTemplates:
         fields:
           - { name: "ArticleContent", type: "Rich Text", itemId: "{63471bba-943c-4d82-b7bf-d7ec82babbf7}" }
           - { name: "ArticleImage", type: "Image", itemId: "{bb96e156-f355-4cc6-894b-5e70a45d8f30}" }
-          - { name: "ArticleAuthor", type: "Droptree", itemId: "{068d4fa8-7b15-4b86-b38a-9e40a58c548b}", source: "/sitecore/content/main/main-website/Data/People" }
+          - { name: "ArticleAuthor", type: "Droptree", itemId: "{068d4fa8-7b15-4b86-b38a-9e40a58c548b}", source: "/sitecore/content/landrys/landrys/Data/People" }
           - { name: "ArticlePublicationDate", type: "Date", itemId: "{2fecdae7-6f5d-46a8-a9c9-c128dc4f4d0c}" }
           - { name: "ArticleKeyTakeaways", type: "Rich Text", itemId: "{bfa05db5-8ccf-4ba2-b312-21194a8a5d75}" }
           - { name: "ArticleReadTime", type: "Single-Line Text", itemId: "{76c93dec-a8a6-4185-9fd9-8247ebfb2dd0}" }
@@ -2684,7 +2691,7 @@ pageTemplates:
     contentTree:
       articlesParent:
         name: "Articles"
-        path: "/sitecore/content/main/main-website/Home/Articles"
+        path: "/sitecore/content/landrys/landrys/Home/Articles"
         itemId: "{d8b01498-2838-4388-a68f-86665d9c1c80}"
         insertOptionsSet: true
 
@@ -2705,14 +2712,14 @@ pageTemplates:
 
     partialDesign:
       name: "Article Layout"
-      path: "/sitecore/content/main/main-website/Presentation/Partial Designs/Article Layout"
+      path: "/sitecore/content/landrys/landrys/Presentation/Partial Designs/Article Layout"
       itemId: "{4e09b734-6f98-4599-bc8d-9b15b07b291c}"
       components: ["ArticleHero", "ArticleBody"]
       placeholder: "headless-main"
 
     pageDesign:
       name: "Article"
-      path: "/sitecore/content/main/main-website/Presentation/Page Designs/Article"
+      path: "/sitecore/content/landrys/landrys/Presentation/Page Designs/Article"
       itemId: "{ea8b44fc-b855-40ea-b8e5-b210119c9aab}"
 
     notes:
@@ -2800,7 +2807,7 @@ pageTemplates:
     contentTree:
       lpParent:
         name: "lp"
-        path: "/sitecore/content/main/main-website/Home/lp"
+        path: "/sitecore/content/landrys/landrys/Home/lp"
         itemId: "{AF65681C-5C75-40D2-89A3-3779D5A47A27}"
         insertOptionsSet: pendingManual
 
@@ -2826,15 +2833,15 @@ pageTemplates:
 
     partialDesign:
       name: "Landing Page Layout"
-      path: "/sitecore/content/main/main-website/Presentation/Partial Designs/Landing Page Layout"
-      itemId: "{BEF9B1FC-E7F6-4296-B60B-780728B557C0}"
+      path: "/sitecore/content/landrys/landrys/Presentation/Partial Designs/Landing Page Layout"
+      itemId: "{79C6A085-D198-401F-A66B-FB6E6B3FBE55}"
       components: ["LandingHero", "LandingFeatures", "LandingStats", "LandingSocialProof", "LandingFAQ", "LandingFinalCTA"]
       placeholder: "headless-main"
       renderingsPlaced: pendingManual
 
     pageDesign:
       name: "Landing Page"
-      path: "/sitecore/content/main/main-website/Presentation/Page Designs/Landing Page"
+      path: "/sitecore/content/landrys/landrys/Presentation/Page Designs/Landing Page"
       itemId: "{E38ABC20-C7EA-43C8-AAAF-22CA71342814}"
       partialDesignsLinked: pendingManual
       linkedToStandardValues: pendingManual
@@ -2887,7 +2894,7 @@ pageTemplates:
 
     datasourceFolder:
       name: "Search Experiences"
-      path: "/sitecore/content/main/main-website/Data/Search Experiences"
+      path: "/sitecore/content/landrys/landrys/Data/Search Experiences"
       itemId: "{1E320CFC-62AD-4378-97F7-6BFF5875BB3A}"
 
     rendering:
@@ -2929,7 +2936,7 @@ pageTemplates:
 
     datasourceFolder:
       name: "PreviewSearches"
-      path: "/sitecore/content/main/main-website/Data/PreviewSearches"
+      path: "/sitecore/content/landrys/landrys/Data/PreviewSearches"
       itemId: "{047DA76C-BF7A-4B53-A5EA-3A356A45B6F1}"
 
     rendering:
@@ -2969,7 +2976,7 @@ pageTemplates:
 
     datasourceFolder:
       name: "SearchResults"
-      path: "/sitecore/content/main/main-website/Data/SearchResults"
+      path: "/sitecore/content/landrys/landrys/Data/SearchResults"
       itemId: "{A03B9129-4D08-435E-B038-29802CE6A603}"
 
     rendering:
@@ -3036,8 +3043,8 @@ pageTemplates:
 
     datasourceFolder:
       name: "Search Experiences V2"
-      path: "/sitecore/content/main/main-website/Data/Search Experiences V2"
-      itemId: "{D5C6A76F-1A01-4B05-8B62-337B1B684D45}"
+      path: "/sitecore/content/landrys/landrys/Data/Search Experiences V2"
+      itemId: "{E71E1EC3-9548-422E-A3F8-E7C06BD76EA0}"
       insertOptionsSet: true
       exampleItem:
         name: "Search Experience V2 Example"
@@ -3049,7 +3056,7 @@ pageTemplates:
       itemId: "{505B6BB0-DEEA-46F9-9AB2-7020E386F4F0}"
       componentName: "SearchExperienceV2"
       datasourceTemplate: "/sitecore/templates/Project/fmc-custom-demo/Components/Search/Search Experience V2"
-      datasourceLocation: "/sitecore/content/main/main-website/Data/Search Experiences V2"
+      datasourceLocation: "/sitecore/content/landrys/landrys/Data/Search Experiences V2"
       parametersTemplate: "{8D097502-7D90-4690-822E-A1C9D3432F91}"
       addFieldEditorButton: true
       registeredInAvailableRenderings: true
@@ -3074,8 +3081,8 @@ pageTemplates:
       - "2026-05-20: All 3 pendingManual items verified via get_component and get_allowed_comps_by_ph — datasource template, datasource location, and available renderings all confirmed."
 
 lookups:
-  - path: "/sitecore/content/main/main-website/Data"
-    itemId: "{E6C852B5-B70D-412C-B5C6-E6502842F74E}"
+  - path: "/sitecore/content/landrys/landrys/Data"
+    itemId: "{11670552-8388-4544-8B4F-98AD71647476}"
     lastReadAt: "2026-03-25T12:00:00Z"
   - path: "/sitecore/templates/Project/fmc-custom-demo/Components/Search"
     itemId: "{44092340-AF76-44F3-A6C3-AA7347CE9D8B}"
@@ -3098,11 +3105,11 @@ lookups:
   - path: "/sitecore/templates/Project/fmc-custom-demo/Rendering Parameters"
     itemId: "{BEC41516-9F60-48E0-8E80-D515482B6BCC}"
     lastReadAt: "2026-03-25T12:00:00Z"
-  - path: "/sitecore/content/main/main-website/Presentation/Headless Variants"
-    itemId: "{7BC665DC-D7DA-418E-AEC6-124D6291E93F}"
+  - path: "/sitecore/content/landrys/landrys/Presentation/Headless Variants"
+    itemId: "{A0009045-D62A-404F-AD54-5293E59C742D}"
     lastReadAt: "2026-03-25T12:00:00Z"
-  - path: "/sitecore/content/main/main-website/Presentation/Available Renderings/Page Content"
-    itemId: "{2BF7E311-E3A5-4290-A043-AB97EA1DFB15}"
+  - path: "/sitecore/content/landrys/landrys/Presentation/Available Renderings/Page Content"
+    itemId: "{D1BA624F-3D6C-4258-83BF-B2BCC8ADC748}"
     lastReadAt: "2026-03-25T12:00:00Z"
     note: "Available Renderings — NEVER replace, always concatenate"
   - path: "/sitecore/layout/Renderings/Project/fmc-custom-demo"
@@ -3178,8 +3185,8 @@ lookups:
   - path: "/sitecore/templates/Project/fmc-custom-demo/Data/Person"
     itemId: "{513c2b76-7415-48b7-84a5-e663d3bb9129}"
     lastReadAt: "2026-05-18T12:00:00Z"
-  - path: "/sitecore/content/main/main-website/Data/People"
-    itemId: "{b4a7e448-2620-458e-9108-e6123c433660}"
+  - path: "/sitecore/content/landrys/landrys/Data/People"
+    itemId: "{7D61B201-7A06-4173-9BAB-C9A32A31370D}"
     lastReadAt: "2026-05-18T12:00:00Z"
   - path: "/sitecore/templates/Project/main/Page Types"
     itemId: "{e7769708-59a5-4636-a9ea-c02245185e61}"
@@ -3187,11 +3194,11 @@ lookups:
   - path: "/sitecore/templates/Project/main/Page Types/Article Page"
     itemId: "{74360ad2-d3df-4fce-834c-2f5420488677}"
     lastReadAt: "2026-05-18T12:00:00Z"
-  - path: "/sitecore/content/main/main-website/Home/Articles"
+  - path: "/sitecore/content/landrys/landrys/Home/Articles"
     itemId: "{d8b01498-2838-4388-a68f-86665d9c1c80}"
     lastReadAt: "2026-05-18T12:00:00Z"
-  - path: "/sitecore/content/main/main-website/Home"
-    itemId: "{e2124310-f817-4644-8671-bff8e72b66d7}"
+  - path: "/sitecore/content/landrys/landrys/Home"
+    itemId: "{378D976C-30C4-4E71-9478-B6FB116E230D}"
     lastReadAt: "2026-05-18T12:00:00Z"
   - path: "/sitecore/templates/Project/fmc-custom-demo/Rendering Parameters/Article"
     itemId: "{e29ea544-4c99-4a0e-af12-f2c7309db279}"
@@ -3210,19 +3217,19 @@ lookups:
   - path: "/sitecore/layout/Renderings/Project/fmc-custom-demo/Landing"
     itemId: "{142E3FB6-A1D0-4D7A-8AF3-F0E7DD155024}"
     lastReadAt: "2026-06-09T00:00:00Z"
-  - path: "/sitecore/content/main/main-website/Home/lp"
+  - path: "/sitecore/content/landrys/landrys/Home/lp"
     itemId: "{AF65681C-5C75-40D2-89A3-3779D5A47A27}"
     lastReadAt: "2026-06-09T00:00:00Z"
-  - path: "/sitecore/content/main/main-website/Presentation/Partial Designs"
-    itemId: "{B9355266-E4F8-4352-8F64-2700D071D46A}"
+  - path: "/sitecore/content/landrys/landrys/Presentation/Partial Designs"
+    itemId: "{DBB9A28C-1FD2-40B0-8E73-C5F4343E916C}"
     lastReadAt: "2026-06-09T00:00:00Z"
-  - path: "/sitecore/content/main/main-website/Presentation/Page Designs"
-    itemId: "{0E863278-EA75-48C0-82C0-762B566CC40E}"
+  - path: "/sitecore/content/landrys/landrys/Presentation/Page Designs"
+    itemId: "{F5B5D9E6-C052-4CBD-8B3A-1D9523B6DED9}"
     lastReadAt: "2026-06-09T00:00:00Z"
-  - path: "/sitecore/content/main/main-website/Presentation/Partial Designs/Landing Page Layout"
-    itemId: "{BEF9B1FC-E7F6-4296-B60B-780728B557C0}"
+  - path: "/sitecore/content/landrys/landrys/Presentation/Partial Designs/Landing Page Layout"
+    itemId: "{79C6A085-D198-401F-A66B-FB6E6B3FBE55}"
     lastReadAt: "2026-06-09T00:00:00Z"
-  - path: "/sitecore/content/main/main-website/Presentation/Page Designs/Landing Page"
+  - path: "/sitecore/content/landrys/landrys/Presentation/Page Designs/Landing Page"
     itemId: "{E38ABC20-C7EA-43C8-AAAF-22CA71342814}"
     lastReadAt: "2026-06-09T00:00:00Z"
 
@@ -3284,7 +3291,7 @@ components-searchv3:
 
     datasourceFolder:
       name: "SearchResults"
-      path: "/sitecore/content/main/main-website/Data/SearchResults"
+      path: "/sitecore/content/landrys/landrys/Data/SearchResults"
       itemId: "{A03B9129-4D08-435E-B038-29802CE6A603}"
       preExisting: true
       items:
@@ -3383,8 +3390,8 @@ components-searchv3:
 
     datasourceFolder:
       name: "SearchCollections"
-      path: "/sitecore/content/main/main-website/Data/SearchCollections"
-      itemId: "{7A7EE0AB-BD25-4CC1-A827-AD88F8C4E75B}"
+      path: "/sitecore/content/landrys/landrys/Data/SearchCollections"
+      itemId: "{F3A8EDF5-0CAA-4D7F-8EA4-022265DC5EF8}"
       insertOptionsVerified: true  # list_avail_insertopts returns SearchCollection
       items:
         - name: "Latest Articles"
@@ -3445,7 +3452,7 @@ components-searchv3:
       tests: "src/__tests__/components/search-typeahead/SearchTypeahead.test.tsx (11 passing, SDK-mock seam)"
 
     headlessVariants:
-      container: { path: "/sitecore/content/main/main-website/Presentation/Headless Variants/SearchTypeahead", itemId: "{5F220220-DC16-49D1-8D9E-6C5BAEB51F78}" }
+      container: { path: "/sitecore/content/landrys/landrys/Presentation/Headless Variants/SearchTypeahead", itemId: "{5F220220-DC16-49D1-8D9E-6C5BAEB51F78}" }
       definitions:
         - { name: "Default", itemId: "{9E3E0253-FFF5-42B4-8425-9F8DF87689E4}" }
         - { name: "Header", itemId: "{7A5E68E3-BEDE-4E83-B453-4A2298BBA3BD}" }
@@ -3507,8 +3514,8 @@ components-searchv3:
 
     datasourceFolder:
       name: "SearchTypeaheads"
-      path: "/sitecore/content/main/main-website/Data/SearchTypeaheads"
-      itemId: "{C9A981B0-4852-4036-BEFA-656E95D6ED7D}"
+      path: "/sitecore/content/landrys/landrys/Data/SearchTypeaheads"
+      itemId: "{C74169DE-DDC9-42C7-AA8B-0B6CC5C6D4A1}"
       insertOptionsVerified: true  # list_avail_insertopts returns SearchTypeahead
       items:
         - name: "Articles Typeahead"
@@ -3563,7 +3570,7 @@ demoContent:
   - name: "Articles corpus 2026-08-18 (10 items, unpublished)"
     kind: "pages"
     template: "Article Page Template"
-    parentPath: "/sitecore/content/main/main-website/Home/Articles/"
+    parentPath: "/sitecore/content/landrys/landrys/Home/Articles/"
     items:
       - { name: "Feature Flags Beyond On And Off", itemId: "{6C2F724D-85B8-4FC0-8F75-F1853C5AF539}", date: "2026-01-13", author: "Marcus Webb" }
       - { name: "Planning And Designing For Personalization", itemId: "{8BD20E7D-ED8D-4EC6-BD7E-0CBAE3F7F844}", date: "2026-02-05", author: "Jane Smith" }
@@ -3624,7 +3631,7 @@ demoContent:
   - name: "Canary Releases Explained"
     kind: "page"
     template: "Article Page Template"
-    path: "/sitecore/content/main/main-website/Home/Articles/Canary Releases Explained"
+    path: "/sitecore/content/landrys/landrys/Home/Articles/Canary Releases Explained"
     itemId: "{2652AE38-3F8E-484A-B45C-DBBA192DEC9F}"
     probeKeyword: "canary"
     author: "Marcus Webb"
@@ -3637,7 +3644,7 @@ demoContent:
   - name: "Zero Downtime Database Migrations"
     kind: "page"
     template: "Article Page Template"
-    path: "/sitecore/content/main/main-website/Home/Articles/Zero Downtime Database Migrations"
+    path: "/sitecore/content/landrys/landrys/Home/Articles/Zero Downtime Database Migrations"
     itemId: "{4377E7CA-9CC2-47BE-8996-1A40F717D613}"
     probeKeyword: "migrations"
     author: "Jane Smith"
@@ -3648,7 +3655,7 @@ demoContent:
   - name: "Observability Beyond Dashboards"
     kind: "page"
     template: "Article Page Template"
-    path: "/sitecore/content/main/main-website/Home/Articles/Observability Beyond Dashboards"
+    path: "/sitecore/content/landrys/landrys/Home/Articles/Observability Beyond Dashboards"
     itemId: "{35035763-61D1-4ADA-A25E-A8FBDB1E659B}"
     probeKeyword: "observability"
     author: "Marcus Webb"
@@ -3659,7 +3666,7 @@ demoContent:
   - name: "SearchExperience dictionary entries"
     kind: "dictionary"
     template: "Dictionary entry ({6D1CD897-1936-4A3A-A511-289A94C2A7B1})"
-    path: "/sitecore/content/main/main-website/Dictionary/"
+    path: "/sitecore/content/landrys/landrys/Dictionary/"
     createdAt: "2026-08-06"
     notes:
       - "11 entries for all DICTIONARY_KEYS in src/lib/search/search-components/constants.ts. Fixes MISSING_MESSAGE next-intl errors on pages hosting SearchExperienceV2 — the component's t() || fallback pattern is dead code with next-intl (missing key throws, does not return falsy). Component-side fix on improvement backlog."
@@ -3680,7 +3687,7 @@ demoContent:
   - name: "Articles Search (SearchExperienceV2 datasource)"
     kind: "dataItem"
     template: "Search Experience V2"
-    path: "/sitecore/content/main/main-website/Data/Search Experiences V2/Articles Search"
+    path: "/sitecore/content/landrys/landrys/Data/Search Experiences V2/Articles Search"
     itemId: "{638071B9-9241-4096-911B-F5208C30791E}"
     createdAt: "2026-08-06"
     fields:
@@ -3696,7 +3703,7 @@ demoContent:
   - name: "Marcus Webb"
     kind: "dataItem"
     template: "Person"
-    path: "/sitecore/content/main/main-website/Data/People/Marcus Webb"
+    path: "/sitecore/content/landrys/landrys/Data/People/Marcus Webb"
     itemId: "{EB2E25A6-F68D-4E9F-845F-C7A9B1625A55}"
     createdAt: "2026-08-05"
     notes:

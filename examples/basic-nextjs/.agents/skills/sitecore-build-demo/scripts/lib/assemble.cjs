@@ -40,6 +40,15 @@ async function verifyDatasource(api, section, datasource, exceptions) {
 // name. The MCP cannot change an instance's variant afterwards, so the planned variant is moved
 // first just before the add and the order is restored straight after. Never blocks assembly.
 const VARIANT_FIRST = '-100000';
+// Sitecore item names reject apostrophes and most punctuation (ItemNameValidation).
+function componentItemName(client, componentName, key) {
+  const name = `${client} ${componentName} ${key}`
+    .replace(/[^\w\s\-$]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+  if (!name || !/^[\w*$]/.test(name)) throw new Blocked(key, 'component item name is not valid');
+  return name;
+}
 const consumable = (error, recovery) =>
   error.code !== 'AWAITING_TOOL' && !recovery.poisoned && error.operation !== 'checkpoint';
 function variantFolderPath(plan, section) {
@@ -121,7 +130,7 @@ async function wireShared(recovery, api, section, datasource) {
           'shared rendering missing, incompatible or ambiguous; no structural repair authorised',
         );
       const current = candidates[0];
-      if (String(current.datasourceId || '') !== String(target.currentDatasource || ''))
+      if (!sameId(current.datasourceId, target.currentDatasource))
         throw new Blocked(section.key, 'shared datasource changed after target approval');
       return {
         page,
@@ -226,7 +235,7 @@ async function replaceInstance(recovery, api, plan, section, datasource, target,
           throw new Blocked(key, 'instance to replace is in a different placeholder');
         if (
           Object.hasOwn(target, 'currentDatasource') &&
-          String(old.datasourceId || '') !== String(target.currentDatasource || '')
+          !sameId(old.datasourceId, target.currentDatasource)
         )
           throw new Blocked(key, 'datasource of the instance changed after approval');
         return {
@@ -241,7 +250,7 @@ async function replaceInstance(recovery, api, plan, section, datasource, target,
           pageId: target.pageId,
           componentRenderingId: section.renderingId,
           placeholderPath: before.placeholder,
-          componentItemName: `${plan.client} ${section.componentName} ${key}`,
+          componentItemName: componentItemName(plan.client, section.componentName, key),
           insertAfterComponentId: before.oldId,
         }),
       verify: async (_result, before, saved, attempt = 0) => {
@@ -565,7 +574,7 @@ async function assemble({
                 pageId: plan.pageId,
                 componentRenderingId: section.renderingId,
                 placeholderPath: section.placeholder,
-                componentItemName: `${plan.client} ${section.componentName} ${section.key}`,
+                componentItemName: componentItemName(plan.client, section.componentName, section.key),
                 ...(previous ? { insertAfterComponentId: previous } : {}),
               }),
         verify: async (result, before, saved, attempt = 0) => {
